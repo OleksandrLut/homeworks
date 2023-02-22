@@ -1,0 +1,37 @@
+/* Онулення стилів */
+@import url("reset.css");
+/* ========================= */
+header {
+   color: blue;
+}
+.link2,
+.link4
+{
+   color: rgb(218, 19, 85);
+}
+p{
+   color: rgb(78, 42, 17);
+}
+.title__text {
+   color: rgb(100, 4, 11);
+}
+.text__paragraph h2{
+   color: blue;
+}
+#roles>h2,
+#how_to_become>h2 {
+   color: rgb(218, 19, 85);
+}
+.paragraph2>p,
+.paragraph4  {
+   color: rgb(18, 172, 18);
+}
+p~ul{
+   color: rgb(190, 111, 51);
+}
+.footer>p.author {
+   color: darkcyan;
+}
+.list.li{
+   color: darkblue;
+}
