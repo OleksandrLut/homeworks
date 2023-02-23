@@ -1,3 +1,21 @@
+/* Шифти */
+@font-face {
+   font-family: "Circular Std";
+   src: url(../fonts/CircularStd-Bold.woff2) format("woff2"), url(../fonts/CircularStd-Bold.woff) format("woff");
+   font-weight: 700;
+   font-size: normal;
+   font-display: swap;
+}
+@font-face {
+   font-family: "Circular Std";
+   src: url(../fonts/CircularStd-Book.woff) format("woff"), url(../fonts/CircularStd-Book.woff2) format("woff2");
+   font-weight: 500;
+   font-size: normal;
+   font-display: swap;
+}
+/* @import url('https://fonts.googleapis.com/css2?family=Shantell+Sans&display=swap'); */
+
+
 /* Онулення стилів */
 @import url("reset.css");
 /* ========================= */
@@ -27,6 +45,11 @@ span{
    letter-spacing: 4px;
    color: #485b54;
 }
+p.main{
+   font-family: 'Shantell Sans';
+   font-style: italic;
+   text-align: justify;
+}
 h2{
    font-size: 30px;
    color: #485b54;
@@ -37,10 +60,12 @@ h2{
 .seats>h2{
    letter-spacing: 15px;
    text-transform: lowercase;
+   text-align: right;
 }
 .seats~.paragraph>h2{
    color: #a23e70;
    text-decoration: underline;
+   text-transform: capitalize;
 }
 div.paragraph{
    color: #4b7475;
@@ -52,14 +77,17 @@ div.paragraph p{
 }
 span.item{
    font-style: oblique;
-   text-decoration: underline;
    color: #2c4039;
    text-transform: uppercase;
    font-weight: 700;
+   font-family: "Circular Std";
 }
 .up__to span{
    color: #a23e70;
    font-weight: 700;
-   text-decoration: none;
+   text-decoration: line-through;
+}
+#resume{
+   white-space: nowrap;
 }
 
