@@ -1,0 +1,65 @@
+/* Онулення стилів */
+@import url("reset.css");
+/* ========================= */
+body{
+   font-family: "Source Sans Pro", Arial, sans-serif;
+   font-size: 18px;
+}
+h1{
+   font-size: 36px;
+   font-weight: 700;
+   line-height: 1.6;
+   text-align: center;
+   text-transform: uppercase;
+   color: #646167;
+   text-shadow: 8px 6px 6px rgba(18, 15, 18, 0.133);
+   text-decoration: underline;
+   letter-spacing: 2px;
+
+}
+[class~="text"]{
+   white-space: normal;
+   color: #3a6a82;
+   line-height: 1.6;
+}
+span{
+   text-decoration: underline;
+   letter-spacing: 4px;
+   color: #485b54;
+}
+h2{
+   font-size: 30px;
+   color: #485b54;
+   text-align: center;
+   word-spacing: 10px;
+   letter-spacing: 5px;
+}
+.seats>h2{
+   letter-spacing: 15px;
+   text-transform: lowercase;
+}
+.seats~.paragraph>h2{
+   color: #a23e70;
+   text-decoration: underline;
+}
+div.paragraph{
+   color: #4b7475;
+   font-weight: 500;
+   line-height: 1.3;
+}
+div.paragraph p{
+   text-indent: 30px;
+}
+span.item{
+   font-style: oblique;
+   text-decoration: underline;
+   color: #2c4039;
+   text-transform: uppercase;
+   font-weight: 700;
+}
+.up__to span{
+   color: #a23e70;
+   font-weight: 700;
+   text-decoration: none;
+}
+
