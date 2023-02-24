@@ -1,0 +1,61 @@
+/* Обнулення CSS */
+@import url("reset.css");
+
+/* ====================================== */
+body{
+   font-family: 'Poppins', sans-serif;
+   font-weight: 300;
+   font-size: 14px;
+   line-height: 25px;
+   color: #6C757D;
+}
+.block-top-image{
+   display: block;
+   margin: 0px auto 80px;
+}
+.container {
+   max-width: 1440px;
+   margin: 0px auto;
+   padding-top: 30px;
+}
+.block-top,
+.block-middle,
+.block-bottom {
+   padding: 0px 312px;
+   margin-bottom: 80px;
+}
+.title {
+   font-weight: 700;
+   font-size: 25px;
+   line-height: 40px;
+   color: #212529;
+}
+.block-top>.title{
+   max-width: 400px;
+   min-height: 80px;
+   margin-bottom: 40px;
+}
+.block-middle>.title{
+   max-width: 605px;
+   min-height: 120px;
+   margin-bottom: 40px;
+}
+p{
+   margin-bottom: 25px;
+}
+.text {
+   max-width: 816px;
+}
+.images {
+   max-width: 1246px;
+   margin: 0px auto 80px;
+   font-size: 0;
+}
+[src="img/unsplash_5Lw1U5BIumE.png"]{
+   margin-right: 30px;
+}
+
+
+
+
+
