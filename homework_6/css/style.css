@@ -1,0 +1,93 @@
+/* Обнулення CSS */
+@import url("reset.css");
+
+/* ====================================== */
+
+body{
+   font-family: 'Poppins', sans-serif;
+   font-weight: 300;
+   font-size: 14px;
+   line-height: 1.78;
+   color: #6C757D;
+   background-color: #b2c0c41a;
+}
+[class*="__block"]{
+   max-width: 1270px;
+   margin: 0 auto;
+   padding-left: 15px;
+   padding-right: 15px;
+}
+.article{
+   padding: 80px 0;
+}
+.article2 {
+padding-bottom: 80px;
+}
+.article__text-block,
+.article2__text-block {
+   max-width: 816px;
+   margin: 0 auto;
+}
+.article__text-block{
+   margin-bottom: 80px;
+}
+.article2__text-block{
+   margin-bottom: 100px;
+}
+.title {
+   font-size: 25px;
+   line-height: 1.6;
+   font-weight: 700;
+   color: #212529;
+   margin-bottom: 40px;
+   max-width: 605px;
+}
+p{
+   margin-bottom: 30px;
+}
+[class*="bottom"]{
+   margin-bottom: 0;
+}
+[class*="bottom"]>p{
+   margin-bottom: 0;
+}
+.images {
+   margin-bottom: 80px;
+}
+.image__middle {
+   margin-bottom: 80px;
+}
+.image{
+   border-radius: 6px;
+}
+[class*="images"] {
+   font-size: 0;
+}
+[class*="image"]{
+   max-width: 100%;
+}
+.image__image1{
+   margin-right: 30px;
+}
+.article2-main-image {
+   width: 100%;
+   margin-bottom: 100px;
+}
+.images__article2 {
+   margin-bottom: 100px;
+}
+.page2{
+   text-align: center;
+
+}
+a{
+   display: inline-block;
+   width: 60px;
+   height: 40px;
+   background-color: #4a4a4a;;
+   color: #fff;
+   border: 2px solid #ff3b70;
+   border-radius: 51% 49% 50% 50% / 10% 10% 90% 90%;
+}
+
+
