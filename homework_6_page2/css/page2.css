@@ -1,0 +1,97 @@
+@import url("reset.css");
+
+/* ===================практика===================== */
+body{
+   font-family: 'B612 Mono', sans-serif;
+   font-weight: 300;
+   font-size: 14px;
+   line-height: 1.78;
+   color: #31363a;
+   background-color: #b2c0c41a;
+}
+.headder-container{
+   padding-top: 15px;
+   padding-bottom: 15px;
+   text-align: center;
+}
+.container{
+   padding-bottom: 15px;
+   text-align: center;
+}
+a.link{
+   display: inline-block;
+   width: 60px;
+   height: 30px;
+   background-color: #4a4a4a;;
+   color: #fff;
+   border: 2px solid #ff3b70;
+   border-radius: 10px;
+}
+.practice {
+   border-top: 2px solid #ff3b70;
+   margin-bottom: 50px;
+}
+.practice-text {
+   text-align: center;
+   font-size: 18px;
+   letter-spacing: 5px;
+   padding-top: 30px;
+}
+.practice-text h2{
+   text-shadow: 3px 3px 5px #221a1a;
+}
+.box{
+   max-width: 1600px;
+   margin: 0 auto 40px;
+   box-shadow: 0px 5px 20px 3px #0b0124;
+   padding: 15px;
+   border-radius: 10px;
+}
+.block{
+   display: inline-block;
+   max-width: 300px;
+   outline: 8px solid #29dc09;
+   box-shadow: inset -5px -5px 10px 3px #1d1d1d;
+   margin-right: 30px;
+}
+.block p{
+   border: 4px dashed #da043d;
+   box-shadow: -5px -5px 15px 6px #1d1d1d;
+}
+.inline{
+   display: inline-block;
+   max-width: 300px;
+   line-height: 60px;
+}
+.inline span{
+   border: 2px solid #0b0124;
+   border-radius: 4px 4px 4px 4px;
+   box-shadow: 5px 5px 10px 6px orangered;
+
+}
+.inline-block{
+   border: 3px dotted #ff3b70;
+   border-radius: 50%;
+   box-shadow: 0px 5px 15px 8px #0b0124;
+   margin-right: 30px;
+}
+.block-vis {
+   text-transform: uppercase;
+   margin-bottom: 20px;
+}
+.block-link{
+   opacity: 0;
+}
+.inline-vis {
+   opacity: 0.6;
+}
+.inline-block-vis {
+   opacity: 0.5;
+
+}
+.inline-block-opas{
+   visibility: hidden;
+}
+.text-hiden{
+   visibility: hidden;
+}
