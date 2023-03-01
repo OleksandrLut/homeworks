@@ -1,0 +1,327 @@
+/* Обнулення */
+@import url("reset.css");
+
+/* =======================================vence=============================================== */
+header{
+   font-family: 'Poppins';
+   font-weight: 300;
+   font-size: 12px;
+   line-height: 20px;
+   color: #E5E5E5;
+}
+
+.vence-container {
+   background: url("../img/img01.png") bottom center / cover no-repeat;
+   padding: 330px 0 100px 0;
+}
+.vence__block {
+   max-width: 1270px;
+   margin: 0 auto;
+   padding: 0 15px;
+}
+.vetse-text__section{
+   max-width: 605px;
+}
+.vence__title {
+   font-weight: 700;
+   font-size: 25px;
+   line-height: 40px;
+   color: #F8F9FA;
+}
+.vetse-text__section > *{
+   margin-bottom: 15px;
+}
+.vetse-text__section > *:last-child {
+   margin-bottom: 0px;
+}
+/* ======================================tailgrids list========================================= */
+.unlist__container {
+   background: linear-gradient(117deg,
+   rgba(175, 171, 255, 0.728) 0%, 
+   rgba(247, 94, 120, 0.693) 37%, 
+   rgba(0, 255, 170, 0.748) 88%, 
+   rgba(255, 158, 134, 0.78) 100%);
+   font-family: 'Inter';
+   font-weight: 700;
+   font-size: 16px;
+   line-height: 16px;
+   color: #637381;
+}
+.unlist__block {
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: 100px 15px 120px;
+}
+.unlist__title {
+   font-weight: 400;
+   font-size: 26px;
+   line-height: 28px;
+   color: #212B36;
+   display: inline-block;
+}
+.unlist__title:hover{
+   text-decoration: underline;
+}
+.unlist__block > *:first-child{
+   margin-bottom: 45px;
+}
+[class*="__section"] ul{
+   display: inline-block;
+   vertical-align: middle;
+}
+.unlist1__section > *:not(:last-child) {
+   margin-right: 130px;
+}
+.unlist2__section > *:not(:last-child) {
+   margin-right: 100px;
+}
+.unlist2__section ul:nth-child(2) {
+   margin-right: 130px;
+}
+.unlist__block div:not(:last-of-type){
+   margin-bottom: 30px;
+}
+[class*="__list"] li:not(:last-of-type){
+   margin-bottom: 18px;
+}
+[class*="__section"] > *{
+   margin-bottom: 30px;
+}
+[class*="__list"] li::before {
+   display: inline-block;
+   width: 30px;
+   height: 20px;
+   vertical-align: middle;
+}
+.dot__list li::before {
+   content: "";
+   background: url("../img/icons/dot.png") 0 50% no-repeat;
+}
+.checkmark-blue__list li::before {
+   content: "";
+   background: url("../img/icons/checkmark-blue.png") 0 0 no-repeat;
+}
+.checkmarc-green__list li::before {
+   content: "";
+
+   background: url("../img/icons/checkmark-green.png") 0 0 no-repeat;
+}
+.crosscircle__list li::before {
+   content: "";
+   background: url("../img/icons/cross-circle.png") 0 0 no-repeat;
+}
+.arrow-right__list li::before{
+   content: "";
+   background: url("../img/icons/arrow-right.png") 0 0 no-repeat;
+}
+.star__list li::before{
+   content: "";
+   background: url("../img/icons/star.png") 0 0 no-repeat;
+}
+/* =====================================tailgrids speaker======================================== */
+.speaker__container {
+   font-family: 'Inter';
+   font-weight: 500;
+   font-size: 16px;
+   line-height: 24px;
+   color: #637381;
+   background: url("../img/hero_area.png") center / cover no-repeat;
+}
+.speaker__block {
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: 0px 15px;
+}
+.speaker-section{
+   padding: 81px 0 83px;
+}
+.speaker__text-block {
+   max-width: 570px;
+   display: inline-block;
+   margin-right: 180px;
+   padding-top: 64px;
+}
+.speaker__text-block h2{
+   font-weight: 700;
+   font-size: 36px;
+   line-height: 45px;
+   color: #212B36;
+}
+.speaker__text-block > span{
+   display: inline-block;
+}
+.speaker__text-block > *:not(:last-child) {
+   margin-bottom: 15px;
+}
+.speaker__text-block > *:nth-last-child(2) {
+   margin-bottom: 35px;
+}
+.price-text {
+   font-weight: 600;
+   font-size: 18px;
+   line-height: 24px;
+   color: #3056D3;
+}
+.shop-now {
+   background-color: #3056D3;
+   border-radius: 30px;
+   font-weight: 600;
+   color: #FFFFFF;
+   text-align: center;
+   width: 139px;
+   line-height: 44px;
+   display: inline-block;
+   transition: 0.2s;
+}
+.shop-now:hover{
+   font-size: 18px;
+   width: 144px;
+   line-height: 48px;
+   background-color: #13C296;
+   color: #ffffff;
+}
+.shop-now:active{
+   background-color: #212B36;
+   color: rgb(247, 75, 110);
+}
+/* =========================practice================= */
+.pracyice {
+   font-family: 'Inter';
+   font-weight: 500;
+   font-size: 20px;
+   line-height: 30px;
+   color: #637381;
+   border-top: 4px solid #242628;
+}
+.firt-container {
+   max-width: 1130px;
+   margin: 0 auto;
+   padding-top: 50px;
+   padding-bottom: 100px;
+}
+.firt-container-block {
+   background-color: rgb(219, 219, 219);
+   border-radius: 50px;
+}
+.ul-list{
+   padding: 30px 15px;
+}
+.ul-list:hover {
+   background-color: rgb(226, 99, 99);
+   color: #E5E5E5;
+   border-radius: 50px;
+}
+.ul-list li:not(:last-child){
+   margin-bottom: 50px;
+}
+.ul-list li:nth-child(odd){
+   text-transform: lowercase;
+}
+.ul-list li:nth-child(even){
+   text-transform: uppercase;
+}
+.ul-list li::before{
+   content: "-";
+   width: 30px;
+   height: 25px;
+   display: inline-block;
+   color: #3056D3;
+}
+.ul-list li:hover{
+   font-size: 25px;
+   color: rgb(255, 208, 80);
+}
+.ul-list li:hover::before{
+   content: "+";
+   color: rgb(2, 138, 0);
+}
+.ul-list li:hover::after{
+   content: "-";
+   width: 30px;
+   height: 25px;
+   display: inline-block;
+   content: "!";
+   color: rgb(0, 32, 159);
+}
+
+.second-container{
+   max-width: 1030px;
+   margin: 0 auto;
+   padding-top: 30px;
+   padding-bottom: 150px;
+}
+.second-container-block{
+   box-shadow: 0px 5px 20px 4px #242628;
+   border-radius: 30px;
+   padding: 30px;
+}
+.ted{
+   border-radius: 50%;
+   border: 4px solid #212B36;
+   transition: 0.3s;
+}
+.ted:hover{
+   box-shadow: 0px 5px 20px 4px #242628;
+}
+.ted{
+   margin-right: 100px
+}
+.second-container-block span:hover{
+   color: black;
+}
+.second-container-block span::after{
+   content: "...>";
+   display: inline;
+}
+.second-container-block span:hover::after{
+   content: " - американська комедійна драма режисера Сета Макфарлейна, в головних ролях у якій зіграли Марк Волберг та Міла Куніс. Слоган фільму «Дітям не рекомендовано». Перегляд цього фільму не рекомендується дітям до 16 років. Світова прем'єра відбулася 29 червня 2012 року.";
+   display: inline;
+   color: #637381;
+}
+.second-container-block span:hover{
+   color: black;
+}
+.ted-text{
+   display: inline-block;
+   width: 80px;
+   padding-left: 5px;
+   background-color: #797979a7;
+   transition: 0.25s;
+   display: none;
+}
+.ted-text:target{
+   display: inline-block;
+}
+.ted-text:hover{
+   width: 500px;
+   box-shadow: 0px 5px 20px 4px #242628;
+   padding: 0 10px;
+}
+
+.third-container {
+   background-color: rgba(41, 102, 41, 0.489);
+   padding-top: 40px;
+   padding-bottom: 40px;
+}
+.third-container-block {
+   max-width: 900px;
+   margin: 0 auto;
+   color: #E5E5E5;
+   box-shadow: 0px 5px 20px 4px #242628;
+   padding: 30px;
+}
+.third-link {
+   color: #95d995;
+}
+.third-link:hover{
+   text-decoration: underline;
+}
+.third-link:active {
+   color: #3056D3;
+}
+.third-link:visited {
+   color: #637381;
+}
+.third-link:focus {
+   background-color: coral    ;
+}
