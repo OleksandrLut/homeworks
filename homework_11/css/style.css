@@ -229,3 +229,110 @@
    border-radius: 4px;
    padding: 5px 13px 7px 15px;
 }
+
+/* =================== main ======================== */
+.main {
+}
+.main__container {
+   max-width: 1200px;
+   margin: 0 auto;
+   padding-left: 15px;
+   padding-right: 15px;
+}
+.main__product-box {
+   padding-top: 120px;
+   padding-bottom: 120px;
+}
+.product-box {
+}
+.product-box__card {
+   display: inline-block;
+   border: 1px solid #cacdd1;
+   border-radius: 8px;
+   margin-right: 26px;
+   margin-bottom: 26px;
+}
+.product-box__card:nth-child(even){
+   margin-right: 0;
+}
+.card-box {
+}
+.card-box__info {
+   padding: 30px;
+}
+.card-box__image {
+}
+.card-box__category {
+   font-weight: 600;
+   font-size: 16px;
+   line-height: 24px;
+   color: #637381;
+   margin-bottom: 10px;
+}
+.card-box__category_after1 {
+   font-weight: 600;
+   font-size: 16px;
+   line-height: 24px;
+   color: #637381;
+   margin-bottom: 10px;
+}
+.card-box__category_after1::after {
+   content: "-50% Flat Discount";
+   display: inline-block;
+   font-weight: 600;
+   font-size: 16px;
+   line-height: 24px;
+   color: #3056D3;
+   padding-left: 330px;
+}
+.card-box__category_after2 {
+   font-weight: 600;
+   font-size: 16px;
+   line-height: 24px;
+   color: #637381;
+   margin-bottom: 10px;
+}
+.card-box__category_after2::after {
+   content: "-50% Flat Discount";
+   display: inline-block;
+   font-weight: 600;
+   font-size: 16px;
+   line-height: 24px;
+   color: #3056D3;
+   padding-left: 400px;
+}
+.card-box__title {
+   font-weight: 600;
+   font-size: 28px;
+   line-height: 35px;
+   margin-bottom: 10px;
+}
+.card-box__price {
+   font-weight: 600;
+   font-size: 18px;
+   line-height: 24px;
+}
+.card-box__price_before1 {
+   font-weight: 600;
+   font-size: 18px;
+   line-height: 24px;
+}
+.card-box__price_before1::before{
+   content: "£48.00";
+   text-decoration: line-through;
+   display: inline-block;
+   color: #B1B4B7;
+   padding-right: 10px;
+}
+.card-box__price_before2 {
+   font-weight: 600;
+   font-size: 18px;
+   line-height: 24px;
+}
+.card-box__price_before2::before{
+   content: "£120.00";
+   text-decoration: line-through;
+   display: inline-block;
+   color: #B1B4B7;
+   padding-right: 10px;
+}
