@@ -84,8 +84,27 @@
 .icon__link:not(:last-child) {
    margin-right: 20px;
 }
+.icon__link{
+   position: relative;
+}
 .icon__search {
-
+}
+.icon__number {
+   display: inline-block;
+   color: #FFFFFF;
+   background-color: #3056D3;
+   width: 16px;
+   height: 16px;
+   border-radius: 50%;
+   text-align: center;
+   font-weight: 400;
+   font-size: 11px;
+   line-height: 13px;
+   padding: 2px 4px 1px 4px;
+   position: absolute;
+   top: -15%;
+   right: -20%;
+   z-index: 1;
 }
 .icon__favorite-products {
 }
