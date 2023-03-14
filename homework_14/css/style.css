@@ -24,7 +24,7 @@
    justify-content: space-between;
    align-items: center;
 }
-.header__logo {
+.header-logo {
 }
 .header__menu {
    display: flex;
@@ -43,10 +43,10 @@
    border-bottom: 2px solid #DDBEA9;
    color: #F8F9FA;
 }
-.header-menu__link {
+.menu-header__link {
    border-left: 2px solid rgba(229, 229, 229, 0.5);
 }
-.header-menu__link > img {
+.menu-header__link > img {
    padding-top: 6px;
    padding-left: 20px;
 }
