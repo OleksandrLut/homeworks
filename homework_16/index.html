@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="css/style.css">
+   <title>Homework 16</title>
+</head>
+
+<body>
+   <div class="wrapper">
+      <div class="header">
+         <div class="header__conteiner">
+            <div class="header__body">
+               <div class="header__logo">
+                  <img src="img/header/crisp_logo.svg" alt="logo">
+               </div>
+               <div class="header__menu menu-header">
+                  <ul class="menu-header__list">
+                     <li class="menu-header__item">
+                        <a href="" class="menu-header__link">HOME</a>
+                     </li>
+                     <li class="menu-header__item">
+                        <a href="" class="menu-header__link">SHOP</a>
+                     </li>
+                     <li class="menu-header__item">
+                        <a href="" class="menu-header__link">BLOG</a>
+                     </li>
+                     <li class="menu-header__item">
+                        <a href="" class="menu-header__link">SALE</a>
+                     </li>
+                     <li class="menu-header__item">
+                        <a href="" class="menu-header__link">CONTACT US</a>
+                     </li>
+                     <li class="menu-header__item">
+                        <a href="" class="menu-header__link">SEARCH</a>
+                     </li>
+                  </ul>
+               </div>
+               <div class="header__menu-account menu-account">
+                  <ul class=" menu-account__list">
+                     <li class="menu-account__item">
+                        <a href="" class="menu-account__link">SING IN</a>
+                     </li>
+                     <li class="menu-account__item">
+                        <a href="" class="menu-account__link">CREATE AN ACCOUNT</a>
+                     </li>
+                     <li class="menu-account__item">
+                        <a href="" class="menu-account__link">
+                           <img src="img/header/hard_logo.svg" alt="icon">
+                        </a>
+                     </li>
+                     <li class="menu-account__item">
+                        <a href="" class="menu-account__link menu-account__link_cart">
+                           <img src="img/header/cart_logo.svg" alt="icon">
+                           <div class="shopping-cart">
+                              <h5 class="shopping-cart__name">Shopping Cart</h5>
+                              <div class="shopping-cart__value">0,00 EUR</div>
+                           </div>
+                        </a>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <main class="page">
+         <div class="shipping-form">
+            <div class="shipping-form__conteiner">
+               <form class="shipping-form__account accout-form" action="#" method="post" enctype="multipart/form-data">
+                  <h2 class="accout-form__title title-form">Shipping Address</h2>
+                  <div class="accout-form__form">
+                     <div class="accout-form__item">
+                        <label for="email-address">Email Address *</label>
+                        <input type="email" name="email" id="email-address" placeholder="roni_cost@example.com" required
+                           tabindex="1">
+                     </div>
+                     <div class="accout-form__item">
+                        <label for="pass">Password</label>
+                        <input type="password" name="password" id="pass" placeholder="************" minlength="8"
+                           required tabindex="2">
+                     </div>
+                     <div class="accout-form__item">
+                        <label for="zip">Zip/Postal Code</label>
+                        <input type="text" name="zip-code" id="zip" tabindex="3">
+                     </div>
+                  </div>
+                  <div class="shipping-form__text">
+                     You already have an account with us. Sign in or continue as guest.
+                  </div>
+                  <div class="shipping-form__button">
+                     <button type="submit" tabindex="4">LOGIN</button>
+                     <div class="shipping-form__link">
+                        <a href="#" tabindex="5">Forgot Your Password?</a>
+                     </div>
+                  </div>
+               </form>
+               <div class="separate"></div>
+               <form class="personal-data" action="#" method="post" enctype="multipart/form-data">
+                  <div class="personal-data__item">
+                     <label class="personal-data__label" for="first">First Name *</label>
+                     <input class="personal-data__input" type="text" name="first-name" id="first" required tabindex="6">
+                  </div>
+                  <div class="personal-data__item">
+                     <label class="personal-data__label" for="last">Last Name *</label>
+                     <input class="personal-data__input" type="text" name="last-name" id="last" required tabindex="7">
+                  </div>
+                  <div class="personal-data__item personal-data__item_margin-bottom">
+                     <label class="personal-data__label" for="info-company">Company</label>
+                     <input class="personal-data__input" type="text" name="company" id="info-company" tabindex="8">
+                  </div>
+                  <div class="personal-data__item personal-data__item_margin-bottom">
+                     <label class="personal-data__label" for="company-2"></label>
+                     <input class="personal-data__input" type="text" name="company" id="company-2" tabindex="9">
+                  </div>
+                  <div class="personal-data__item">
+                     <label class="personal-data__label" for="company-03"></label>
+                     <input class="personal-data__input" type="text" name="company" id="company-03" tabindex="10">
+                  </div>
+                  <div class="personal-data__item">
+                     <label class="personal-data__label" for="address-info">Street Address *</label>
+                     <input class="personal-data__input" type="text" name="address" id="address-info" required
+                        tabindex="11">
+                  </div>
+                  <div class="personal-data__item">
+                     <label class="personal-data__label" for="country-info">Country *</label>
+                     <input class="personal-data__input" type="text" name="country" id="country-info" required
+                        tabindex="12">
+                  </div>
+                  <div class="personal-data__item">
+                     <label class="personal-data__label" for="state-province">State/Province *</label>
+                     <select class="personal-data__select" size="1" name="state-list" id="state-province" required
+                        tabindex="13">
+                        <option selected value="">Please select a region, state or province</option>
+                        <option value="02">02</option>
+                     </select>
+                  </div>
+                  <div class="shipping-methods">
+                     <h2 class="shipping-methods__title">Shipping Methods</h2>
+                     <div class="separate"></div>
+                     <div class="shipping-methods__method method-shipping">
+                        <div class="method-shipping__radio">
+                           <input class="shipping-radio" checked type="radio" name="shipping" id="shipping-radio"
+                              required value="fixed" tabindex="14">
+                           <label class="shipping-label" for="shipping-radio">$5.00</label>
+                        </div>
+                        <div class="method-shipping__text-left">Fixed</div>
+                        <div class="method-shipping__text-right">Flat Rate</div>
+                     </div>
+                     <div class="separate-shipping"></div>
+                     <div class="shipping-methods__method method-shipping">
+                        <div class="method-shipping__radio">
+                           <input class="shipping-radio" type="radio" name="shipping" id="shipping-radio-2" required
+                              value="table-rate">
+                           <label class="shipping-label" for="shipping-radio-2">$10.00</label>
+                        </div>
+                        <div class="method-shipping__text-left">Table Rate</div>
+                        <div class="method-shipping__text-right">Best Way</div>
+                     </div>
+                  </div>
+                  <div class="personal-data__buttons buttons-data">
+                     <div class="buttons-data__button">
+                        <button class="next" type="submit" tabindex="15">next</button>
+                     </div>
+                     <div class="buttons-data__button">
+                        <button class="back" type="button" tabindex="16">back</button>
+                     </div>
+                  </div>
+               </form>
+            </div>
+         </div>
+
+         <div class="billing-form">
+            <div class="billing-form__conteiner">
+               <div class="billing-form__title">
+                  Billing Details
+               </div>
+               <form class="ditails" action="#" method="post" enctype="multipart/form-data">
+                  <div class="ditails__items">
+                     <div class="ditails__item">
+                        <input type="text" placeholder="First name*" required tabindex="17">
+                     </div>
+                     <div class="ditails__item">
+                        <input type="text" placeholder="Last name*" required tabindex="18">
+                     </div>
+                     <div class="ditails__item">
+                        <input type="text" placeholder="Address*" required tabindex="19">
+                     </div>
+                     <div class="ditails__item">
+                        <input type="text" placeholder="Address line 2" tabindex="20">
+                     </div>
+                     <div class="ditails__item">
+                        <select name="Country" id="country-select" size="1" required tabindex="21">
+                           <option value="">Country*</option>
+                           <option value="UA">Ukrain</option>
+                        </select>
+                     </div>
+                     <div class="ditails__item">
+                        <input type="text" placeholder="City/Town*" required tabindex="22">
+                     </div>
+                     <div class="ditails__item">
+                        <input type="text" placeholder="Postcode / ZIP*" required tabindex="23">
+                     </div>
+                     <div class="ditails__item">
+                        <input type="tel" placeholder="Phone*" required tabindex="24">
+                     </div>
+                     <div class="ditails__item">
+                        <input type="text" placeholder="Postcode / ZIP*" required tabindex="25">
+                     </div>
+                     <div class="ditails__item">
+                        <input type="tel" placeholder="Phone*" required tabindex="26">
+                     </div>
+                     <div class="ditails__item ditails__item_whidth">
+                        <textarea class="textarea" name="info" id="more-info" placeholder="Additional information"
+                           tabindex="27"></textarea>
+                     </div>
+                  </div>
+
+                  <div class="ditails__checkboxes checkboxes">
+                     <div class="checkboxes__item">
+                        <input class="checkboxes__input" type="checkbox" checked name="account" id="create"
+                           value="create" tabindex="28">
+                        <label class="checkboxes__label" for="create">Create Account</label>
+                     </div>
+                     <div class="checkboxes__item">
+                        <input class="checkboxes__input" type="checkbox" name="different address" id="ship"
+                           value="different-address" tabindex="29">
+                        <label class="checkboxes__label" for="ship">Ship to a different address?</label>
+                     </div>
+                  </div>
+                  <div class="ditails__coupon-section section-coupon">
+                     <div class="section-coupon__title">Apply Coupon to get discount!</div>
+                     <input type="text" class="section-coupon__input" placeholder="Coupon code" name="coupon-code"
+                        tabindex="30">
+                     <button class="section-coupon__btn" type="submit" tabindex="31">Apply Code</button>
+                  </div>
+               </form>
+            </div>
+         </div>
+
+      </main>
+
+      <footer class=" footer">
+      </footer>
+   </div>
+
+</body>
+
+</html>
