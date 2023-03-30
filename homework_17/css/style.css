@@ -375,7 +375,9 @@ body {
    width: 100%;
 }
 
+.shipping-form__input_select {
 
+}
 .shipping-form__methods {
    max-width: 606px;
 }
@@ -435,7 +437,7 @@ body {
    outline: 1px solid #C4C4C4;
    border-radius: 3px;
 }
-.methods-form__radio:focus + .methods-form__label::before {
+.methods-form__radio:checked + .methods-form__label::before {
    border: 3px solid black;
    border-radius: 50%;
 }
@@ -667,6 +669,9 @@ body {
    .page__aricle {
       margin-bottom: 40px;
    }
+   .article__gallery {
+      row-gap: 10px;
+   }
    .page__services {
       margin-bottom: 15px;
    }
@@ -690,9 +695,6 @@ body {
    }
 }
 @media (min-width: 768px) {
-   .article__gallery {
-      row-gap: 10px;
-   }
    .services__header {
       margin-bottom: 40px;
    }
