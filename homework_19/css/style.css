@@ -1,5 +1,5 @@
 @import url("reset.css");
-/* @import url("common.css"); */
+@import url("common.css");
 @import url(https://fonts.googleapis.com/css?family=Inter:500,600,700&display=swap);
 
 body {
@@ -383,9 +383,6 @@ border-bottom: 1px solid #E7E7E7;
 }
 .rating__stars {
    flex: 0 0 auto;
-   display: flex;
-   align-items: center;
-   gap: 4px;
 }
 .rating__value {
    flex: 0 0 auto;
