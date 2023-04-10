@@ -14,7 +14,7 @@ body {
    display: inline-block;
 }
 .raring__body::before {
-   content: "★★★★★";
+   content: "☆ ☆ ☆ ☆ ☆";
    display: block;
    color: #FFFFFF;
 }
