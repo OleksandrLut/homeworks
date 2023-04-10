@@ -614,7 +614,7 @@ border-bottom: 1px solid #E7E7E7;
    border: 1px solid #3056D3;
    border-radius: 4px;
    transition: all 0.3s;
-   display: block;
+   display: inline-block;
 }
 .shop__gallery {}
 .gallery-shop {}
@@ -1085,6 +1085,15 @@ border-bottom: 1px solid #E7E7E7;
    }
    .shop {
       padding: 20px 0;
+   }
+   .gallery-products__category,
+   .gallery-products__title,
+   .gallery-products__price {
+      padding-left: 10px;
+      padding-right: 10px;
+   }
+   .shop__header {
+      margin-bottom: 20px;
    }
 }
 @media (max-width: 460px) {
