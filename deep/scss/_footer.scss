@@ -1,0 +1,49 @@
+.footer {
+   padding: rem(110) 0 rem(80) 0;
+   @media (max-width: em(991.98)) {
+      padding: rem(40) 0 rem(40) 0;;
+   
+   }
+   
+
+   &__container {
+
+   }
+
+   &__body {
+      position: relative;
+      height: rem(70);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @media (max-width: em(767.98)) {
+         flex-direction: column-reverse;
+         gap: rem(20);
+      }
+   }
+
+   &__copy {
+      text-align: center;
+   }
+
+   &__up {
+      position: absolute;
+      width: rem(70);
+      height: rem(70);
+      top: 0;
+      right: 0;
+      flex: 0 0 rem(70);
+      background: $blueColor url("../img/footer/icons/chevron-up.svg") center no-repeat;
+      transition: all 0.3s;
+      @media (any-hover: hover) {
+         &:hover {
+            background-color: $mainColor;
+            border-radius: rem(8);
+         }
+      }
+      @media (max-width: em(767.98)) {
+         position: static;
+         width: rem(150);
+      }
+   }
+}

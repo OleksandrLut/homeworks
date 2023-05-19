@@ -1,0 +1,75 @@
+.wrapper {
+	overflow: clip;
+	min-height: 100%;
+   position: relative;
+	display: flex;
+	flex-direction: column;
+}
+.wrapper > main {
+	flex: 1 1 auto;
+}
+.header-block_center {
+   text-align: center;
+}
+.header-block {
+   &__label {
+      font-size: rem(16);
+      line-height: 1.375;
+      color: $blueColor;
+      &:not(:last-child){
+         margin-bottom: rem(7);
+      }
+   }
+   &__title {
+      font-family: "Overpass", sans-serif;
+      font-weight: 700;
+      font-size: rem(56);
+      line-height: 1.26;
+      color: $mainColor;
+      @media (max-width: 1200px) {
+         font-size: rem(44);
+      }
+      
+   }
+}
+.text {
+   line-height: 1.6;
+   p{
+      &:not(:last-child) {
+         margin-bottom: rem(30);
+      }
+   }
+}
+
+.button {
+   font-weight: 600;
+   font-size: rem(18);
+   line-height: 1.78;
+   padding: rem(19) rem(46);
+   display: inline-block;
+   border-radius: rem(3);
+   box-shadow: rem(0) rem(10) rem(50) rgba(0, 0, 0, 0.3);
+   background-color: $whiteColor;
+   color: $mainColor;
+   text-align: center;
+   transition: all 0.3s;
+   @media (any-hover: hover) {
+      &:hover {
+         background-color: $mainColor;
+         color: $whiteColor;
+      }
+   }
+   @media (max-width: 767.98px) {
+      width: 100%;
+   }
+   
+}
+.button_blue {
+   color: $whiteColor;
+   background-color: $blueColor;
+   @media (any-hover: hover) {
+      &:hover {
+         background-color: $mainColor;
+      }
+   }
+}
