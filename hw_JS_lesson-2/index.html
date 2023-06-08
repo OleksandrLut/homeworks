@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>HomePage</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="stylesheet" href="css/style.min.css?_v=20230609012726">
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+			</div>
+		</header>
+		<main class="page">
+			<div class="page__container">
+				<h1 class="page__title">Домашнє завдання: <span>урок 2</span></h1>
+				<div class="page__section section">
+					<div class="section__header">
+						Задача 0. Обчислити значення виразів
+					</div>
+					<div class="section__body">
+						<div class="section__exercise">S1=a+12+b</div>
+						<div class="section__answer">
+							<script>
+								//    задача 0.1
+
+								let a = parseFloat(prompt("Значення змінної а", "число"));
+								let b = parseFloat(prompt("Значення змінної b", "число"));
+								let c = parseFloat(prompt("Значення змінної c", "число"));
+
+								let s1 = a + 12 + b;
+								document.write(`S1 = ${s1}<br>`);
+								//     задача 0.2
+								let s2 = Math.sqrt((a + b) / (2 * a));
+								document.write(`S2 = ${s2}<br>`);
+								//     задача 0.3
+								let s3 = Math.cbrt((a + b) * c);
+								document.write(`S3 = ${s3.toFixed(2)}<br>`);
+								//      задача 0.4
+								let s4 = Math.sin(a / b);
+								document.write(`S4 = ${s4.toFixed(4)}<br>`);
+							</script>
+						</div>
+						<div class="section__exercise">
+							Задача 1. Знайти суму, добуток та частку двох дійсних чисел.
+							Результат вивести у формі таблиці
+						</div>
+						<div class="section__answer">
+							<script>
+								let numOne = parseFloat(prompt("Дійсне число а", "число"));
+								let numTwo = parseFloat(prompt("Дійсне число b", "число"));
+								let sum = numOne + numTwo;
+								let prod = numOne * numTwo;
+								let fraction = numOne / numTwo;
+								document.write(`Сума = ${sum}<br>`);
+								document.write(`Добуток = ${prod}<br>`);
+								document.write(`Частка = ${fraction}<br>`);
+							</script>
+						</div>
+						<div class="section__exercise">
+							Задача 2. Дано рік народження (дата: 1 січня) та поточний рік.
+							Знайти кількість років.
+						</div>
+						<div class="section__answer">
+							<script>
+								let currentYear = 2023;
+								let yearOfBirth = parseInt(
+									prompt("Вкажіть ваш рік народження", "1990")
+								);
+								let numberOfYear = currentYear - yearOfBirth;
+								document.write(`Кількість років ${numberOfYear}`);
+							</script>
+						</div>
+						<div class="section__exercise">
+							Задача 3. Дано вартість одиниці товару і кількість. Знайти
+							загальну вартість та ПДВ (5% від загальної вартості).
+						</div>
+						<div class="section__answer">
+							<script>
+								let productCost = 55;
+								let goodsNumber = 21;
+								let goodsInSun = productCost * goodsNumber;
+								let goodsVat = goodsInSun * 0.05;
+								document.write(
+									`Загальна вартість товарів - ${goodsInSun} грн <br>`
+								);
+								document.write(`ПДВ - ${goodsVat} грн<br>`);
+							</script>
+						</div>
+						<div class="section__exercise">
+							Задача 4. Дано довжину у сантиметрах. Визначати скільки це
+							метрів і кілометрів.
+						</div>
+						<div class="section__answer">
+							<script>
+								let lengthInCen = parseInt(
+									prompt("Довжина в сантиметраз", "...см")
+								);
+								let lengthInMeter = lengthInCen / 100;
+								let lengthInKm = lengthInMeter / 1000;
+								document.write(`Довжина в метрах - ${lengthInMeter}<br>`);
+								document.write(`Довжина в кілометрах - ${lengthInKm}<br>`);
+							</script>
+						</div>
+						<div class="section__exercise">
+							Задача 5. Дано кількість секунд, що пройшла від початку доби.
+							Визначити скільки це годин і хвилин.
+						</div>
+						<div class="section__answer">
+							<script>
+								let timeInSec = parseInt(
+									prompt("Час в секундах", "...сек")
+								);
+								let timeInHours = parseInt(timeInSec / 3600);
+								let timeInMin = parseInt((timeInSec - (timeInHours * 3600)) / 60);
+								document.write(`Час - ${timeInHours} годин ${timeInMin} хвилин`);
+							</script>
+						</div>
+						<div class="section__exercise">
+							Задача 6. З клавіатури вводяться вартість товару та кількість
+							одиниць 3 товарів. Обчислити вартість кожного товару окремо та
+							загальну вартість. Вивести чек (як у супермаркеті)
+							використовуючи елементи розмітки.
+						</div>
+						<div class="section__answer">
+							<script>
+								let product1Num = parseInt(prompt('Кількість товару 1'));
+								let product1Price = parseFloat(prompt('Вартість товару 1'));
+								let product2Num = parseInt(prompt('Кількість товару 2'));
+								let product2Price = parseFloat(prompt('Вартість товару 2'));
+								let product3Num = parseInt(prompt('Кількість товару 3'));
+								let product3Price = parseFloat(prompt('Вартість товару 3'));
+								let product1Total = product1Num * product1Price
+								let product2Total = product2Num * product2Price
+								let product3Total = product3Num * product3Price
+								let totalSum = product1Total + product2Total + product3Total
+								document.write(`Товар №1 <br>кількість .......... ${product1Num}<br>вартість .... ${product1Total}<br><br>
+                  Товар №2 <br>кількість .......... ${product2Num}<br>вартість .... ${product2Total}<br><br>
+                  Товар №3 <br>кількість .......... ${product3Num}<br>вартість .... ${product3Total}<br><br>Разом ...... ${totalSum} грн`)
+							</script>
+						</div>
+						<div class="section__exercise">
+							Задача 7. Знайти суму випадкового номера місяця (від 1 до 12) та
+							випадкового номера дня (від 0 до 6).
+						</div>
+						<div class="section__answer">
+							<script>
+								let randomMonth = Math.ceil(Math.random() * 12);
+								randomMonth = Math.ceil(randomMonth);
+								let randomDay = Math.random() * 6;
+								randomDay = Math.ceil(randomDay);
+								let sumRandom = randomMonth + randomDay;
+								document.write(`Сума випадкового номера місяця і дня = ${sumRandom}`);
+							</script>
+						</div>
+					</div>
+				</div>
+			</div>
+	</div>
+	</main>
+	<footer class="footer">
+		<div class="footer__container">
+		</div>
+	</footer>
+	</div>
+	<script src="js/app.min.js?_v=20230609012726"></script>
+</body>
+
+</html>
