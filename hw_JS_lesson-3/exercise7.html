@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Exercise_7</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="stylesheet" href="css/style.min.css?_v=20230613164648">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<nav class="header__menu menu">
+				<ul class="menu__list">
+					<li class="menu__item">
+						<a href="home.html" target="_blank" class="menu__link">Головна</a>
+					</li>
+					<li class="menu__item">
+						<a href="exercise1.html" target="_blank" class="menu__link">Задача-1</a>
+					</li>
+					<li class="menu__item">
+						<a href="exercise2.html" target="_blank" class="menu__link">Задача-2</a>
+					</li>
+					<li class="menu__item">
+						<a href="exercise3.html" target="_blank" class="menu__link">Задача-3</a>
+					</li>
+					<li class="menu__item">
+						<a href="exercise4.html" target="_blank" class="menu__link">Задача-4</a>
+					</li>
+					<li class="menu__item">
+						<a href="exercise5.html" target="_blank" class="menu__link">Задача-5</a>
+					</li>
+					<li class="menu__item">
+						<a href="exercise6.html" target="_blank" class="menu__link">Задача-6</a>
+					</li>
+					<li class="menu__item">
+						<a href="exercise7.html" target="_blank" class="menu__link">Задача-7</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<main class="page">
+			<div class="page__container">
+				<h1 class="page__title_ex">Задача 7</h1>
+				<div class="page__content">
+					<script>
+						/*З клавіатури вводиться номер місяця. Вивести до якої пори він відноситься */
+						let monthNum = parseInt(prompt('Вкажіть номер місяця'));
+						let season;
+						/*
+						if (monthNum === 1 || monthNum === 2 || monthNum === 12) {
+						   season = 'Зима';
+						} else if (monthNum === 3 || monthNum === 4 || monthNum === 5) {
+						   season = 'Весна';
+						} else if (monthNum >= 6 && monthNum <= 8) {
+						   season = 'Літо';
+						} else if (monthNum >= 9 && monthNum <= 11) {
+						   season = 'Осінь';
+						} else {
+						   season = 'Невірно вказане значення. Номер повинен бути від 1 до 12';
+						}
+						*/
+
+						switch (monthNum) {
+							case 1:
+							case 2:
+							case 12:
+								season = 'Зима';
+								break;
+							case 3:
+							case 4:
+							case 5:
+								season = 'Весна';
+								break;
+							case 6:
+							case 7:
+							case 8:
+								season = 'Літо';
+								break;
+							case 9:
+							case 10:
+							case 11:
+								season = 'Осінь';
+								break;
+
+							default:
+								season = 'Невірно вказане значення. Номер повинен бути від 1 до 12';
+								break;
+						}
+
+						document.write(season);
+					</script>
+				</div>
+			</div>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+			</div>
+		</footer>
+	</div>
+	<script src="js/app.min.js?_v=20230613164648"></script>
+</body>
+
+</html>

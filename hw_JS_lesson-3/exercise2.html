@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Exercise_2</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="stylesheet" href="css/style.min.css?_v=20230613164648">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<nav class="header__menu menu">
+				<ul class="menu__list">
+					<li class="menu__item">
+						<a href="home.html" target="_blank" class="menu__link">Головна</a>
+					</li>
+					<li class="menu__item">
+						<a href="exercise1.html" target="_blank" class="menu__link">Задача-1</a>
+					</li>
+					<li class="menu__item">
+						<a href="exercise2.html" target="_blank" class="menu__link">Задача-2</a>
+					</li>
+					<li class="menu__item">
+						<a href="exercise3.html" target="_blank" class="menu__link">Задача-3</a>
+					</li>
+					<li class="menu__item">
+						<a href="exercise4.html" target="_blank" class="menu__link">Задача-4</a>
+					</li>
+					<li class="menu__item">
+						<a href="exercise5.html" target="_blank" class="menu__link">Задача-5</a>
+					</li>
+					<li class="menu__item">
+						<a href="exercise6.html" target="_blank" class="menu__link">Задача-6</a>
+					</li>
+					<li class="menu__item">
+						<a href="exercise7.html" target="_blank" class="menu__link">Задача-7</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<main class="page">
+			<div class="page__container">
+				<h1 class="page__title_ex">Задача 2</h1>
+				<div class="page__content">
+					<script>
+						/*З клавіатури вводиться ціна товару і кількість грошей.
+                     Якщо грошей не вистачає то відмовляємо у покупці, інакше,
+                     якщо ще залишаються гроші, то пропонуємо купити лотерею за 4 грн. */
+						let cashQuantity = parseFloat(prompt('Скільки у вас грошей?'))
+						let goodsPrise = parseFloat(prompt('Ціна товару?'))
+						const lotteryPrice = 4
+						let cashBalance = cashQuantity - goodsPrise
+						if (cashQuantity > goodsPrise || cashQuantity === goodsPrise) {
+							alert(' Вітаємо з покупкою! ');
+							document.write(' Вітаємо з покупкою! ');
+							if (lotteryPrice <= cashBalance) {
+								if (confirm(' Можливо бажаєте додатково придбати лотерею? ')) {
+									document.write('* Вітаємо з придбанням лотереї!')
+								} else {
+									document.write('* Щкода... Можливо наступного разу!')
+								}
+							}
+						} else {
+							alert('Операція відхилена. Недостатньо коштів!')
+							document.write(' Поповніть рахунок та спробуйте ще! ')
+						}
+					</script>
+				</div>
+			</div>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+			</div>
+		</footer>
+	</div>
+	<script src="js/app.min.js?_v=20230613164648"></script>
+</body>
+
+</html>

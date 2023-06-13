@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Exercise_1</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="stylesheet" href="css/style.min.css?_v=20230613164648">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<nav class="header__menu menu">
+				<ul class="menu__list">
+					<li class="menu__item">
+						<a href="home.html" target="_blank" class="menu__link">Головна</a>
+					</li>
+					<li class="menu__item">
+						<a href="exercise1.html" target="_blank" class="menu__link">Задача-1</a>
+					</li>
+					<li class="menu__item">
+						<a href="exercise2.html" target="_blank" class="menu__link">Задача-2</a>
+					</li>
+					<li class="menu__item">
+						<a href="exercise3.html" target="_blank" class="menu__link">Задача-3</a>
+					</li>
+					<li class="menu__item">
+						<a href="exercise4.html" target="_blank" class="menu__link">Задача-4</a>
+					</li>
+					<li class="menu__item">
+						<a href="exercise5.html" target="_blank" class="menu__link">Задача-5</a>
+					</li>
+					<li class="menu__item">
+						<a href="exercise6.html" target="_blank" class="menu__link">Задача-6</a>
+					</li>
+					<li class="menu__item">
+						<a href="exercise7.html" target="_blank" class="menu__link">Задача-7</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<main class="page">
+			<div class="page__container">
+				<h1 class="page__title_ex">Задача 1</h1>
+				<div class="page__content">
+					<script>
+						/*З клавіатури вводяться імена двох дітей та кількість у них цукерок.
+                     Вивести не екран ім’я тієї дитини, у якої кількість цукерок є більшою,
+                     або вивести, що кількість однакова. */
+						let childName1 = prompt('Імя дитини 1', 'імя');
+						let childName2 = prompt('Імя дитини 2', 'імя');
+						let child1CandiesNum = parseInt(prompt(`Скільки цукерок у ${childName1}`));
+						let child2CandiesNum = parseInt(prompt(`Скільки цукерок у ${childName2}`));
+						if (child1CandiesNum > child2CandiesNum) {
+							document.write(`У ${childName1} цукерок більше!<br>`);
+						} else if (child1CandiesNum < child2CandiesNum) {
+							document.write(`У ${childName2} цукерок більше!<br>`);
+						} else if (child1CandiesNum === child2CandiesNum) {
+							document.write(`У ${childName1} та ${childName2} кількість цукерок одинакова. В кожного по ${child1CandiesNum} цукерок!`);
+						}
+					</script>
+				</div>
+			</div>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+			</div>
+		</footer>
+	</div>
+	<script src="js/app.min.js?_v=20230613164648"></script>
+</body>
+
+</html>
