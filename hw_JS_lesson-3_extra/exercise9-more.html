@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Exercise_9</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="stylesheet" href="css/style.min.css?_v=20230619193128">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<nav class="header__menu menu">
+				<ul class="menu__list">
+					<li class="menu__item">
+						<a href="index.html" class="menu__link">Головна</a>
+					</li>
+					<li class="menu__item">
+						<a href="more.html" class="menu__link">Додаткові</a>
+					</li>
+					<li class="menu__item">
+						<a href="#" class="menu__link">Задачі обовязкові</a>
+						<div class="menu__sub sub-menu">
+							<ul class="sub-menu__list">
+								<li class="sub-menu__item">
+									<a href="exercise1.html" target="_blank" class="sub-menu__link">Задача-1</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="exercise2.html" target="_blank" class="sub-menu__link">Задача-2</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="exercise3.html" target="_blank" class="sub-menu__link">Задача-3</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="exercise4.html" target="_blank" class="sub-menu__link">Задача-4</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="exercise5.html" target="_blank" class="sub-menu__link">Задача-5</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="exercise6.html" target="_blank" class="sub-menu__link">Задача-6</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="exercise7.html" target="_blank" class="sub-menu__link">Задача-7</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li class="menu__item">
+						<a href="#" class="menu__link">Задачі додаткові</a>
+						<div class="menu__sub sub-menu">
+							<ul class="sub-menu__list">
+								<li class="sub-menu__item">
+									<a href="exercise1-more.html" target="_blank" class="sub-menu__link">Задача-1</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="exercise2-more.html" target="_blank" class="sub-menu__link">Задача-2</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="exercise3-more.html" target="_blank" class="sub-menu__link">Задача-3</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="exercise4-more.html" target="_blank" class="sub-menu__link">Задача-4</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="exercise5-more.html" target="_blank" class="sub-menu__link">Задача-5</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="exercise6-more.html" target="_blank" class="sub-menu__link">Задача-6</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="exercise7-more.html" target="_blank" class="sub-menu__link">Задача-7</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="exercise8-more.html" target="_blank" class="sub-menu__link">Задача-8</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="exercise9-more.html" target="_blank" class="sub-menu__link">Задача-9</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="exercise10-more.html" target="_blank" class="sub-menu__link">Задача-10</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="exercise11-more.html" target="_blank" class="sub-menu__link">Задача-11</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="exercise12-more.html" target="_blank" class="sub-menu__link">Задача-12</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="exercise13-more.html" target="_blank" class="sub-menu__link">Задача-13</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="exercise14-more.html" target="_blank" class="sub-menu__link">Задача-14</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="exercise15-more.html" target="_blank" class="sub-menu__link">Задача-15</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="exercise16-more.html" target="_blank" class="sub-menu__link">Задача-16</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="exercise17-more.html" target="_blank" class="sub-menu__link">Задача-17</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<main class="page">
+			<div class="page__container">
+				<h1 class="page__title_ex">Задача 9</h1>
+				<div class="page__content">
+					<p>Скласти програму для розв’язування задачі: йде N-а секунда доби,
+						визначити скільки повних годин і повних хвилин пройшло до цього моменту.</p>
+					<p>
+					<p>
+						<script>
+							/*Скласти програму для розв’язування задачі: йде N-а секунда доби,
+									визначити скільки повних годин і повних хвилин пройшло до цього моменту.*/
+							const enterNum = parseInt(prompt('Введіть число секунд'))
+							const numHour = Math.floor(enterNum / 3600)
+							const numMin = Math.floor((enterNum % 3600) / 60)
+							document.write(`В секундах задано - ${enterNum}<br>До цього часу пройшло ${numHour} годин ${numMin} хвилин`)
+						</script>
+					</p>
+					</p>
+				</div>
+			</div>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__body">
+					<a href="index.html" class="footer__link">Головна</a>
+					<a href="more.html" class="footer__link">Додаткові завдання</a>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<script src="js/app.min.js?_v=20230619193128"></script>
+</body>
+
+</html>

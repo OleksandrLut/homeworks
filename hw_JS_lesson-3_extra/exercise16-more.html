@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Exercise_16</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="stylesheet" href="css/style.min.css?_v=20230619193128">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<nav class="header__menu menu">
+				<ul class="menu__list">
+					<li class="menu__item">
+						<a href="index.html" class="menu__link">Головна</a>
+					</li>
+					<li class="menu__item">
+						<a href="more.html" class="menu__link">Додаткові</a>
+					</li>
+					<li class="menu__item">
+						<a href="#" class="menu__link">Задачі обовязкові</a>
+						<div class="menu__sub sub-menu">
+							<ul class="sub-menu__list">
+								<li class="sub-menu__item">
+									<a href="exercise1.html" target="_blank" class="sub-menu__link">Задача-1</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="exercise2.html" target="_blank" class="sub-menu__link">Задача-2</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="exercise3.html" target="_blank" class="sub-menu__link">Задача-3</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="exercise4.html" target="_blank" class="sub-menu__link">Задача-4</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="exercise5.html" target="_blank" class="sub-menu__link">Задача-5</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="exercise6.html" target="_blank" class="sub-menu__link">Задача-6</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="exercise7.html" target="_blank" class="sub-menu__link">Задача-7</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li class="menu__item">
+						<a href="#" class="menu__link">Задачі додаткові</a>
+						<div class="menu__sub sub-menu">
+							<ul class="sub-menu__list">
+								<li class="sub-menu__item">
+									<a href="exercise1-more.html" target="_blank" class="sub-menu__link">Задача-1</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="exercise2-more.html" target="_blank" class="sub-menu__link">Задача-2</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="exercise3-more.html" target="_blank" class="sub-menu__link">Задача-3</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="exercise4-more.html" target="_blank" class="sub-menu__link">Задача-4</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="exercise5-more.html" target="_blank" class="sub-menu__link">Задача-5</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="exercise6-more.html" target="_blank" class="sub-menu__link">Задача-6</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="exercise7-more.html" target="_blank" class="sub-menu__link">Задача-7</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="exercise8-more.html" target="_blank" class="sub-menu__link">Задача-8</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="exercise9-more.html" target="_blank" class="sub-menu__link">Задача-9</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="exercise10-more.html" target="_blank" class="sub-menu__link">Задача-10</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="exercise11-more.html" target="_blank" class="sub-menu__link">Задача-11</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="exercise12-more.html" target="_blank" class="sub-menu__link">Задача-12</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="exercise13-more.html" target="_blank" class="sub-menu__link">Задача-13</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="exercise14-more.html" target="_blank" class="sub-menu__link">Задача-14</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="exercise15-more.html" target="_blank" class="sub-menu__link">Задача-15</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="exercise16-more.html" target="_blank" class="sub-menu__link">Задача-16</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="exercise17-more.html" target="_blank" class="sub-menu__link">Задача-17</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<main class="page">
+			<div class="page__container">
+				<h1 class="page__title_ex">Задача 16</h1>
+				<div class="page__content">
+					<p>З клавіатури вводиться номер місяця. Визначити, який буде місяць через вказану кількість N місяців.</p>
+					<p>
+						<script>
+							/*З клавіатури вводиться номер місяця. Визначити, який буде місяць через вказану кількість N місяців.*/
+							const monthNumIn = parseInt(prompt('Вкажіть порядковий номер місяця від 1 до 12'))
+							let monthName
+							switch (monthNumIn) {
+								case 1:
+									monthName = 'Січень';
+									break;
+								case 2:
+									monthName = 'Лютий';
+									break;
+								case 3:
+									monthName = 'Березень';
+									break;
+								case 4:
+									monthName = 'Квітень';
+									break;
+								case 5:
+									monthName = 'Травень';
+									break;
+								case 6:
+									monthName = 'Червень';
+									break;
+								case 7:
+									monthName = 'Липень';
+									break;
+								case 8:
+									monthName = 'Серпень';
+									break;
+								case 9:
+									monthName = 'Вересень';
+									break;
+								case 10:
+									monthName = 'Жовтень';
+									break;
+								case 11:
+									monthName = 'Листопад';
+									break;
+								default:
+									monthName = 'Грудень'
+									break;
+							}
+							document.write(`Вказаний мвсяць ${monthName}<br>`)
+							const someNumMonth = parseInt(prompt('Вкажіть кількість місяців'))
+							let newMonthNum = (monthNumIn + someNumMonth) % 12
+							let newMonthName
+							switch (newMonthNum) {
+								case 1:
+									newMonthName = 'Січень';
+									break;
+								case 2:
+									newMonthName = 'Лютий';
+									break;
+								case 3:
+									newMonthName = 'Березень';
+									break;
+								case 4:
+									newMonthName = 'Квітень';
+									break;
+								case 5:
+									newMonthName = 'Травень';
+									break;
+								case 6:
+									newMonthName = 'Червень';
+									break;
+								case 7:
+									newMonthName = 'Липень';
+									break;
+								case 8:
+									newMonthName = 'Серпень';
+									break;
+								case 9:
+									newMonthName = 'Вересень';
+									break;
+								case 10:
+									newMonthName = 'Жовтень';
+									break;
+								case 11:
+									newMonthName = 'Листопад';
+									break;
+								default:
+									newMonthName = 'Грудень'
+									break;
+							}
+							document.write(`Через N місяців буде ${newMonthName}`)
+						</script>
+					</p>
+				</div>
+			</div>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__body">
+					<a href="index.html" class="footer__link">Головна</a>
+					<a href="more.html" class="footer__link">Додаткові завдання</a>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<script src="js/app.min.js?_v=20230619193128"></script>
+</body>
+
+</html>
