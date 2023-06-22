@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>EX-10</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="stylesheet" href="css/style.min.css?_v=20230622132116">
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<nav class="header__menu menu">
+				<ul class="menu__list">
+					<li class="menu__item">
+						<a href="index.html" class="menu__link">Головна</a>
+					</li>
+					<li class="menu__item">
+						<a href="more.html" class="menu__link">Додаткові</a>
+					</li>
+					<li class="menu__item">
+						<a href="#" class="menu__link">Задачі обовязкові</a>
+						<div class="menu__sub sub-menu">
+							<ul class="sub-menu__list">
+								<li class="sub-menu__item">
+									<a href="ex-1.html" target="_blank" class="sub-menu__link">Задача -2</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="ex-2.html" target="_blank" class="sub-menu__link">Задача -1</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="ex-3.html" target="_blank" class="sub-menu__link">Задача-0</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="ex-4.html" target="_blank" class="sub-menu__link">Задача-1</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="ex-5.html" target="_blank" class="sub-menu__link">Задача-2</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="ex-6.html" target="_blank" class="sub-menu__link">Задача-3</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="ex-7.html" target="_blank" class="sub-menu__link">Задача-4</a>
+								</li>
+
+								<li class="sub-menu__item">
+									<a href="ex-8.html" target="_blank" class="sub-menu__link">Задача-5</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="ex-9.html" target="_blank" class="sub-menu__link">Задача-6</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="ex-10.html" target="_blank" class="sub-menu__link">Задача-7</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="ex-11.html" target="_blank" class="sub-menu__link">Задача-8</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="ex-12.html" target="_blank" class="sub-menu__link">Задача-9</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="ex-13.html" target="_blank" class="sub-menu__link">Задача-10</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="ex-14.html" target="_blank" class="sub-menu__link">Задача-11</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="ex-15.html" target="_blank" class="sub-menu__link">Задача-12</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="ex-16.html" target="_blank" class="sub-menu__link">Задача-13</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="ex-17.html" target="_blank" class="sub-menu__link">Задача-14</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li class="menu__item">
+						<a href="#" class="menu__link">Задачі для перевірки</a>
+						<div class="menu__sub sub-menu">
+							<ul class="sub-menu__list">
+								<li class="sub-menu__item">
+									<a href="ex-7.html" target="_blank" class="sub-menu__link">Задача-4</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="ex-10.html" target="_blank" class="sub-menu__link">Задача-7</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="ex-12.html" target="_blank" class="sub-menu__link">Задача-9</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="ex-15.html" target="_blank" class="sub-menu__link">Задача-12</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="ex-17.html" target="_blank" class="sub-menu__link">Задача-14</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<main class="page">
+			<div class="page__container">
+				<section class="page__section section">
+					<h1 class="section__title">Задача 10</h1>
+					<div class="section__body">
+						<p>Знайти суму всіх непарних чисел, що знаходяться між заданими користувачем числами.</p>
+						<p>
+							<script>
+								const userOneNum = parseInt(prompt('Вкажіть число 1'))
+								const userTowNum = parseInt(prompt('Вкажіть число 2'))
+								let betweenNum
+								let sum = 0
+								if (userOneNum < userTowNum) {
+									for (betweenNum = userOneNum + 1; betweenNum < userTowNum; betweenNum++) {
+										if (betweenNum % 2 !== 0) {
+											sum += betweenNum
+											document.write(`${betweenNum}+`)
+										}
+									}
+								} else if (userOneNum > userTowNum) {
+									for (betweenNum = userTowNum + 1; betweenNum < userOneNum; betweenNum++) {
+										if (betweenNum % 2 !== 0) {
+											sum += betweenNum
+											document.write(`${betweenNum}+`)
+										}
+									}
+								}
+								document.write(` = ${sum}`)
+							</script>
+						</p>
+					</div>
+				</section>
+			</div>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+			</div>
+		</footer>
+	</div>
+	<script src="js/app.min.js?_v=20230622132116"></script>
+</body>
+
+</html>

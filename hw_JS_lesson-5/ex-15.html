@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>EX-12</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="stylesheet" href="css/style.min.css?_v=20230622132116">
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<nav class="header__menu menu">
+				<ul class="menu__list">
+					<li class="menu__item">
+						<a href="index.html" class="menu__link">Головна</a>
+					</li>
+					<li class="menu__item">
+						<a href="more.html" class="menu__link">Додаткові</a>
+					</li>
+					<li class="menu__item">
+						<a href="#" class="menu__link">Задачі обовязкові</a>
+						<div class="menu__sub sub-menu">
+							<ul class="sub-menu__list">
+								<li class="sub-menu__item">
+									<a href="ex-1.html" target="_blank" class="sub-menu__link">Задача -2</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="ex-2.html" target="_blank" class="sub-menu__link">Задача -1</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="ex-3.html" target="_blank" class="sub-menu__link">Задача-0</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="ex-4.html" target="_blank" class="sub-menu__link">Задача-1</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="ex-5.html" target="_blank" class="sub-menu__link">Задача-2</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="ex-6.html" target="_blank" class="sub-menu__link">Задача-3</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="ex-7.html" target="_blank" class="sub-menu__link">Задача-4</a>
+								</li>
+
+								<li class="sub-menu__item">
+									<a href="ex-8.html" target="_blank" class="sub-menu__link">Задача-5</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="ex-9.html" target="_blank" class="sub-menu__link">Задача-6</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="ex-10.html" target="_blank" class="sub-menu__link">Задача-7</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="ex-11.html" target="_blank" class="sub-menu__link">Задача-8</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="ex-12.html" target="_blank" class="sub-menu__link">Задача-9</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="ex-13.html" target="_blank" class="sub-menu__link">Задача-10</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="ex-14.html" target="_blank" class="sub-menu__link">Задача-11</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="ex-15.html" target="_blank" class="sub-menu__link">Задача-12</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="ex-16.html" target="_blank" class="sub-menu__link">Задача-13</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="ex-17.html" target="_blank" class="sub-menu__link">Задача-14</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li class="menu__item">
+						<a href="#" class="menu__link">Задачі для перевірки</a>
+						<div class="menu__sub sub-menu">
+							<ul class="sub-menu__list">
+								<li class="sub-menu__item">
+									<a href="ex-7.html" target="_blank" class="sub-menu__link">Задача-4</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="ex-10.html" target="_blank" class="sub-menu__link">Задача-7</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="ex-12.html" target="_blank" class="sub-menu__link">Задача-9</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="ex-15.html" target="_blank" class="sub-menu__link">Задача-12</a>
+								</li>
+								<li class="sub-menu__item">
+									<a href="ex-17.html" target="_blank" class="sub-menu__link">Задача-14</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<main class="page">
+			<div class="page__container">
+				<section class="page__section section">
+					<h1 class="section__title">Задача 12</h1>
+					<div class="section__body">
+						<p>Ігровий автомат. Випадково вибираємо зображення у 3 позиціях. Вибір у кожній позиції вибирається як одне з чотирьох зображень.
+							Вивести ці зображення і повідомити виграш користувача (три перших зображення 100 грн, три других – 200, три третіх – 500,
+							три четвертих зображення – 1000грн). Використати цикли і switch (для вибору зображення за номером).</p>
+						<div class="section__items">
+							<script>
+								const minNum = 1
+								const maxNum = 4
+								let picNum
+								let sum = 0
+								for (let picPositionNum = 0; picPositionNum < 3; picPositionNum++) {
+									picNum = minNum + Math.floor(Math.random() * (maxNum - minNum + 1))
+									document.write(`<div class="section__item"><picture><source srcset="img/game/${picNum}.webp" type="image/webp"><img src="img/game/${picNum}.png" alt="image"></picture></div>`)
+									sum += Math.pow(10, picNum)
+								}
+								// document.write(sum)
+								let win
+								switch (sum) {
+									case 30:
+										win = 100
+										break
+									case 300:
+										win = 200
+										break
+									case 3000:
+										win = 500
+										break
+									case 30000:
+										win = 1000
+										break
+									default:
+										win = 0
+										break
+								}
+								document.write('<a href="" class="button-game">Грати</a>')
+								document.write(`Виграш - ${win} грн`)
+							</script>
+						</div>
+					</div>
+				</section>
+			</div>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+			</div>
+		</footer>
+	</div>
+	<script src="js/app.min.js?_v=20230622132116"></script>
+</body>
+
+</html>
