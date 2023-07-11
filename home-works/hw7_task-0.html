@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>HW 7 task 0</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="stylesheet" href="css/style.min.css?_v=20230711163406">
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<div class="header__logo">
+					<picture><source srcset="img/logo/JS_logo.webp" type="image/webp"><img src="img/logo/JS_logo.png" alt="JS logo 3d"></picture>
+				</div>
+				<nav class="header__menu menu-header">
+					<ul class="menu-header__list">
+						<li class="menu-header__item">
+							<a href="index.html" class="menu-header__link active">Головна</a>
+						</li>
+						<li class="menu-header__item">
+							<a href="lessons.html" class="menu-header__link">Уроки</a>
+						</li>
+						<li class="menu-header__item">
+							<a href="homeworks.html" class="menu-header__link">Домашка</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<main class="page page_bg-img">
+			<div class="page__container">
+				<div class="page__task task">
+					<div class="task__buttons-top top-buttons">
+						<ul class="top-buttons__list">
+							<li class="top-buttons__item">
+								<a href="hw-7.html" type="button" class="top-buttons__link">До задач</a>
+							</li>
+						</ul>
+					</div>
+					<!--  ?-|-|-|-|-|-|-|-|-|-|-- task-title --|-|-|-|-|-|-|-|-|-|-  -->
+					<div class="task__header header-task">
+						<h1 class="header-task__title title-h1">
+							Задача 0
+						</h1>
+						<div class="header-task__question question-task">
+							<div class="question-task__main">Створити функцію, яка за номером місяця повертає пору року,
+								до якої відноситься цей місяць.</div>
+						</div>
+					</div>
+				</div>
+				<!--  ?-|-|-|-|-|-|-|-|-|-|-- tasl-body --|-|-|-|-|-|-|-|-|-|-  -->
+				<div class="task__body body-task">
+					<h2 class="body-task__title title-h2">Результат</h2>
+					<div class="body-task__ansver ansver-task">
+						<script>
+							const monthNum = parseInt(prompt('Вкажіть номер місяця'))
+							let imgNum
+							// ----- варіант 1 -----
+							// function seasonValue(num) {
+							// 	switch (true) {
+							// 		case num<3 || num ===12 :
+							// 			imgNum = 1;
+							// 			return 'Зима';
+							// 		case num<6 :
+							// 			imgNum = 2;
+							// 			return 'Весна';
+							// 		case num<9 :
+							// 			imgNum = 3;
+							// 			return 'Літо';
+							// 		case num<12 :
+							// 			imgNum = 4;
+							// 			return 'Осінь';
+							// 		default:
+							// 			alert('Невірно вказаний місяць')
+							// 			break;
+							// 	}
+							// }
+							// let season = seasonValue(monthNum)
+							// ----- варіант 2 -----
+							let season = (num) => {
+								let result
+								switch (true) {
+									case num < 3 || num === 12:
+										imgNum = 1;
+										result = 'Зима';
+										break;
+									case num < 6:
+										imgNum = 2;
+										result = 'Весна';
+										break;
+									case num < 9:
+										imgNum = 3;
+										result = 'Літо';
+										break;
+									case num < 12:
+										imgNum = 4;
+										result = 'Осінь';
+										break;
+									default:
+										alert('Невірно вказаний місяць')
+										break;
+								}
+								return result
+							}
+							document.write(`<div class="ansver-task__body">
+									<div class="ansver-task__image">
+										<div class="ansver-task__task-answer">${season (monthNum)}</div>
+										<picture><source srcset="img/hw7_task0/${imgNum}.webp" type="image/webp"><img class="ansver-task__img" src="img/hw7_task0/${imgNum}.jpg" alt=""></picture>
+									</div>
+								</div>`)
+						</script>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__items">
+					<div class="footer__item">
+						<picture><source srcset="img/footer/html.webp" type="image/webp"><img src="img/footer/html.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/css.webp" type="image/webp"><img src="img/footer/css.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/node.webp" type="image/webp"><img src="img/footer/node.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/sass.webp" type="image/webp"><img src="img/footer/sass.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/gulp.webp" type="image/webp"><img src="img/footer/gulp.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/git.webp" type="image/webp"><img src="img/footer/git.png" alt="html"></picture>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<script src="js/app.min.js?_v=20230711163406"></script>
+</body>
+
+</html>
