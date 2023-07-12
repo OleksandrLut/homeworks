@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230711163406">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230712162334">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,10 +47,10 @@
 					<!--  ?-|-|-|-|-|-|-|-|-|-|-- task-title --|-|-|-|-|-|-|-|-|-|-  -->
 					<div class="task__header header-task">
 						<h1 class="header-task__title title-h1">
-							Задача
+							Задача 9
 						</h1>
 						<div class="header-task__question question-task">
-							<p class="question-task__main">Умова</p>
+							<div class="question-task__main">Дано масив імен. Сформувати масив з перших літер цих імен.</div>
 						</div>
 					</div>
 				</div>
@@ -60,6 +60,29 @@
 					<div class="body-task__ansver ansver-task">
 						<script>
 							document.write('<div class="ansver-task__body">')
+
+							// функція виведення масиву в таблиці
+							function buildTableArr(arr, value) {
+								document.write(`<p>${value}<table class="ansver-task__table"><tr>`)
+								for (let j = 0; j < arr.length; j++) {
+									document.write(`<td>${arr[j]}</td>`)
+								}
+								document.write('</tr></table></p>')
+							}
+
+							// масив імен
+							let names = ['Jon', 'Alex', 'Viktor', 'Adeline', 'Stiv', 'Camila', 'Rich', 'Ilene', 'Piter', 'Travis']
+
+							// виведення масиву
+							let showArr = buildTableArr(names, 'Масив з іменами')
+
+							// створення нового масиву
+							let firstLetterNamesArr = []
+							for (const name of names) {
+								firstLetterNamesArr.push(name[0])
+							}
+
+							let showChandegArr = buildTableArr(firstLetterNamesArr, 'Масив з перших літер цих імен')
 
 							document.write('</div>')
 						</script>
@@ -92,7 +115,7 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20230711163406"></script>
+	<script src="js/app.min.js?_v=20230712162334"></script>
 </body>
 
 </html>

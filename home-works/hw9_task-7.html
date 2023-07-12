@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230711163406">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230712162334">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,10 +47,10 @@
 					<!--  ?-|-|-|-|-|-|-|-|-|-|-- task-title --|-|-|-|-|-|-|-|-|-|-  -->
 					<div class="task__header header-task">
 						<h1 class="header-task__title title-h1">
-							Задача
+							Задача 7
 						</h1>
 						<div class="header-task__question question-task">
-							<p class="question-task__main">Умова</p>
+							<div class="question-task__main">Дано масив цін. Змінити цей масив так, що на ціни товарів, які більші за 1000 грн. дати 30% знижки.</div>
 						</div>
 					</div>
 				</div>
@@ -60,6 +60,30 @@
 					<div class="body-task__ansver ansver-task">
 						<script>
 							document.write('<div class="ansver-task__body">')
+
+							// функція виведення масиву в таблиці
+							function buildTableArr(arr, value) {
+								document.write(`<p>${value}<table class="ansver-task__table"><tr>`)
+								for (let j = 0; j < arr.length; j++) {
+									document.write(`<td>${arr[j]}</td>`)
+								}
+								document.write('</tr></table></p>')
+							}
+
+							// Масив цін
+							let prices = [150, 1200, 980, 2350, 1520, 870]
+
+							// виведення масиву
+							let showArr = buildTableArr(prices, 'Масив цін')
+
+							// зміниа цін
+							for (let i = 0; i < prices.length; i++) {
+								if (prices[i] > 1000)
+									prices[i] *= 0.7
+							}
+
+							// виведення зміненого масиву
+							let showChandegArr = buildTableArr(prices, 'Змінений масив цін')
 
 							document.write('</div>')
 						</script>
@@ -92,7 +116,7 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20230711163406"></script>
+	<script src="js/app.min.js?_v=20230712162334"></script>
 </body>
 
 </html>
