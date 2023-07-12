@@ -216,6 +216,8 @@ html {
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
   max-width: 5rem;
+  position: relative;
+  z-index: 51;
   -webkit-animation: rotate-logo 2s infinite linear;
           animation: rotate-logo 2s infinite linear;
 }
