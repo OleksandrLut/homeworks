@@ -916,15 +916,8 @@ html {
           justify-content: space-between;
   gap: 0.9375rem;
   padding: 0.625rem;
-  -webkit-transform: translate(-80%, 0);
-      -ms-transform: translate(-80%, 0);
-          transform: translate(-80%, 0);
   -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
-}
-
-.top-buttons__link::after {
-  content: ">";
 }
 
 #section2,
@@ -1137,6 +1130,27 @@ html {
   }
 }
 
+@media (min-width: 61.99875em) {
+  .top-buttons__link {
+    -webkit-transform: translate(-80%, 0);
+        -ms-transform: translate(-80%, 0);
+            transform: translate(-80%, 0);
+  }
+
+  .top-buttons__link::after {
+    content: ">";
+  }
+}
+
+@media (min-width: 61.99875em) and (any-hover: hover) {
+  .top-buttons__link:hover {
+    -webkit-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+            transform: translate(0, 0);
+    background-color: rgb(20, 165, 155);
+  }
+}
+
 @media (min-width: 93.75em) {
   .title_main {
     font-size: 1.875rem;
@@ -1182,6 +1196,16 @@ html {
 }
 
 @media (max-width: 61.99875em) {
+  .top-buttons__link {
+    -webkit-transform: rotate(-90deg) translate(-10%, -80%);
+        -ms-transform: rotate(-90deg) translate(-10%, -80%);
+            transform: rotate(-90deg) translate(-10%, -80%);
+    position: relative;
+    z-index: 5;
+    background-color: rgba(20, 165, 155, 0.3);
+    border-radius: 0 0 0.3125rem 0.3125rem;
+  }
+
   .content-homework__text {
     font-size: 1rem;
   }
@@ -1364,13 +1388,6 @@ html {
   .exercise__item:hover {
     -webkit-box-shadow: 0 0 0.625rem 0.25rem rgba(255, 255, 255, 0.3);
             box-shadow: 0 0 0.625rem 0.25rem rgba(255, 255, 255, 0.3);
-  }
-
-  .top-buttons__link:hover {
-    -webkit-transform: translate(0, 0);
-        -ms-transform: translate(0, 0);
-            transform: translate(0, 0);
-    background-color: rgb(20, 165, 155);
   }
 
   .lessons__button a:hover {
