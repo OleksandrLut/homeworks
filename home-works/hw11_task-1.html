@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230719212806">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230719215009">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -143,13 +143,13 @@
 								return sum
 							}
 							// 1)
-							document.write(`<p>1) Сума = ${getSumArr(newArr, 0, arrElementsNum/2, 0, subArrElementsNum/2, 1, 1)}</p>`)
+							document.write(`<p>1) Сума = ${getSumArr(newArr, 0, Math.floor(arrElementsNum/2), 0, Math.floor(subArrElementsNum/2), 1, 1)}</p>`)
 							// 2)
-							document.write(`<p>2) Сума = ${getSumArr(newArr, 0, arrElementsNum/2, subArrElementsNum/2, subArrElementsNum, 1, 1)}</p>`)
+							document.write(`<p>2) Сума = ${getSumArr(newArr, 0, Math.floor(arrElementsNum/2), Math.floor(arrElementsNum/2), subArrElementsNum, 1, 1)}</p>`)
 							// 3)
-							document.write(`<p>3) Сума = ${getSumArr(newArr, arrElementsNum/2, arrElementsNum, 0, subArrElementsNum/2, 1, 1)}</p>`)
+							document.write(`<p>3) Сума = ${getSumArr(newArr, Math.floor(arrElementsNum/2), arrElementsNum, 0, Math.floor(subArrElementsNum/2), 1, 1)}</p>`)
 							// 4)
-							document.write(`<p>4) Сума = ${getSumArr(newArr, arrElementsNum/2, arrElementsNum, subArrElementsNum/2, subArrElementsNum, 1, 1)}</p>`)
+							document.write(`<p>4) Сума = ${getSumArr(newArr, Math.floor(arrElementsNum/2), arrElementsNum, Math.floor(subArrElementsNum/2), subArrElementsNum, 1, 1)}</p>`)
 							// 5) 
 							document.write(`<p>5) Сума (парних рядків) = ${getSumArr(newArr, 1, arrElementsNum, 0, subArrElementsNum, 2, 1)}</p>`)
 							// 6) 
@@ -190,7 +190,7 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20230719212806"></script>
+	<script src="js/app.min.js?_v=20230719215009"></script>
 </body>
 
 </html>
