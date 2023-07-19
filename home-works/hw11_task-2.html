@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>HW 11 task 2</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="stylesheet" href="css/style.min.css?_v=20230719212806">
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<div class="header__logo">
+					<picture><source srcset="img/logo/JS_logo.webp" type="image/webp"><img src="img/logo/JS_logo.png" alt="JS logo 3d"></picture>
+				</div>
+				<nav class="header__menu menu-header">
+					<ul class="menu-header__list">
+						<li class="menu-header__item">
+							<a href="index.html" class="menu-header__link active">Головна</a>
+						</li>
+						<li class="menu-header__item">
+							<a href="lessons.html" class="menu-header__link">Уроки</a>
+						</li>
+						<li class="menu-header__item">
+							<a href="homeworks.html" class="menu-header__link">Домашка</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<main class="page page_bg-img">
+			<div class="page__container">
+				<div class="page__task task">
+					<div class="task__buttons-top top-buttons">
+						<ul class="top-buttons__list">
+							<li class="top-buttons__item">
+								<a href="hw-11.html" type="button" class="top-buttons__link">До задач</a>
+							</li>
+						</ul>
+					</div>
+					<!--  ?-|-|-|-|-|-|-|-|-|-|-- task-title --|-|-|-|-|-|-|-|-|-|-  -->
+					<div class="task__header header-task">
+						<h1 class="header-task__title title-h1">
+							Задача 2
+						</h1>
+						<div class="header-task__question question-task">
+							<div class="question-task__main">
+								<p>Дано інформацію про прибуток К магазинів протягом тижня. Знайти :</p>
+								<ul>
+									<li>1. загальний прибуток кожного масиву за тиждень;</li>
+									<li>2. загальний прибуток усіх магазинів по дням (загальний прибуток усіх магазинів за понеділок, за вівторок, і т.д.);</li>
+									<li>3. загальний прибуток за робочі дні</li>
+									<li>4. загальний прибуток за вихідні дні</li>
+									<li>5. максимальний прибуток за середу</li>
+									<li>6. сформувати загальний список (одновимірний масив) зі значенням, які що більші за 200</li>
+									<li>7. відсортувати кожен тиждень за зростанням</li>
+									<li>8. відсортувати тижні (рядки) за спаданням максимального елементи у цьому тижні (рядку),
+										тобто при порівнянні рядків потрібно порівнювати максимальні елементи у кожному з цих рядків</li>
+									<li>9. упорядкувати тижні (рядки) за спаданням суми елементів у рядку (тобто при порівнянні двох рядків треба знайти суму
+										кожного з рядків і порівнювати ці суми, на основі цих сум буде зрозуміло, який з елементів повинен іти раніше).</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--  ?-|-|-|-|-|-|-|-|-|-|-- tasl-body --|-|-|-|-|-|-|-|-|-|-  -->
+				<div class="task__body body-task">
+					<h2 class="body-task__title title-h2">Результат</h2>
+					<div class="body-task__ansver ansver-task">
+						<script>
+							document.write('<div>')
+							// формування двовимірного масиву
+							// ----- генерування рандомного числа
+							function getRandomNumber(minValue, maxValue) {
+								return minValue + Math.floor(Math.random() * (maxValue - minValue + 1))
+							}
+							// ----- функція генерування одного одновимірного масиву (днів)
+							function generateRandomArray(minValue, maxValue) {
+								let arr = []
+								for (let i = 0; i < 7; i++) {
+									let randomNum = getRandomNumber(minValue, maxValue)
+									arr.push(randomNum)
+								}
+								return arr
+							}
+							// ---- функція генерування двовимірного масиву (кількості магазинів)
+							function generateRandomTable(rowsNumber, minValue, maxValue) {
+
+								let table = []
+								for (let i = 0; i < rowsNumber; i++) {
+									let randomRow = generateRandomArray(minValue, maxValue)
+									table.push(randomRow)
+								}
+								return table
+							}
+
+							// введення даних користувачем
+							let inputRowsNumber = parseInt(prompt('Вкажіть кількість магазинів'))
+							let inputMinValue = parseInt(prompt('Вкажіть мінімально можливий дохід'))
+							let inputMaxValue = parseInt(prompt('Вкажіть максимально можливий дохід'))
+
+							// ---- готовий масив ----
+							let newArr = generateRandomTable(inputRowsNumber, inputMinValue, inputMaxValue)
+							console.log(newArr);
+
+							// виведення масиву в таблиці
+							function buildTableArr(arr, value) {
+								document.write(`<p>${value}<table class="ansver-task__table">`)
+								for (let j = 0; j < arr.length; j++) {
+									document.write('<tr>')
+									for (let i = 0; i < arr[j].length; i++) {
+										document.write(`<td>${arr[j][i]}</td>`)
+									}
+									document.write('</tr>')
+								}
+								document.write('</table></p>')
+							}
+							buildTableArr(newArr, 'Таблиця інформацію про прибуток магазинів')
+
+							// = = = = функція знаходження суми
+
+							function getSumArr(arrRef, rowStart, rowEnd, colStart, colEnd, rowStep, colStep) {
+								let sum = 0
+								for (let rowIndex = rowStart; rowIndex < rowEnd; rowIndex += rowStep) {
+									for (let colIndex = colStart; colIndex < colEnd; colIndex += colStep) {
+										sum += arrRef[rowIndex][colIndex]
+									}
+								}
+								return sum
+							}
+
+							// 1) загальний прибуток кожного масиву за тиждень:
+							let indexStart = 0
+							let indexEnd = 1
+							document.write(`<p>1) загальний прибуток кожного масиву за тиждень: <table class="ansver-task__table">`)
+							for (let i = 0; i < inputRowsNumber; i++) {
+								let res = getSumArr(newArr, indexStart, indexEnd, 0, 7, 1, 1)
+								document.write(`<tr><th>Прибуток магазину № ${i+1}</th><td>${res}</td></tr>`)
+								indexStart++
+								indexEnd++
+							}
+							document.write('</table></p>')
+							// альтернативний варіант 
+							// let sumOfEachArr = []
+							// for (let i = 0; i < newArr.length; i++) {
+							// 	let sumOneArr = newArr[i].reduce((prevSum, el) => prevSum + el,0)
+							// 	sumOfEachArr.push(sumOneArr)
+							// }
+
+							// 2) загальний прибуток усіх магазинів по дням (загальний прибуток усіх магазинів за понеділок, за вівторок, і т.д.);
+							let daysName = ['понеділок', 'вівторок', 'середа', 'четвер', 'пятниця', 'субота', 'неділя']
+							let indStart = 0
+							let indEnd = 1
+							document.write(`<p>2) загальний прибуток усіх магазинів по дням (загальний прибуток усіх 
+										магазинів за понеділок, за вівторок, і т.д.): <table class="ansver-task__table">`)
+							for (let j = 0; j < 7; j++) {
+								let res = getSumArr(newArr, 0, inputRowsNumber, indStart, indEnd, 1, 1)
+								document.write(`<tr><th>Прибуток за ${daysName[j]}</th><td>${res}</td></tr>`)
+								indStart++
+								indEnd++
+							}
+							document.write('</table></p>')
+
+							// 3) загальний прибуток за робочі дні
+							document.write(`<p>3) загальний прибуток за робочі дні:</p>
+										<p>Прибуток = ${getSumArr(newArr, 0, inputRowsNumber, 0, 5, 1, 1)}</p>`)
+
+							// 4) загальний прибуток за вихідні дні
+							document.write(`<p>4) загальний прибуток за вихідні дні:</p>
+										<p>Прибуток = ${getSumArr(newArr, 0, inputRowsNumber, 5, 7, 1, 1)}</p>`)
+
+							// 5) максимальний прибуток за середу
+							let maxProfitForWednesay = newArr[0][2]
+							for (let i = 1; i < inputRowsNumber; i++) {
+								if (maxProfitForWednesay < newArr[i][2])
+									maxProfitForWednesay = newArr[i][2]
+							}
+							document.write(`<p>5) максимальний прибуток за середу</p><p>Прибуток = ${maxProfitForWednesay}</p>`)
+
+							// 6) сформувати загальний список (одновимірний масив) зі значенням, які що більші за 200
+							let arrOver200 = []
+							for (let i = 1; i < inputRowsNumber; i++) {
+								for (let j = 0; j < 7; j++) {
+									if (newArr[i][j] > 200)
+										arrOver200.push(newArr[i][j])
+								}
+							}
+
+							// функція виведення масиву в таблиці
+							function buildTableMonoArr(arr, value) {
+								document.write(`<p>${value}<table class="ansver-task__table"><tr>`)
+								for (let j = 0; j < arr.length; j++) {
+									document.write(`<td>${arr[j]}</td>`)
+								}
+								document.write('</tr></table></p>')
+							}
+							buildTableMonoArr(arrOver200, '6) сформувати загальний список (одновимірний масив) зі значенням, які що більші за 200')
+							// 7) відсортувати кожен тиждень за зростанням
+							let sortArr = []
+							for (let rowInd = 0; rowInd < newArr.length; rowInd++) {
+								let sortRow = newArr[rowInd].sort((a, b) => a - b)
+								sortArr.push(sortRow)
+							}
+							buildTableArr(sortArr, '7) відсортувати кожен тиждень за зростанням')
+
+							// 8) відсортувати тижні (рядки) за спаданням максимального елементи у цьому тижні (рядку), тобто 
+							//при порівнянні рядків потрібно порівнювати максимальні елементи у кожному з цих рядків
+
+							// 9) упорядкувати тижні (рядки) за спаданням суми елементів у рядку (тобто при порівнянні двох рядків треба знайти суму 
+							//кожного з рядків і порівнювати ці суми, на основі цих сум буде зрозуміло, який з елементів повинен іти раніше).
+
+							document.write('</div>')
+						</script>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__items">
+					<div class="footer__item">
+						<picture><source srcset="img/footer/html.webp" type="image/webp"><img src="img/footer/html.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/css.webp" type="image/webp"><img src="img/footer/css.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/node.webp" type="image/webp"><img src="img/footer/node.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/sass.webp" type="image/webp"><img src="img/footer/sass.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/gulp.webp" type="image/webp"><img src="img/footer/gulp.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/git.webp" type="image/webp"><img src="img/footer/git.png" alt="html"></picture>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<script src="js/app.min.js?_v=20230719212806"></script>
+</body>
+
+</html>

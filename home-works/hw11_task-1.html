@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>HW 11 task 1</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="stylesheet" href="css/style.min.css?_v=20230719212806">
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<div class="header__logo">
+					<picture><source srcset="img/logo/JS_logo.webp" type="image/webp"><img src="img/logo/JS_logo.png" alt="JS logo 3d"></picture>
+				</div>
+				<nav class="header__menu menu-header">
+					<ul class="menu-header__list">
+						<li class="menu-header__item">
+							<a href="index.html" class="menu-header__link active">Головна</a>
+						</li>
+						<li class="menu-header__item">
+							<a href="lessons.html" class="menu-header__link">Уроки</a>
+						</li>
+						<li class="menu-header__item">
+							<a href="homeworks.html" class="menu-header__link">Домашка</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<main class="page page_bg-img">
+			<div class="page__container">
+				<div class="page__task task">
+					<div class="task__buttons-top top-buttons">
+						<ul class="top-buttons__list">
+							<li class="top-buttons__item">
+								<a href="hw-11.html" type="button" class="top-buttons__link">До задач</a>
+							</li>
+						</ul>
+					</div>
+					<!--  ?-|-|-|-|-|-|-|-|-|-|-- task-title --|-|-|-|-|-|-|-|-|-|-  -->
+					<div class="task__header header-task">
+						<h1 class="header-task__title title-h1">
+							Задача 1
+						</h1>
+						<div class="header-task__question question-task">
+							<div class="question-task__main">
+								<p>Знайти суми елементів у вказаній області (масиви розділені на 4 рівні частини - не звертаємо увагу на криві малюнки ☺ )</p>
+								<ul>
+									<li>
+										1) <picture><source srcset="img/hw_11/01.webp" type="image/webp"><img src="img/hw_11/01.png" alt="" style="margin-left: 20px; width: 100px;"></picture>
+									</li>
+									<li>
+										2) <picture><source srcset="img/hw_11/02.webp" type="image/webp"><img src="img/hw_11/02.png" alt="" style="margin-left: 20px; width: 100px;"></picture>
+									</li>
+									<li>
+										3) <picture><source srcset="img/hw_11/03.webp" type="image/webp"><img src="img/hw_11/03.png" alt="" style="margin-left: 20px; width: 100px;"></picture>
+									</li>
+									<li>
+										4) <picture><source srcset="img/hw_11/04.webp" type="image/webp"><img src="img/hw_11/04.png" alt="" style="margin-left: 20px; width: 100px;"></picture>
+									</li>
+									<li>5) Суму парних рядків</li>
+									<li>6) Суму непарних стовпців</li>
+									<li>7) У парних рядках – непарні стовпці, у непарних – парні.</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--  ?-|-|-|-|-|-|-|-|-|-|-- tasl-body --|-|-|-|-|-|-|-|-|-|-  -->
+				<div class="task__body body-task">
+					<h2 class="body-task__title title-h2">Результат</h2>
+					<div class="body-task__ansver ansver-task">
+						<script>
+							document.write('<div class="ansver-task__body">')
+							// формування двовимірного масиву
+							// ----- генерування рандомного числа
+							function getRandomNumber(minValue, maxValue) {
+								return minValue + Math.floor(Math.random() * (maxValue - minValue + 1))
+							}
+							// ----- функція генерування одного одновимірного масиву (рядків / кількості елементів в масиві)
+							function generateRandomArray(arrLength, minValue, maxValue) {
+								// для нерівних (з різною кількістю елементів) підмасивів
+								// let randomColumnsNum
+								// for (let c = 0; c < arrLength; c++) {
+								// 	randomColumnsNum = 1 + Math.floor(Math.random() * arrLength)
+								// } ------------------- замість arrLength треба додати randomColumnsNum
+								let arr = []
+								for (let i = 0; i < arrLength; i++) {
+									let randomNum = getRandomNumber(minValue, maxValue)
+									arr.push(randomNum)
+								}
+								return arr
+							}
+							// ---- функція генерування двовимірного масиву (стовпців елементів підмасиву)
+							function generateRandomTable(rowsNumber, columnsNumber, minValue, maxValue) {
+
+								let table = []
+								for (let i = 0; i < rowsNumber; i++) {
+									let randomRow = generateRandomArray(columnsNumber, minValue, maxValue)
+									table.push(randomRow)
+								}
+								return table
+							}
+
+							// введення даних користувачем
+							let arrElementsNum = parseInt(prompt('Вкажіть кількість елементів масиву'))
+							let subArrElementsNum = parseInt(prompt('Вкажіть максимально можливу кількість елементів підмасиву масиву'))
+
+							// ---- готовий масив ----
+							let newArr = generateRandomTable(arrElementsNum, subArrElementsNum, 0, 100)
+							console.log(newArr);
+
+							// виведення масиву в таблиці
+							function buildTableArr(arr, value) {
+								document.write(`<p>${value}<table class="ansver-task__table">`)
+								for (let j = 0; j < arr.length; j++) {
+									document.write('<tr>')
+									for (let i = 0; i < arr[j].length; i++) {
+										document.write(`<td>${arr[j][i]}</td>`)
+									}
+									document.write('</tr>')
+								}
+								document.write('</table></p>')
+							}
+							let wievArr = buildTableArr(newArr, 'Таблиця з даними двовимірного (не прямокутного) масиву')
+
+							// = = = = функція знаходження суми
+
+							function getSumArr(arrRef, rowStart, rowEnd, colStart, colEnd, rowStep, colStep) {
+								let sum = 0
+								for (let rowIndex = rowStart; rowIndex < rowEnd; rowIndex += rowStep) {
+									for (let colIndex = colStart; colIndex < colEnd; colIndex += colStep) {
+										sum += arrRef[rowIndex][colIndex]
+									}
+								}
+								return sum
+							}
+							// 1)
+							document.write(`<p>1) Сума = ${getSumArr(newArr, 0, arrElementsNum/2, 0, subArrElementsNum/2, 1, 1)}</p>`)
+							// 2)
+							document.write(`<p>2) Сума = ${getSumArr(newArr, 0, arrElementsNum/2, subArrElementsNum/2, subArrElementsNum, 1, 1)}</p>`)
+							// 3)
+							document.write(`<p>3) Сума = ${getSumArr(newArr, arrElementsNum/2, arrElementsNum, 0, subArrElementsNum/2, 1, 1)}</p>`)
+							// 4)
+							document.write(`<p>4) Сума = ${getSumArr(newArr, arrElementsNum/2, arrElementsNum, subArrElementsNum/2, subArrElementsNum, 1, 1)}</p>`)
+							// 5) 
+							document.write(`<p>5) Сума (парних рядків) = ${getSumArr(newArr, 1, arrElementsNum, 0, subArrElementsNum, 2, 1)}</p>`)
+							// 6) 
+							document.write(`<p>6) Сума (непарних стовпців) = ${getSumArr(newArr, 0, arrElementsNum, 0, subArrElementsNum, 1, 2)}</p>`)
+							// 7) 
+							document.write(`<p>7) Сума (У парних рядках – непарні стовпці, у непарних – парні.) = ${
+										getSumArr(newArr, 1, arrElementsNum, 0, subArrElementsNum, 2, 2) + getSumArr(newArr, 0, arrElementsNum, 1, subArrElementsNum, 2, 2)
+									}</p>`)
+
+							document.write('</div>')
+						</script>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__items">
+					<div class="footer__item">
+						<picture><source srcset="img/footer/html.webp" type="image/webp"><img src="img/footer/html.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/css.webp" type="image/webp"><img src="img/footer/css.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/node.webp" type="image/webp"><img src="img/footer/node.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/sass.webp" type="image/webp"><img src="img/footer/sass.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/gulp.webp" type="image/webp"><img src="img/footer/gulp.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/git.webp" type="image/webp"><img src="img/footer/git.png" alt="html"></picture>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<script src="js/app.min.js?_v=20230719212806"></script>
+</body>
+
+</html>

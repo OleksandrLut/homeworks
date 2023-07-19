@@ -434,26 +434,6 @@ html {
   gap: 0.625rem;
 }
 
-.question-task__main ul li {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.question-task__main ul li::before {
-  content: "";
-  width: 0.25rem;
-  height: 0.25rem;
-  border-radius: 50%;
-  background-color: #000;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 0.25rem;
-          flex: 0 0 0.25rem;
-}
-
 .question-task__main span {
   color: transparent;
 }
@@ -475,6 +455,10 @@ html {
 
 .body-task__title:not(:last-child) {
   margin-bottom: 1.25rem;
+}
+
+.ansver-task div p:not(:last-child) {
+  margin-bottom: 0.9375rem;
 }
 
 .ansver-task__body {
