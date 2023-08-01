@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>HW 13 task 0</title>
+	<title>HW 13 task 4</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
@@ -47,12 +47,13 @@
 					<!--  ?-|-|-|-|-|-|-|-|-|-|-- task-title --|-|-|-|-|-|-|-|-|-|-  -->
 					<div class="task__header header-task">
 						<h1 class="header-task__title title-h1">
-							Задача 0
+							Задача 4
 						</h1>
 						<div class="header-task__question question-task">
 							<div class="question-task__main">
-								<p>Реалізувати рекурсивну функцію знаходження степеня числа а</p>
-								<picture><source srcset="img/hw_13/01.webp" type="image/webp"><img src="img/hw_13/01.png" alt=""></picture>
+								<p>З використанням замикань розробити ітератор, тобто функцію, що буде поступово за окремими викликами
+									видавати по одну букву наперед заданого слова. З використанням нього розробити гру «Прекладач». Виводимо для користувача опис цього слова і
+									по одну букву користувач вводить переклад цього слова. Підрахувати кількість вгаданих букв.</p>
 							</div>
 						</div>
 					</div>
@@ -64,13 +65,6 @@
 						<script>
 							document.write('<div class="ansver-task__body">')
 
-							function step(a, n) {
-								if (n === 1) return a
-								else return step(a, n - 1) * a
-							}
-							let a = parseInt(prompt('Вкажіть число'))
-							let n = parseInt(prompt('Вкажіть степінь до якого потрібно піднести число'))
-							document.write(`При піднесенні числа ${a} до степеня ${n}, результат = ${step(5,3)}`)
 
 							document.write('</div>')
 						</script>

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>HW 13 task 0</title>
+	<title>HW 13 task 2</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
@@ -47,12 +47,11 @@
 					<!--  ?-|-|-|-|-|-|-|-|-|-|-- task-title --|-|-|-|-|-|-|-|-|-|-  -->
 					<div class="task__header header-task">
 						<h1 class="header-task__title title-h1">
-							Задача 0
+							Задача 2
 						</h1>
 						<div class="header-task__question question-task">
 							<div class="question-task__main">
-								<p>Реалізувати рекурсивну функцію знаходження степеня числа а</p>
-								<picture><source srcset="img/hw_13/01.webp" type="image/webp"><img src="img/hw_13/01.png" alt=""></picture>
+								<p>Реалізувати бінарний пошук (розглядали на попередніх уроках) з використанням рекурсивного алгоритму.</p>
 							</div>
 						</div>
 					</div>
@@ -63,15 +62,29 @@
 					<div class="body-task__ansver ansver-task">
 						<script>
 							document.write('<div class="ansver-task__body">')
-
-							function step(a, n) {
-								if (n === 1) return a
-								else return step(a, n - 1) * a
+							const arr = [1, 5, 8, 11, 21, 36, 43, 50, 55, 62, 74, 83, 89]
+							// function binarySearch(arr, num) {
+							// 	let start = 0
+							// 	let end = arr.length - 1
+							// 	while (start<=end) {
+							// 		let middle = Math.floor((start + end) / 2)
+							// 		if (arr[middle] === num)
+							// 			return middle
+							// 		if (arr[middle] < num)
+							// 			start = middle +1
+							// 		if (arr[middle] > num)
+							// 			end = middle - 1
+							// 	}
+							// 	return -1
+							// }
+							function binarySearchRecursion(arr, num, start, end) {
+								let middle = Math.floor((start + end) / 2)
+								if (arr[middle] === num) return middle
+								if (arr[middle] < num) return binarySearchRecursion(arr, num, middle + 1, end)
+								if (arr[middle] > num) return binarySearchRecursion(arr, num, start, middle - 1)
 							}
-							let a = parseInt(prompt('Вкажіть число'))
-							let n = parseInt(prompt('Вкажіть степінь до якого потрібно піднести число'))
-							document.write(`При піднесенні числа ${a} до степеня ${n}, результат = ${step(5,3)}`)
-
+							let res = binarySearchRecursion(arr, 21, 0, arr.length - 1)
+							document.write(res)
 							document.write('</div>')
 						</script>
 					</div>

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>HW 13 task 0</title>
+	<title>HW 13 task 3</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
@@ -47,12 +47,13 @@
 					<!--  ?-|-|-|-|-|-|-|-|-|-|-- task-title --|-|-|-|-|-|-|-|-|-|-  -->
 					<div class="task__header header-task">
 						<h1 class="header-task__title title-h1">
-							Задача 0
+							Задача 3
 						</h1>
 						<div class="header-task__question question-task">
 							<div class="question-task__main">
-								<p>Реалізувати рекурсивну функцію знаходження степеня числа а</p>
-								<picture><source srcset="img/hw_13/01.webp" type="image/webp"><img src="img/hw_13/01.png" alt=""></picture>
+								<p>З використанням замикань розробити ітератор, тобто функцію, що буде поступово за окремими викликами
+									видавати по одне значення від заданого мінімального до заданого максимального. Якщо значення досягне максимального, то наступним буде
+									мінімальне значення. З використанням цієї функції реалізувати перебір номерів місяців.</p>
 							</div>
 						</div>
 					</div>
@@ -64,14 +65,19 @@
 						<script>
 							document.write('<div class="ansver-task__body">')
 
-							function step(a, n) {
-								if (n === 1) return a
-								else return step(a, n - 1) * a
+							function getMonthNumIterator(monthNum, min = 1, max = 12) {
+								function generateNextMonthNum() {
+									if (monthNum === max) monthNum = 1
+									else ++monthNum
+									return monthNum
+								}
+								return generateNextMonthNum
 							}
-							let a = parseInt(prompt('Вкажіть число'))
-							let n = parseInt(prompt('Вкажіть степінь до якого потрібно піднести число'))
-							document.write(`При піднесенні числа ${a} до степеня ${n}, результат = ${step(5,3)}`)
-
+							let startMonth = parseInt(prompt('Вкажіть початковий місяць'))
+							let res = getMonthNumIterator(startMonth - 1)
+							for (let i = 0; i < 12; i++) {
+								document.write(`Місяць - ${res()}<br>`)
+							}
 							document.write('</div>')
 						</script>
 					</div>

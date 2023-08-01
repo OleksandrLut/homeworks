@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>HW 13 task 0</title>
+	<title>HW 13 task 1</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
@@ -47,12 +47,14 @@
 					<!--  ?-|-|-|-|-|-|-|-|-|-|-- task-title --|-|-|-|-|-|-|-|-|-|-  -->
 					<div class="task__header header-task">
 						<h1 class="header-task__title title-h1">
-							Задача 0
+							Задача 1
 						</h1>
 						<div class="header-task__question question-task">
 							<div class="question-task__main">
-								<p>Реалізувати рекурсивну функцію знаходження степеня числа а</p>
-								<picture><source srcset="img/hw_13/01.webp" type="image/webp"><img src="img/hw_13/01.png" alt=""></picture>
+								<p style="font-size: 20px;">Нехай x<span style="font-size: 10px; color: black;">0</span> = 1, x<span style="font-size: 10px; color: black;">i</span> =
+									x<span style="font-size: 10px; color: black;">i-1</span> + 2<span style="font-size: 10px; color: black;">i</span>, де
+									i = 1, 2, .... . Визначити x<span style="font-size: 10px; color: black;">10</span>.
+									Розв’язати з використанням рекурсивних і нерекурсивних алгоритмів</p>
 							</div>
 						</div>
 					</div>
@@ -64,14 +66,20 @@
 						<script>
 							document.write('<div class="ansver-task__body">')
 
-							function step(a, n) {
-								if (n === 1) return a
-								else return step(a, n - 1) * a
+							function getNumXRec(i) {
+								if (i === 0) return 1
+								else return getNumXRec(i - 1) + 2 * i
 							}
-							let a = parseInt(prompt('Вкажіть число'))
-							let n = parseInt(prompt('Вкажіть степінь до якого потрібно піднести число'))
-							document.write(`При піднесенні числа ${a} до степеня ${n}, результат = ${step(5,3)}`)
+							document.write(`<p>Варіант з використанням рекурсивної функції x<span style="font-size: 10px; color: black;">10</span> = ${getNumXRec(10)}</p>`)
 
+							function getNumXfunc(i) {
+								let res = 1
+								for (let j = 0; j <= i; j++) {
+									res = res + 2 * j
+								}
+								return res
+							}
+							document.write(`<p>Варіант з використанням нерекурсивної функції x<span style="font-size: 10px; color: black;">10</span> = ${getNumXfunc(10)}</p>`)
 							document.write('</div>')
 						</script>
 					</div>

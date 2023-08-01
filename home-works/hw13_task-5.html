@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>HW 13 task 0</title>
+	<title>HW 13 task 5</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
@@ -47,12 +47,11 @@
 					<!--  ?-|-|-|-|-|-|-|-|-|-|-- task-title --|-|-|-|-|-|-|-|-|-|-  -->
 					<div class="task__header header-task">
 						<h1 class="header-task__title title-h1">
-							Задача 0
+							Задача 5
 						</h1>
 						<div class="header-task__question question-task">
 							<div class="question-task__main">
-								<p>Реалізувати рекурсивну функцію знаходження степеня числа а</p>
-								<picture><source srcset="img/hw_13/01.webp" type="image/webp"><img src="img/hw_13/01.png" alt=""></picture>
+								<p>Тренажер додавання. Кожні 10 секунд користувачу задають випадковий приклад з додавання двох цифр і робиться перевірка.</p>
 							</div>
 						</div>
 					</div>
@@ -63,15 +62,20 @@
 					<div class="body-task__ansver ansver-task">
 						<script>
 							document.write('<div class="ansver-task__body">')
-
-							function step(a, n) {
-								if (n === 1) return a
-								else return step(a, n - 1) * a
+							//-----------
+							function sumSimulator() {
+								return setInterval(
+									() => {
+										const randomNum1 = 1 + Math.floor(Math.random() * 10)
+										const randomNum2 = 1 + Math.floor(Math.random() * 10)
+										let sum = randomNum1 + randomNum2
+										let res = parseInt(prompt(`${randomNum1}+${randomNum2} = `))
+										sum === res ? alert('Вірно') : alert(`Помилка, відповідь ${sum}`)
+									},
+									10000
+								)
 							}
-							let a = parseInt(prompt('Вкажіть число'))
-							let n = parseInt(prompt('Вкажіть степінь до якого потрібно піднести число'))
-							document.write(`При піднесенні числа ${a} до степеня ${n}, результат = ${step(5,3)}`)
-
+							sumSimulator()
 							document.write('</div>')
 						</script>
 					</div>
