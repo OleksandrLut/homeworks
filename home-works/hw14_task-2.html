@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>HW 15</title>
+	<title>HW 14 task 2</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
@@ -36,16 +36,49 @@
 		</header>
 		<main class="page page_bg-img">
 			<div class="page__container">
-				<div class="page__exercise exercise">
-					<div class="exercise__items">
-						<a href="hw15_task-0.html" target="_blank" class="exercise__item item-exercise">
-							<div class="item-exercise__body">
-								<div class="item-exercise__title title-h3">Задача 0</div>
-								<div class="item-exercise__question">Умова</div>
+				<div class="page__task task">
+					<div class="task__buttons-top top-buttons">
+						<ul class="top-buttons__list">
+							<li class="top-buttons__item">
+								<a href="hw-14.html" type="button" class="top-buttons__link">До задач</a>
+							</li>
+						</ul>
+					</div>
+					<!--  ?-|-|-|-|-|-|-|-|-|-|-- task-title --|-|-|-|-|-|-|-|-|-|-  -->
+					<div class="task__header header-task">
+						<h1 class="header-task__title title-h1">
+							Задача 2
+						</h1>
+						<div class="header-task__question question-task">
+							<div class="question-task__main">
+								<p>Розробити функцію, у яку передають об’єкт (день, місяць, рік). Визначити, який буде рік через N місяців.</p>
 							</div>
-						</a>
+						</div>
+					</div>
+				</div>
+				<!--  ?-|-|-|-|-|-|-|-|-|-|-- tasl-body --|-|-|-|-|-|-|-|-|-|-  -->
+				<div class="task__body body-task">
+					<h2 class="body-task__title title-h2">Результат</h2>
+					<div class="body-task__ansver ansver-task">
+						<script>
+							document.write('<div class="ansver-task__body">')
+							let userDate = {
+								day: 2,
+								month: 3,
+								year: 2019,
+							}
 
-						</a>
+							function getYear({
+								month,
+								year
+							}, N) {
+								let res = Math.floor((month + N) / 12) + year
+								return res
+							}
+							const numN = parseInt(prompt('N ='))
+							document.write(getYear(userDate, numN))
+							document.write('</div>')
+						</script>
 					</div>
 				</div>
 			</div>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>HW 14 task 1</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="stylesheet" href="css/style.min.css?_v=20230807233314">
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<div class="header__logo">
+					<picture><source srcset="img/logo/JS_logo.webp" type="image/webp"><img src="img/logo/JS_logo.png" alt="JS logo 3d"></picture>
+				</div>
+				<nav class="header__menu menu-header">
+					<ul class="menu-header__list">
+						<li class="menu-header__item">
+							<a href="index.html" class="menu-header__link">Головна</a>
+						</li>
+						<li class="menu-header__item">
+							<a href="lessons.html" class="menu-header__link">Уроки</a>
+						</li>
+						<li class="menu-header__item">
+							<a href="homeworks.html" class="menu-header__link active">Домашка</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<main class="page page_bg-img">
+			<div class="page__container">
+				<div class="page__task task">
+					<div class="task__buttons-top top-buttons">
+						<ul class="top-buttons__list">
+							<li class="top-buttons__item">
+								<a href="hw-14.html" type="button" class="top-buttons__link">До задач</a>
+							</li>
+						</ul>
+					</div>
+					<!--  ?-|-|-|-|-|-|-|-|-|-|-- task-title --|-|-|-|-|-|-|-|-|-|-  -->
+					<div class="task__header header-task">
+						<h1 class="header-task__title title-h1">
+							Задача 1
+						</h1>
+						<div class="header-task__question question-task">
+							<div class="question-task__main">
+								<p>Описати масив об’єктів – сайтів розроблених компанією з такими властивостями</p>
+								<p>Властивості</p>
+								<ul style="margin-bottom: 30px;">
+									<li>- назва компанії на час розробки (назву періодично змінюють)</li>
+									<li>- власник компанії</li>
+									<li>
+										<p>- споснсори (масив спонсорів)</p>
+										<ul>
+											<li>* прізвище спонсора</li>
+											<li>* ім’я спонсора</li>
+											<li>* сума вкладень спонсора</li>
+										</ul>
+									</li>
+									<li>- рік випуску</li>
+									<li>- вартість сайту</li>
+								</ul>
+								<p>Знайти:</p>
+								<ul>
+									<li>1) загальну вартість усіх сайтів</li>
+									<li>2) кількість сайтів, що було зроблено між 2000 та 2009 рр.</li>
+									<li>3) кількість сайтів, де сума спонсорських вкладень була більшою за 100000</li>
+									<li>4) створити загальний список усіх спонсорів (поки можуть повторюватись, просто зібрати усі у масив)</li>
+									<li>5) знайти рік, коли прибуток був найбільшим</li>
+									<li>6) упорядкувати список за спаданням прибутку</li>
+									<li>7) Створити 2 окремих списки з копіями об’єктів, що містять сайти з вартість до 10000 і більше 10000</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--  ?-|-|-|-|-|-|-|-|-|-|-- tasl-body --|-|-|-|-|-|-|-|-|-|-  -->
+				<div class="task__body body-task">
+					<h2 class="body-task__title title-h2">Результат</h2>
+					<div class="body-task__ansver ansver-task">
+						<script>
+							document.write('<div class="ansver-task__body">')
+							// масив з сайтами
+							let sites = [{
+									companyName: 'TopCar',
+									owner: 'Nick',
+									sponsors: [{
+											lastName: 'Colins',
+											firstName: 'Joe',
+											investmentSum: 25000,
+										},
+										{
+											lastName: 'Fitzgerald',
+											firstName: 'Scott',
+											investmentSum: 18000,
+										},
+										{
+											lastName: 'Toller',
+											firstName: 'Ernst',
+											investmentSum: 21000,
+										},
+									],
+									productYear: 2005,
+									coast: 95000,
+								},
+								{
+									companyName: 'Orange County Choppers',
+									owner: 'Paul',
+									sponsors: [{
+											lastName: 'Teutul',
+											firstName: 'Paul',
+											investmentSum: 50000,
+										},
+										{
+											lastName: 'Teutul',
+											firstName: 'Paul jr.',
+											investmentSum: 41000,
+										},
+										{
+											lastName: 'Teutul',
+											firstName: 'Miky',
+											investmentSum: 10000,
+										},
+									],
+									productYear: 1999,
+									coast: 595000,
+								},
+								{
+									companyName: 'Open Store',
+									owner: 'Jim',
+									sponsors: [{
+											lastName: 'Klark',
+											firstName: 'Jim',
+											investmentSum: 32000,
+										},
+										{
+											lastName: 'Freeman',
+											firstName: 'Morgan',
+											investmentSum: 29000,
+										},
+										{
+											lastName: 'Piterson',
+											firstName: 'David',
+											investmentSum: 44000,
+										},
+									],
+									productYear: 2008,
+									coast: 1456000,
+								}
+							]
+							// ------------- Знайти -----------------
+							// 1) загальну вартість усіх сайтів
+							let sitesCoastSum = sites.reduce(
+								(prevSum, site) => prevSum + site.coast,
+								0
+							)
+							document.write(`<p>1) Загальна вартість сайтів - ${sitesCoastSum}</p>`)
+
+							// 2) кількість сайтів, що було зроблено між 2000 та 2009 рр.
+							let sitesNumFrom2000To2009 = 0
+							for (const site of sites) {
+								if (site.productYear >= 2000 && site.productYear <= 2009)
+									sitesNumFrom2000To2009++
+							}
+							// for (let numInd = 0; numInd < sites.length; numInd++) {
+							// 	if (sites[numInd].productYear >= 2000 && sites[numInd].productYear <= 2009)
+							// 	sitesNumFrom2000To2009++
+							// }
+							document.write(`<p>2) Кількість сайтів, що було зроблено між 2000 та 2009 рр - ${sitesNumFrom2000To2009}</p>`)
+
+							// 3) кількість сайтів, де сума спонсорських вкладень була більшою за 100000
+							let sitesNumInvestmentSunOver100000 = 0
+							for (const site of sites) {
+								let sumS = 0
+								for (const element of site.sponsors) {
+									sumS += element.investmentSum
+								}
+								if (sumS > 100000)
+									sitesNumInvestmentSunOver100000++
+							}
+							document.write(`<p>3) Кількість сайтів, де сума спонсорських вкладень була більшою за 100000 - ${sitesNumInvestmentSunOver100000}</p>`)
+
+							// 4) створити загальний список усіх спонсорів (поки можуть повторюватись, просто зібрати усі у масив)
+							const allSponsors = sites.map(
+								(site) => site.sponsors.map(
+									(sponsor) => ' ' + sponsor.firstName + ' ' + sponsor.lastName
+								)
+							)
+							const resAllSponsors = allSponsors.flat(1)
+							document.write(`<p>4) загальний список усіх спонсорів</p> <p>${resAllSponsors}</p>`)
+
+							// 5) знайти рік, коли прибуток був найбільшим
+							let maxCoast = 0
+							let resMaxCoastYear
+							for (const site of sites) {
+								if (site.coast > maxCoast) {
+									maxCoast = site.coast
+									resMaxCoastYear = site.productYear
+								}
+							}
+							document.write(`<p>5) рік, коли прибуток був найбільшим = ${resMaxCoastYear}</p>`)
+
+							//6) упорядкувати список за спаданням прибутку
+							const sortListMaxToMinCoast = JSON.parse(JSON.stringify(sites))
+							sortListMaxToMinCoast.sort(
+								(site1, site2) => site2.coast - site1.coast
+							)
+							console.log(sortListMaxToMinCoast);
+
+							//Створити 2 окремих списки з копіями об’єктів, що містять сайти з вартість до 100000 і більше 100000
+							let sitesUnder100000Price = [],
+								sitesOver100000Price = [];
+							for (const site of sites) {
+								if (site.coast < 100000) sitesUnder100000Price.push(JSON.parse(JSON.stringify(site)))
+								else sitesOver100000Price.push(JSON.parse(JSON.stringify(site)))
+							}
+							console.log(sitesUnder100000Price);
+							console.log(sitesOver100000Price);
+
+							document.write('</div>')
+						</script>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__items">
+					<div class="footer__item">
+						<picture><source srcset="img/footer/html.webp" type="image/webp"><img src="img/footer/html.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/css.webp" type="image/webp"><img src="img/footer/css.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/node.webp" type="image/webp"><img src="img/footer/node.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/sass.webp" type="image/webp"><img src="img/footer/sass.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/gulp.webp" type="image/webp"><img src="img/footer/gulp.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/git.webp" type="image/webp"><img src="img/footer/git.png" alt="html"></picture>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<script src="js/app.min.js?_v=20230807233314"></script>
+</body>
+
+</html>
