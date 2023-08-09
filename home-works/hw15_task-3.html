@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>HW 15 task 3</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="stylesheet" href="css/style.min.css?_v=20230809133221">
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<div class="header__logo">
+					<picture><source srcset="img/logo/JS_logo.webp" type="image/webp"><img src="img/logo/JS_logo.png" alt="JS logo 3d"></picture>
+				</div>
+				<nav class="header__menu menu-header">
+					<ul class="menu-header__list">
+						<li class="menu-header__item">
+							<a href="index.html" class="menu-header__link">Головна</a>
+						</li>
+						<li class="menu-header__item">
+							<a href="lessons.html" class="menu-header__link">Уроки</a>
+						</li>
+						<li class="menu-header__item">
+							<a href="homeworks.html" class="menu-header__link active">Домашка</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<main class="page page_bg-img">
+			<div class="page__container">
+				<div class="page__task task">
+					<div class="task__buttons-top top-buttons">
+						<ul class="top-buttons__list">
+							<li class="top-buttons__item">
+								<a href="hw-15.html" type="button" class="top-buttons__link">До задач</a>
+							</li>
+						</ul>
+					</div>
+					<!--  ?-|-|-|-|-|-|-|-|-|-|-- task-title --|-|-|-|-|-|-|-|-|-|-  -->
+					<div class="task__header header-task">
+						<h1 class="header-task__title title-h1">
+							Задача 3
+						</h1>
+						<div class="header-task__question question-task">
+							<div class="question-task__main">
+								<p>
+									Розробити клас MultChecker для перевірки таблиці множення
+								</p>
+								<table style="border: 1px solid black;">
+									<tr>
+										<th style="border: 1px solid black; text-align: left;">Поля(властивості)</th>
+										<td style="border: 1px solid black;">
+											<ul>
+												<li>Число, яке перевіряємо (наприклад, перевірка частини таблиці множення на 7)</li>
+												<li>Кількість правильних відповідей</li>
+												<li>Кількість неправильних відповідей</li>
+											</ul>
+										</td>
+									</tr>
+									<tr>
+										<th style="border: 1px solid black; text-align: left;">Методи (дії)</th>
+										<td style="border: 1px solid black;">
+											<ul>
+												<li>Генерування прикладу (метод випадковим чином визначає друге число, перше число фіксоване)</li>
+												<li>Перевірка правильності вказаної відповіді</li>
+												<li>render</li>
+											</ul>
+										</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--  ?-|-|-|-|-|-|-|-|-|-|-- tasl-body --|-|-|-|-|-|-|-|-|-|-  -->
+				<div class="task__body body-task">
+					<h2 class="body-task__title title-h2">Результат</h2>
+					<div class="body-task__ansver ansver-task">
+						<script>
+							document.write('<div class="ansver-task__body">')
+
+							class MultChecker {
+								constructor(checkedNum) {
+									this.checkedNum = checkedNum
+									this.rightAnswerCount = 0
+									this.wrongAnswerCount = 0
+									this.secondNum
+								}
+								generateRandomNum(minNum, maxNum) {
+									return (minNum + Math.floor(Math.random() * (maxNum - minNum + 1)))
+								}
+								generateSecondNum() {
+									this.secondNum = this.generateRandomNum(1, 5)
+								}
+								checkAnswer(userAnswer) {
+									let correctAwswer = this.checkedNum * this.secondNum
+									if (correctAwswer === userAnswer)
+										this.rightAnswerCount++
+									else
+										this.wrongAnswerCount++
+								}
+								render() {
+									do {
+										this.generateSecondNum()
+										let userAnswer = parseInt(prompt(`Добуток ${this.checkedNum} * ${this.secondNum} = `))
+										this.checkAnswer(userAnswer)
+									} while (confirm('Продовжити?'));
+									document.write(`
+											<p>Кількість правильних відповідей - ${this.rightAnswerCount}</p>
+											<p>Кількість помилкових відповідей - ${this.wrongAnswerCount}</p>
+											`)
+								}
+							}
+							// let firstNumber = parseInt(prompt('Вкажіть число для перевірки'))
+							let res = new MultChecker(parseInt(prompt('Вкажіть число для перевірки')))
+							res.render()
+							console.log(res);
+							document.write('</div>')
+						</script>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__items">
+					<div class="footer__item">
+						<picture><source srcset="img/footer/html.webp" type="image/webp"><img src="img/footer/html.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/css.webp" type="image/webp"><img src="img/footer/css.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/node.webp" type="image/webp"><img src="img/footer/node.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/sass.webp" type="image/webp"><img src="img/footer/sass.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/gulp.webp" type="image/webp"><img src="img/footer/gulp.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/git.webp" type="image/webp"><img src="img/footer/git.png" alt="html"></picture>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<script src="js/app.min.js?_v=20230809133221"></script>
+</body>
+
+</html>
