@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>HW 16 task 1</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="stylesheet" href="css/style.min.css?_v=20230813155840">
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<div class="header__logo">
+					<picture><source srcset="img/logo/JS_logo.webp" type="image/webp"><img src="img/logo/JS_logo.png" alt="JS logo 3d"></picture>
+				</div>
+				<nav class="header__menu menu-header">
+					<ul class="menu-header__list">
+						<li class="menu-header__item">
+							<a href="index.html" class="menu-header__link">Головна</a>
+						</li>
+						<li class="menu-header__item">
+							<a href="lessons.html" class="menu-header__link">Уроки</a>
+						</li>
+						<li class="menu-header__item">
+							<a href="homeworks.html" class="menu-header__link active">Домашка</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<main class="page page_bg-img">
+			<div class="page__container">
+				<div class="page__task task">
+					<div class="task__buttons-top top-buttons">
+						<ul class="top-buttons__list">
+							<li class="top-buttons__item">
+								<a href="hw-16.html" type="button" class="top-buttons__link">До задач</a>
+							</li>
+						</ul>
+					</div>
+					<!--  ?-|-|-|-|-|-|-|-|-|-|-- task-title --|-|-|-|-|-|-|-|-|-|-  -->
+					<div class="task__header header-task">
+						<h1 class="header-task__title title-h1">
+							Задача 1
+						</h1>
+						<div class="header-task__question question-task">
+							<div class="question-task__main">
+								<p>
+									Створити клас <strong>TDate</strong> для роботи із датами у форматі “день.місяць.рік”. Дата представляється
+									структурою із трьома полями. Реалізувати методи збільшення/зменшення дати на певну кількість
+									днів, місяців чи років. Введення та виведення дати реалізувати за допомогою методу <strong>toString</strong>.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--  ?-|-|-|-|-|-|-|-|-|-|-- tasl-body --|-|-|-|-|-|-|-|-|-|-  -->
+				<div class="task__body body-task">
+					<h2 class="body-task__title title-h2">Результат</h2>
+					<div class="body-task__ansver ansver-task">
+						<script>
+							document.write('<div class="ansver-task__body">')
+
+							class TDate {
+								#day
+								#month
+								#year
+								constructor(day, month, year) {
+									this.Day = day
+									this.Month = month
+									this.Year = year
+								}
+								get Day() {
+									return this.#day
+								}
+								set Day(newDayVal) {
+									if (newDayVal < 1 && newDayVal > 31) throw new Error('Не коректне значення дня')
+									this.#day = newDayVal
+								}
+								get Month() {
+									return this.#month
+								}
+								set Month(newMonthVal) {
+									if (newMonthVal < 1 && newMonthVal > 12) throw new Error('Не коректне значення місяця')
+									this.#month = newMonthVal
+								}
+								get Year() {
+									return this.#year
+								}
+								set Year(newYearVal) {
+									if (newYearVal < 0) throw new Error('Не коректне значення року')
+									this.#year = newYearVal
+								}
+								toString() {
+									return `${this.#day}. ${this.#month}. ${this.#year}`
+								}
+								increaseDay(addDay) {
+									let currentDay = this.Day + addDay
+									this.Month += Math.floor(currentDay / 31)
+									this.Day = currentDay % 31
+									if (this.Month > 12) {
+										this.Month %= 12
+										this.Yeay += Math.floor(this.Month / 12)
+									}
+								}
+								increaseMonth(addMonth) {
+									let currentMonth = this.Month + addMonth
+									this.Year += Math.floor(currentMonth / 12)
+									this.Month = currentMonth % 12
+									if (this.Month > 12) {
+										this.Month %= 12
+										this.Year += Math.floor(this.Month / 12)
+									}
+								}
+								increaseYear(addYear) {
+									this.Year += addYear
+								}
+								reduceYear(reduceYear) {
+									if (reduceYear > this.Year) throw new Error('Не коректне значення')
+									this.Year -= reduceYear
+								}
+								reduceMonth(reduceMonth) {
+									if (this.Month <= reduceMonth)
+										this.Month = (12 - ((reduceMonth - this.Month) % 12))
+									this.Year -= Math.floor(reduceMonth / 12)
+								}
+								reduceDay(reduceDay) {
+									if (this.Day <= reduceDay)
+										this.Day = (31 - ((reduceDay - this.Day) % 31))
+									else
+										this.Day -= reduceDay
+
+									this.Month -= Math.floor(reduceDay / 12)
+								}
+
+							}
+							const userDay = parseInt(prompt('Вкажіть число (номер дня місяця)'))
+							const userMonth = parseInt(prompt('Вкажіть місяць (номер місяця)'))
+							const userYear = parseInt(prompt('Вкажіть рік'))
+							let printUserDate = new TDate(userDay, userMonth, userYear)
+							console.log(printUserDate);
+							document.write(`<p>Дата зазаначена користувачем ${printUserDate}</p>`)
+
+
+							let propositionChangeDate = confirm(`Бажаєте змінити дату ${printUserDate}?`)
+
+							function changeDay() {
+								return parseInt(prompt('Вкажіть кількість днів (якщо не бажаєте змінити вкажіть - 0)'))
+							}
+
+							function changeMonth() {
+								return parseInt(prompt('Вкажіть кількість місяців (якщо не бажаєте змінити вкажіть - 0)'))
+							}
+
+							function changeYear() {
+								return parseInt(prompt('Вкажіть кількість років (якщо не бажаєте змінити вкажіть - 0)'))
+							}
+							let userChangeDay
+							let userChangeMonth
+							let userChangeYear
+							if (propositionChangeDate === true) {
+								let offerChangeDate = confirm('Збільшити - натисніть ТАК, зменшити - НІ')
+								userChangeDay = changeDay()
+								userChangeMonth = changeMonth()
+								userChangeYear = changeYear()
+								if (offerChangeDate === true) {
+									printUserDate.increaseDay(userChangeDay)
+									printUserDate.increaseMonth(userChangeMonth)
+									printUserDate.increaseYear(userChangeYear)
+									document.write(`<p>Дата змінена користувачем ${printUserDate}</p>`)
+								} else {
+									printUserDate.reduceDay(userChangeDay)
+									printUserDate.reduceMonth(userChangeMonth)
+									printUserDate.reduceYear(userChangeYear)
+									document.write(`<p>Дата змінена користувачем ${printUserDate}</p>`)
+								}
+							}
+
+
+							document.write('</div>')
+						</script>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__items">
+					<div class="footer__item">
+						<picture><source srcset="img/footer/html.webp" type="image/webp"><img src="img/footer/html.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/css.webp" type="image/webp"><img src="img/footer/css.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/node.webp" type="image/webp"><img src="img/footer/node.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/sass.webp" type="image/webp"><img src="img/footer/sass.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/gulp.webp" type="image/webp"><img src="img/footer/gulp.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/git.webp" type="image/webp"><img src="img/footer/git.png" alt="html"></picture>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<script src="js/app.min.js?_v=20230813155840"></script>
+</body>
+
+</html>

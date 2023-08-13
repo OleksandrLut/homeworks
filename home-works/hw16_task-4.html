@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>HW 16 task 4</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="stylesheet" href="css/style.min.css?_v=20230813155840">
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<div class="header__logo">
+					<picture><source srcset="img/logo/JS_logo.webp" type="image/webp"><img src="img/logo/JS_logo.png" alt="JS logo 3d"></picture>
+				</div>
+				<nav class="header__menu menu-header">
+					<ul class="menu-header__list">
+						<li class="menu-header__item">
+							<a href="index.html" class="menu-header__link">Головна</a>
+						</li>
+						<li class="menu-header__item">
+							<a href="lessons.html" class="menu-header__link">Уроки</a>
+						</li>
+						<li class="menu-header__item">
+							<a href="homeworks.html" class="menu-header__link active">Домашка</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<main class="page page_bg-img">
+			<div class="page__container">
+				<div class="page__task task">
+					<div class="task__buttons-top top-buttons">
+						<ul class="top-buttons__list">
+							<li class="top-buttons__item">
+								<a href="hw-16.html" type="button" class="top-buttons__link">До задач</a>
+							</li>
+						</ul>
+					</div>
+					<!--  ?-|-|-|-|-|-|-|-|-|-|-- task-title --|-|-|-|-|-|-|-|-|-|-  -->
+					<div class="task__header header-task">
+						<h1 class="header-task__title title-h1">
+							Задача 4
+						</h1>
+						<div class="header-task__question question-task">
+							<div class="question-task__main">
+								<p>
+									Створити клас <strong>TBankomat</strong>, який моделює роботу банкомата. Клас повинен містити поля для зберігання кількості
+									купюр кожного із номіналів від 5 до 200 гривень. Реалізувати методи знаходження максимальної та мінімальної
+									сум, які може видати банкомат, та метод зняття деякої суми.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--  ?-|-|-|-|-|-|-|-|-|-|-- tasl-body --|-|-|-|-|-|-|-|-|-|-  -->
+				<div class="task__body body-task">
+					<h2 class="body-task__title title-h2">Результат</h2>
+					<div class="body-task__ansver ansver-task">
+						<script>
+							document.write('<div class="ansver-task__body">')
+							// ----- клас банкомат -----
+							// поля з номіналами купюр 5, 10, 20, 50, 100, 200 та їх кількістю
+							// методи
+							// макс сума видачі банкомата
+							// мін сума видачі банкомата
+							// зняття зазаначеної суми
+							// ---- клас Купяра ----
+							class Banknote {
+								#denomination
+								#count
+								constructor(initDenomination, initCount) {
+									this.Denomination = initDenomination
+									this.Count = initCount
+								}
+								get Denomination() {
+									return this.#denomination
+								}
+								set Denomination(initDenomination) {
+									if ([5, 10, 20, 50, 100, 200].includes(initDenomination))
+										this.#denomination = initDenomination
+									else throw new Error('Купюри можуть бути тільки номіналом 5, 10, 20. 50, 100, 200')
+								}
+								get Count() {
+									return this.#count
+								}
+								set Count(initCount) {
+									if (initCount < 0) throw new Error('Не коректне значення кількості купюр! (не може бути меншим за 0)')
+									this.#count = initCount
+								}
+							}
+							// ---- клас Банкомат ----
+							class TBankomat {
+								constructor() {
+									this.moneyATM = []
+								}
+								addMoneyInATM(initDenomination, initCount) {
+									let addMoneyATM = new Banknote(initDenomination, initCount)
+									this.moneyATM.push(addMoneyATM)
+								}
+								getTotalSumATM() {
+									let total = 0
+									for (const banknote of this.moneyATM) {
+										total += banknote.Denomination * banknote.Count
+									}
+									return total
+								}
+								getMinSumUnload() {
+									let minSnmUnload = Infinity
+									let banknoteCount = 0
+									for (const banknote of this.moneyATM) {
+										banknoteCount += banknote.Count
+										if (banknote.Count > 0 && banknote.Denomination < minSnmUnload) minSnmUnload = banknote.Denomination
+									}
+									if (banknoteCount === 0) throw new Error('В банкоматі закінчились кошти')
+									return minSnmUnload
+								}
+								getUnloadSum(userSum) {
+									// 1) перевіряєм чи достатньо коштів в банкоматі
+									if (userSum < this.getTotalSumATM()) {
+										let unloadSum = userSum
+										// 2) сортуєм купюри по номіналу
+										this.moneyATM.sort((banknote1, banknote2) => banknote2.Denomination - banknote1.Denomination)
+										// 3) починаєм знімати кошти
+										for (const banknote of this.moneyATM) {
+											if (banknote.Count > 0) {
+												let banknoteSum = banknote.Denomination * banknote.Count
+												// 4) перевіряєм чи достатньо купюр даного номіналу
+												// якщо достатньо
+												if (banknoteSum >= unloadSum) {
+													// віднімаєм потрібну кількість
+													banknote.Count -= Math.floor(unloadSum / banknote.Denomination)
+													// визначаємо залишок суми що треба зняти
+													unloadSum %= banknote.Denomination
+												}
+												// ящо не достатньо
+												else if (banknoteSum < unloadSum) {
+													// віднімаєм купюри кожного номіналу поки вони є або сума до зняття не буде знята
+													while (banknote.Count !== 0) {
+														unloadSum -= banknote.Denomination
+														banknote.Count--
+													}
+												}
+												if (unloadSum === 0) break
+											}
+										}
+									} else {
+										confirm('В банкомвті недостатньо коштів')
+										// throw new Error('В банкомвті недостатньо коштів')
+										this.getUnloadSum(parseInt(prompt(`Вкажіть суму яку бажаєте зняти! Сума повинна бути кратною ${this.getMinSumUnload()}`)))
+									}
+								}
+								run() {
+									let userUnloadSum = parseInt(prompt(`Вкажіть суму яку бажаєте зняти! Сума повинна бути кратною ${this.getMinSumUnload()}`))
+									this.getUnloadSum(userUnloadSum)
+								}
+								toString() {
+									return `Мксимальна сума для видачі ${this.getTotalSumATM()}<br>Мінімальна сума для видачі ${this.getMinSumUnload()}`
+								}
+							}
+							let bankomat1 = new TBankomat()
+							bankomat1.addMoneyInATM(5, 40)
+							bankomat1.addMoneyInATM(10, 30)
+							bankomat1.addMoneyInATM(20, 25)
+							bankomat1.addMoneyInATM(50, 20)
+							bankomat1.addMoneyInATM(100, 30)
+							bankomat1.addMoneyInATM(200, 25)
+
+							console.log(bankomat1.getTotalSumATM());
+							bankomat1.run()
+							console.log(bankomat1.moneyATM);
+							document.write(`Залишок коштів в банкоматі ${bankomat1.getTotalSumATM()}`)
+
+							document.write('</div>')
+						</script>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__items">
+					<div class="footer__item">
+						<picture><source srcset="img/footer/html.webp" type="image/webp"><img src="img/footer/html.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/css.webp" type="image/webp"><img src="img/footer/css.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/node.webp" type="image/webp"><img src="img/footer/node.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/sass.webp" type="image/webp"><img src="img/footer/sass.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/gulp.webp" type="image/webp"><img src="img/footer/gulp.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/git.webp" type="image/webp"><img src="img/footer/git.png" alt="html"></picture>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<script src="js/app.min.js?_v=20230813155840"></script>
+</body>
+
+</html>

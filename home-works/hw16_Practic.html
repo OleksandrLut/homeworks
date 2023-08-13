@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>HW 16 Practic</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="stylesheet" href="css/style.min.css?_v=20230813155840">
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<div class="header__logo">
+					<picture><source srcset="img/logo/JS_logo.webp" type="image/webp"><img src="img/logo/JS_logo.png" alt="JS logo 3d"></picture>
+				</div>
+				<nav class="header__menu menu-header">
+					<ul class="menu-header__list">
+						<li class="menu-header__item">
+							<a href="index.html" class="menu-header__link">Головна</a>
+						</li>
+						<li class="menu-header__item">
+							<a href="lessons.html" class="menu-header__link">Уроки</a>
+						</li>
+						<li class="menu-header__item">
+							<a href="homeworks.html" class="menu-header__link active">Домашка</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<main class="page page_bg-img">
+			<div class="page__container">
+				<div class="page__task task">
+					<div class="task__buttons-top top-buttons">
+						<ul class="top-buttons__list">
+							<li class="top-buttons__item">
+								<a href="hw-16.html" type="button" class="top-buttons__link">До задач</a>
+							</li>
+						</ul>
+					</div>
+					<!--  ?-|-|-|-|-|-|-|-|-|-|-- task-title --|-|-|-|-|-|-|-|-|-|-  -->
+					<div class="task__header header-task">
+						<h1 class="header-task__title title-h1">
+							Задачаі - практика
+						</h1>
+						<div class="header-task__question question-task">
+							<div class="question-task__main">
+
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--  ?-|-|-|-|-|-|-|-|-|-|-- tasl-body --|-|-|-|-|-|-|-|-|-|-  -->
+				<div class="task__body body-task">
+					<h2 class="body-task__title title-h2">Результат</h2>
+					<div class="body-task__ansver ansver-task">
+						<script>
+							document.write('<div class="ansver-task__body">')
+
+							// обєкт учень
+
+							// class Student {
+							// 	#age
+							// 	#class_
+							// 	constructor(name, age, initClass, scoresList){
+							// 		this.name = name
+							// 		this.Age = age
+							// 		this.Class = initClass
+							// 		this.scores = scoresList
+							// 	}
+							// 	get Age(){
+							// 		return this.#age
+							// 	}
+							// 	set Age(newAge){
+							// 		if (newAge < 7) throw new Error('Вік не може бути менше 7')
+							// 		this.#age = newAge
+							// 	}
+							// 	get Class() {
+							// 		return this.#class_
+							// 	}
+							// 	set Class(newClass) {
+							// 		if(newClass < 0 && newClass > 11) throw new Error('Клас повинен бути в діапазоні від 1 до 11')
+							// 		this.#class_ = newClass
+							// 	}
+							// 	get AverageScore(){
+							// 		let scoreSum = 0
+							// 		for (const score of this.scores) { scoreSum += score }
+							// 		return (scoreSum/this.scores.length).toFixed(1)
+							// 	}
+							// 	get StudentType(){
+							// 		let studentType
+							// 		let minScore = Math.min(...this.scores)
+							// 		switch (minScore) {
+							// 			case 1:
+							// 			case 2:
+							// 			case 3: studentType = 'Двійочник';
+							// 				break;
+							// 			case 4:
+							// 			case 5:
+							// 			case 6: studentType = 'Трійочник';
+							// 				break;
+							// 			case 7:
+							// 			case 8:
+							// 			case 9: studentType = 'Хорошист';
+							// 				break;
+							// 			case 10:
+							// 			case 11:
+							// 			case 12: studentType = 'Відмінник';
+							// 				break;
+							// 			default: throw new Error('Не коректне значення середнього балу')
+							// 				break;
+							// 		}
+							// 		return studentType
+							// 	}
+							// 	get YearsToStudyEnd(){
+							// 		return 12 - this.Class
+							// 	}
+							// 	toString(){
+							// 		return `Учень - ${this.name}<br>Середній бал - ${this.AverageScore}<br>
+							// 		Тип учня - ${this.StudentType}<br>До випуску залишилось - ${this.YearsToStudyEnd} років`
+							// 	}
+
+							// }
+							// let newStudent = new Student('Іванов Іван', 13, 6, [8, 9, 10, 12, 11, 9])
+							// console.log(newStudent)
+							// console.log(newStudent.AverageScore);
+							// document.write(newStudent.AverageScore + '<br>')
+							// console.log(newStudent.getStudentType());
+
+							// document.write(newStudent)
+
+							document.write('</div>')
+						</script>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__items">
+					<div class="footer__item">
+						<picture><source srcset="img/footer/html.webp" type="image/webp"><img src="img/footer/html.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/css.webp" type="image/webp"><img src="img/footer/css.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/node.webp" type="image/webp"><img src="img/footer/node.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/sass.webp" type="image/webp"><img src="img/footer/sass.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/gulp.webp" type="image/webp"><img src="img/footer/gulp.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/git.webp" type="image/webp"><img src="img/footer/git.png" alt="html"></picture>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<script src="js/app.min.js?_v=20230813155840"></script>
+</body>
+
+</html>
