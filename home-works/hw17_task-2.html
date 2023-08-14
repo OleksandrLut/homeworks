@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230813155840">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230814213530">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -65,6 +65,31 @@
 					<div class="body-task__ansver ansver-task">
 						<script>
 							document.write('<div class="ansver-task__body">')
+							// властивості водій, марка, номер
+							class Car {
+								static #carRef
+								constructor(driver, brand, registrationNum) {
+									if (Car.#carRef) return Car.#carRef
+									this.driver = driver
+									this.brand = brand
+									this.registrationNum = registrationNum
+									Car.#carRef = this
+								}
+								toString() {
+									return `<table style="border: 1px solid black; margin-bottom: 20px;">
+												<tr><caption style="border: 1px solid black; padding: 5px;"><strong>Службове авто</strong></caption></tr>
+												<tr  style="background-color: rgba(0, 0, 0, 0.15);"><th style="text-align: left; padding: 5px;">Водій</th><td style="text-align: left; padding: 5px;">${this.driver}</td></tr>
+												<tr><th style="text-align: left; padding: 5px;">Марка</th><td style="text-align: left; padding: 5px;">${this.brand}</td></tr>
+												<tr style="background-color: rgba(0, 0, 0, 0.15);"><th style="text-align: left; padding: 5px;">Номер</th><td style="text-align: left; padding: 5px;">${this.registrationNum}</td></tr>
+												</table>`
+								}
+							}
+
+
+							let companyCar = new Car('Роман', 'Toyota', 'KA4858TT')
+							document.write(companyCar)
+							let companyCar2 = new Car('Ігор', 'Skoda', 'AT0144BI')
+							document.write(companyCar2)
 
 
 							document.write('</div>')
@@ -98,7 +123,7 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20230813155840"></script>
+	<script src="js/app.min.js?_v=20230814213530"></script>
 </body>
 
 </html>

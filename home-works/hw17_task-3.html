@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230813155840">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230814213530">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -67,6 +67,57 @@
 					<div class="body-task__ansver ansver-task">
 						<script>
 							document.write('<div class="ansver-task__body">')
+							// Створити клас Нагадувач(Reminder)
+							// кожні N секунд (вказує користувач) виводится нагадування(текст) //використати - setInterval//
+							// + порядковий номер нагадування
+							// повинно буит доступно створення тільки 1-го обєкта нагадувача
+							//  методи:
+							// - метод зупинки таймера
+							// - метод зміни повідомлення без зупинки таймера
+							class Reminder {
+								static #reminderRef
+								constructor(masssege, interval) {
+									if (Reminder.#reminderRef) return Reminder.#reminderRef
+									this.masssege = masssege
+									this.interval = interval * 1000
+									this.intervalID = null
+									Reminder.#reminderRef = this
+								}
+								run() {
+									let count = 1
+									this.intervalID = setInterval(() => {
+										document.write(`<p>${count}. ${this.masssege}</p>`)
+										count++
+									}, this.interval)
+								}
+								changeMassege(newMassege) {
+									this.masssege = newMassege
+								}
+								stop() {
+									clearInterval(this.intervalID)
+								}
+							}
+
+							let userRemindeEvent = prompt('Встановіть нагадування')
+							let userRemindeInterval = parseInt(prompt('Встановіть інтервал нагадування (в сек. 1, 2, ...)'))
+							let userRemindeEventNew = prompt('Змініть нагадування нагадування')
+							// setTimeout(()=>{
+							// 	userRemindeEventNew = prompt('Змініть нагадування нагадування')
+							// },
+							// userRemindeInterval*1000*3) 
+							let reminde = new Reminder(userRemindeEvent, userRemindeInterval)
+							reminde.run()
+							setTimeout(() => {
+									reminde.changeMassege(userRemindeEventNew)
+								},
+								userRemindeInterval * 1000 * 5)
+							setTimeout(() => {
+									document.write('<p>Stop!</p>')
+									reminde.stop()
+								},
+								userRemindeInterval * 1000 * 8)
+							console.log(reminde)
+
 
 
 							document.write('</div>')
@@ -100,7 +151,7 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20230813155840"></script>
+	<script src="js/app.min.js?_v=20230814213530"></script>
 </body>
 
 </html>
