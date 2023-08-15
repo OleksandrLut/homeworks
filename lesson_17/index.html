@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Lesson 17 ex. 4</title>
+</head>
+<body>
+	<style>
+		body{
+			background-color: gray;
+		}
+		.lesson {
+			padding: 30px 40px;
+		}
+		.lesson__title {
+			padding-left: 30px;
+		}
+		.lesson__title span{
+			color: red;
+		}
+		.lesson__ex {
+			font-size: 18px;
+		}
+	</style>
+	<div class="lesson">
+		<h1 class="lesson__title">Задача <span>4</span></h1>
+		<p class="lesson__ex">
+			Особиста бібліотека. Картотека домашньої бібліотеки: дані книги (автори (піб, рік народження, короткий 
+			опис), назва книги, жанр, видавництво (назва, реєстраційний номер, рік засування)). Реалізувати розділи 
+			бібліотеки організувати додавання/вилучення книг та  вибір книг за назвою, за ПІБ автора, за видавництвом.
+		</p>
+	</div>
+	<script>
+		class Librerry{
+			constructor(initBookList){
+				this.booksList = initBookList
+			}
+			addBook(book){
+				this.booksList.push(book)
+			}
+			removeBook(remBookName){
+				this.booksList = bookList.filter((book)=>book.bookTitle !== remBookName)
+			}
+			findeBook(findeBook){
+				return this.booksList.filter((book)=>book.bookTitle === findeBook)
+			}
+			findeBookByAuthor(author){
+				return this.booksList.filter((book)=>book.author.surname === author)
+			}
+			findeBookByPublisher(publisher){
+				return this.booksList.filter((book)=>book.publisher.titlePublisher === publisher)
+			}
+		}
+		// ---- об'єкт Автор -----
+		class Author{
+			constructor({firstName, surname, birthDate, description}){
+				this.firstName = firstName
+				this.surname = surname
+				this.birthDate = birthDate
+				this.description = description
+				}
+		}
+		// ---- об'єкт Видавництво -----
+		class Publisher {
+			constructor({titlePublisher, regNum, releaseYear}) {
+				this.titlePublisher = titlePublisher
+				this.regNum = regNum
+				this.releaseYear = releaseYear
+			}
+		}
+		// ---- об'єкт Книга -----
+		class Book {
+			constructor(initData){
+				this.bookTitle = initData.bookTitle
+				this.genre = initData.genre
+				this.author = new Author(initData)
+				this.publisher = new Publisher(initData)
+			}
+		}
+		let bookList = [
+			new Book({
+				firstName: 'Ернест',
+				surname: 'Хемінгуей',
+				birthDate: 1899,
+				description: 'письменник і журналіст, лауреат Нобелівської премії з літератури 1954 року, лауреат Пулітцерівської премії 1953 року.',
+				titlePublisher: 'Ранок',
+				regNum: '300300234',
+				releaseYear: 2000,
+				bookTitle: 'Старий і море',
+				genre: 'Морська повість',
+			}),
+			new Book({
+				firstName: 'Стіван',
+				surname: 'Кінг',
+				birthDate: 1947,
+				description: 'Його називають «Королем жаху», зізвучно з прізвищем майстра, писав ще під псевдонімом Річард Бахман.',
+				titlePublisher: 'Ранок',
+				regNum: '300300234',
+				releaseYear: 2000,
+				bookTitle: 'Сяйво',
+				genre: 'Жахи',
+				})
+		]
+		let library1 = new Librerry(bookList)
+		library1.addBook(new Book({
+			firstName: 'Рей',
+				surname: 'Бреедбері',
+				birthDate: 1920,
+				description: 'один із найвідоміших американських письменників-фантастів, автор близько 400 літературних творів',
+				titlePublisher: 'Старий Лев',
+				regNum: '300342345',
+				releaseYear: 2004,
+				bookTitle: '451 градус за фаренгейтом',
+				genre: 'Наукова фантастика',
+		}))
+		console.log(library1);
+		console.log(library1.findeBook('Старий і море'));
+		console.log(library1.findeBookByAuthor('Кінг'));
+		console.log(library1.findeBookByPublisher('Ранок'));
+		
+		library1.removeBook('451 градус за фаренгейтом');
+		console.log(library1);
+	</script>
+</body>
+</html>
