@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Lesson 17 xe.5</title>
+</head>
+<body>
+	<style>
+		body{
+			background-color: gray;
+		}
+		.lesson {
+			padding: 30px 40px;
+		}
+		.lesson__title {
+			padding-left: 30px;
+		}
+		.lesson__title span{
+			color: red;
+		}
+		.lesson__ex {
+			font-size: 18px;
+		}
+	</style>
+	<div class="lesson">
+		<h1 class="lesson__title">Задача <span>4</span></h1>
+		<p class="lesson__ex">
+			Особиста бібліотека. Картотека домашньої бібліотеки: дані книги (автори (піб, рік народження, короткий 
+			опис), назва книги, жанр, видавництво (назва, реєстраційний номер, рік засування)). Реалізувати розділи 
+			бібліотеки організувати додавання/вилучення книг та  вибір книг за назвою, за ПІБ автора, за видавництвом.
+		</p>
+	</div>
+	<script>
+		// клас TestData
+		class TestData{
+			constructor(testData){
+				Object.assign(this, testData)
+			}
+			toString(){
+				return `${this.firstNum} ${this.operation} ${this.secondNum}<br>
+				відповідь користувача ${this.userAnswer}<br>правильна відповідь ${this.correctAnswer}`
+			}
+		}
+		// клас MultChecker
+		class MultChecker{
+			constructor(minNum = 1, maxNum = 9){
+				this.minNum = minNum
+				this.maxNum = maxNum
+			}
+			getRandomNum(minNum,maxNum){
+				minNum??=this.minNum
+				maxNum??=this.maxNum
+				return (minNum+Math.floor(Math.random()*(maxNum-minNum+1)))
+			}
+			test(){
+				const firstNum = this.getRandomNum()
+				const secondNum = this.getRandomNum()
+				const correctAnswer = firstNum*secondNum
+				const userAnswer = parseInt(prompt(`${firstNum} * ${secondNum} = `))
+				if(correctAnswer===userAnswer) alert('відповідь правильна')
+				else alert(`Помилка, правильна відповідь ${correctAnswer}`)
+				return new TestData({
+				firstNum: firstNum,
+				secondNum: secondNum,
+				correctAnswer: correctAnswer,
+				userAnswer: userAnswer,
+				operation: '*'
+				})
+			}
+		}
+		// клас AddChecker
+		class AddChecker{
+			constructor(minNum = 1, maxNum = 9){
+				this.minNum = minNum
+				this.maxNum = maxNum
+			}
+			getRandomNum(minNum,maxNum){
+				minNum??=this.minNum
+				maxNum??=this.maxNum
+				return (minNum+Math.floor(Math.random()*(maxNum-minNum+1)))
+			}
+			test(){
+				const firstNum = this.getRandomNum()
+				const secondNum = this.getRandomNum()
+				const correctAnswer = firstNum+secondNum
+				const userAnswer = parseInt(prompt(`${firstNum} + ${secondNum} = `))
+				if(correctAnswer===userAnswer) alert('відповідь правильна')
+				else alert(`Помилка, правильна відповідь ${correctAnswer}`)
+				return new TestData({
+					firstNum: firstNum,
+					secondNum: secondNum,
+					correctAnswer: correctAnswer,
+					userAnswer: userAnswer,
+					operation: '+'
+					})
+			}
+		}
+		// клас Hystory
+		class History{
+			constructor(){
+				this.testList = []
+			}
+			addNewTest(newTest){
+				this.testList.push(new TestData(newTest))
+			}
+			showTestList(){
+				for (const test of this.testList) {
+				document.write(test+'<br>')
+				}
+			}
+		}
+		// клас TestManager
+		class TestManager {
+			constructor(testNum, interval, min=0, max=9){
+				this.testNum = testNum
+				this.interval = interval
+				this.doneTests = 0
+				this.multChecker = new MultChecker()
+				this.addChecker = new AddChecker(min, max)
+					this.history = new History()
+			}
+			run(){
+				let result
+				if(Math.random()>0.5)
+					result = this.addChecker.test()
+				else result = this.multChecker.test()
+					this.history.addNewTest(result)
+					this.doneTests++
+				if(this.doneTests<this.testNum)
+					setTimeout(()=>{ this.run() }, this.interval )
+				else this.history.showTestList()
+			}
+			start(){
+				this.run()
+			}
+		}
+		const manager = new TestManager(2, 1000, 2, 8)
+		manager.start()
+	</script>
+</body>
+</html>
