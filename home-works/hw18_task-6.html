@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>HW 18 task 6</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="stylesheet" href="css/style.min.css?_v=20230821222644">
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<div class="header__logo">
+					<picture><source srcset="img/logo/JS_logo.webp" type="image/webp"><img src="img/logo/JS_logo.png" alt="JS logo 3d"></picture>
+				</div>
+				<nav class="header__menu menu-header">
+					<ul class="menu-header__list">
+						<li class="menu-header__item">
+							<a href="index.html" class="menu-header__link">Головна</a>
+						</li>
+						<li class="menu-header__item">
+							<a href="lessons.html" class="menu-header__link">Уроки</a>
+						</li>
+						<li class="menu-header__item">
+							<a href="homeworks.html" class="menu-header__link active">Домашка</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<main class="page page_bg-img">
+			<div class="page__container">
+				<div class="page__task task">
+					<div class="task__buttons-top top-buttons">
+						<ul class="top-buttons__list">
+							<li class="top-buttons__item">
+								<a href="hw-18.html" type="button" class="top-buttons__link">До задач</a>
+							</li>
+						</ul>
+					</div>
+					<!--  ?-|-|-|-|-|-|-|-|-|-|-- task-title --|-|-|-|-|-|-|-|-|-|-  -->
+					<div class="task__header header-task">
+						<h1 class="header-task__title title-h1">
+							Задача 6
+						</h1>
+						<div class="header-task__question question-task">
+							<div class="question-task__main">
+								<p>Користувач задає кількість оцінок і натискає на кнопку «get table». В результаті формується таблиця з input,
+									куди користувач вводить оцінки. Після цього натискає на кнопку “get sum” і знаходить середнє значення.</p>
+								<picture><source srcset="img/hw_18/06.webp" type="image/webp"><img src="img/hw_18/06.png" alt="img06"></picture>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--  ?-|-|-|-|-|-|-|-|-|-|-- tasl-body --|-|-|-|-|-|-|-|-|-|-  -->
+				<div class="task__body body-task">
+					<h2 class="body-task__title title-h2">Результат</h2>
+					<div class="body-task__ansver ansver-task">
+						<style>
+							#row1 {
+								display: grid;
+								align-items: center;
+								grid-template-columns: 200px 50px;
+								gap: 20px;
+								font-size: 18px;
+								font-weight: 700;
+							}
+
+							#btn1 {
+								grid-column-end: span 2;
+							}
+
+							#inpNum {
+								width: 50px;
+							}
+
+							input {
+								padding: 5px 10px;
+								border-radius: 5px;
+								background-color: rgba(255, 255, 255, 0.7);
+							}
+
+							#leb1 {
+								text-decoration: underline;
+							}
+
+							button {
+								background-color: rgb(205, 14, 87);
+								padding: 8px 0;
+								border-radius: 5px;
+								transition: all 0.3s ease 0s;
+							}
+
+							button:hover {
+								background-color: rgb(205, 14, 20);
+							}
+
+							#row2 {
+								padding: 20px 0;
+								display: grid;
+								grid-template-columns: repeat(2, 125px);
+								gap: 20px;
+							}
+
+							#btn2 {
+								width: 270px;
+								font-size: 18px;
+								margin-bottom: 20px;
+							}
+						</style>
+						<script>
+							// ------------- створення тегів --------------
+							class CreateTag {
+								constructor(tag, id, querSel) {
+									this.baseEl = document.querySelector(querSel)
+									this.tag = document.createElement(tag)
+									this.id = id
+								}
+								run() {
+									this.baseEl.append(this.tag)
+									this.tag.setAttribute('id', this.id)
+								}
+							}
+							// ----- div з кількістю оцінок і кнопкою
+							const div1 = new CreateTag('div', 'row1', '.body-task__ansver ')
+							div1.run()
+							const label1 = new CreateTag('labet', 'leb1', '#row1')
+							label1.run()
+							document.querySelector('#leb1').innerText = 'Кількість оцінок'
+							const inpNum = new CreateTag('input', 'inpNum', '#row1')
+							inpNum.run()
+							const button1 = new CreateTag('button', 'btn1', '#row1')
+							button1.run()
+							document.querySelector('#btn1').innerText = 'Створити таблицю'
+
+							// ------- div з оцінками та середнім балом
+							function createTable() {
+								const div2 = new CreateTag('div', 'row2', '.body-task__ansver ')
+								div2.run()
+								let numScores = parseInt(document.querySelector('#inpNum').value)
+								for (let i = 1; i <= numScores; i++) {
+									const inp = new CreateTag('input', 'inp' + i, '#row2')
+									inp.run()
+									document.getElementById('inp' + i).className = 'inp'
+								}
+								const div3 = new CreateTag('div', 'row3', '.body-task__ansver ')
+								div3.run()
+								const btn2 = new CreateTag('button', 'btn2', '#row3')
+								btn2.run()
+								document.querySelector('#btn2').innerText = 'Отримати середнє'
+								const div4 = new CreateTag('div', 'row4', '.body-task__ansver ')
+								div4.run()
+								document.querySelector('#row4').innerText = 'Середній бал'
+								const span = new CreateTag('span', 'sp', '#row4')
+								span.run()
+							}
+
+							function getAverege() {
+								let sum = 0
+								let scoresNum = document.getElementsByTagName('inp')
+								document.write(scoresNum.length)
+								for (let i = 0; i < (scoresNum.length - 1); i++) {
+									sum += parseInt(scoresNum[i].value)
+								}
+								let averege = sum / scoresNum.length
+								document.querySelector('#sp').innerText = 0
+							}
+							document.querySelector('#btn1').onclick = createTable
+							document.querySelector('#btn2').onclick = getAverege
+							// window.onload = function() {
+							// }
+						</script>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__items">
+					<div class="footer__item">
+						<picture><source srcset="img/footer/html.webp" type="image/webp"><img src="img/footer/html.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/css.webp" type="image/webp"><img src="img/footer/css.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/node.webp" type="image/webp"><img src="img/footer/node.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/sass.webp" type="image/webp"><img src="img/footer/sass.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/gulp.webp" type="image/webp"><img src="img/footer/gulp.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/git.webp" type="image/webp"><img src="img/footer/git.png" alt="html"></picture>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<script src="js/app.min.js?_v=20230821222644"></script>
+</body>
+
+</html>

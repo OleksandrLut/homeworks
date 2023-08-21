@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>HW 18 practic</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="stylesheet" href="css/style.min.css?_v=20230821222644">
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<div class="header__logo">
+					<picture><source srcset="img/logo/JS_logo.webp" type="image/webp"><img src="img/logo/JS_logo.png" alt="JS logo 3d"></picture>
+				</div>
+				<nav class="header__menu menu-header">
+					<ul class="menu-header__list">
+						<li class="menu-header__item">
+							<a href="index.html" class="menu-header__link">Головна</a>
+						</li>
+						<li class="menu-header__item">
+							<a href="lessons.html" class="menu-header__link">Уроки</a>
+						</li>
+						<li class="menu-header__item">
+							<a href="homeworks.html" class="menu-header__link active">Домашка</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<main class="page page_bg-img">
+			<div class="page__container">
+				<div class="page__task task">
+					<div class="task__buttons-top top-buttons">
+						<ul class="top-buttons__list">
+							<li class="top-buttons__item">
+								<a href="hw-18.html" type="button" class="top-buttons__link">До задач</a>
+							</li>
+						</ul>
+					</div>
+					<!--  ?-|-|-|-|-|-|-|-|-|-|-- task-title --|-|-|-|-|-|-|-|-|-|-  -->
+					<div class="task__header header-task">
+						<h1 class="header-task__title title-h1">
+							Практика
+						</h1>
+						<div class="header-task__question question-task">
+							<div class="question-task__main">
+								<p>Практика уроку 18</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--  ?-|-|-|-|-|-|-|-|-|-|-- tasl-body --|-|-|-|-|-|-|-|-|-|-  -->
+				<div class="task__body body-task">
+					<h2 class="body-task__title title-h2">Результат</h2>
+					<div class="body-task__ansver ansver-task">
+						<style>
+							.pinkcolor {
+								color: pink;
+							}
+
+							.limecolor {
+								color: lime;
+								text-decoration: underline;
+							}
+
+							.bkg {
+								background-color: rgb(209, 20, 102);
+							}
+						</style>
+						<h5>Зразок</h5>
+						<h5>Зразок</h5>
+						<h5>Зразок</h5>
+						<h5>Зразок</h5>
+						<h5>Зразок</h5>
+						<h5>Зразок</h5>
+						<h6 id="h6">some</h6>
+						<script>
+							// document.querySelector('body>div').innerHTML = ''
+							// let h5List = document.getElementsByTagName('h5')
+							// for (let i = 0; i < h5List.length; i++) {
+							// 	if(i>2) {h5List[i].style.color = 'palevioletred'
+							// 	h5List[i].style.border = '1px solid red'
+
+							// }
+							// h5List[i].style.margin = '10px 0'
+							// }
+							// // варіант1 
+							// // const lookingElement = document.createElement('input')
+							// // document.getElementsByTagName('h5')[2].after(lookingElement)
+							// // варіант 2
+							for (let i = 0; i < 2; i++) {
+								const inp = document.createElement('div')
+								const lookingElement = document.getElementsByTagName('h5')[i]
+								let randNum = Math.floor(Math.random() * 20)
+								// inp.innerText=randNum
+								inp.innerHTML = `<stong>${randNum}</strong>`
+								lookingElement.after(inp)
+							}
+
+
+							// ===============================
+							const divEl = document.createElement('div')
+							const elAfter = document.getElementById('h6')
+							divEl.innerText = 'привіт'
+							elAfter.after(divEl)
+							divEl.setAttribute('hallo', 'Ivan') // додавання атрибута       
+							divEl.className = 'pinkcolor'
+							setTimeout(() => {
+									divEl.className = 'limecolor'
+								},
+								3000)
+							// setTimeout(()=>{
+							// 	divEl.classList.add('bkg')
+							// },
+							// 5000)
+							setInterval(() => {
+									divEl.classList.toggle('bkg')
+								},
+								1000)
+
+							// ===============================
+							// document.getElementsByTagName('h5')[5].remove()
+							//-------------------------------
+							// // for (let i = 0; i < 2; i++) {
+							// 	let div = document.createElement('div')
+							// 	let someLookingEl = document.getElementsByName('h5')[1]
+							// 	someLookingEl.append(div)
+							// }
+							//-------------------------------
+							// let red = document.getElementsByClassName('header-task__title')
+							// console.log(red);
+							// red[0].style.color = 'red'
+							// let inp = document.createElement('input')
+							// let baseElement = document.querySelector('.body-task__ansver')
+
+							// baseElement.innerHTML = '<input type="text">'
+
+							// let w = open(
+							// 	'https://www.ukr.net/',
+							// 	'_blank',
+							// 	`location=yes, height=${parseInt(screen.height) / 2},width=${
+							// 		parseInt(screen.width) / 2
+							// 	},scrollbars=yes,status=yes`
+							// )
+
+							// setTimeout(() => {
+							// 	w.close()
+							// }, 2000)
+							// console.log(navigator.platform);
+							// console.log(screen.width);
+							// console.log(screen.height);
+							// console.log(screen.availWidth);
+							// console.log(screen.availHeight);
+							// console.log(screen.colorDepth);
+							// console.log(screen.pixelDepth);
+							// let h = window.location.protocol
+							// console.log(h);
+
+
+							// document.querySelector('.question-task__main').style.color = 'green' //якщо 1 раз
+							// let someVar = document.querySelector('.question-task__main') //якщо баратократне звернення
+							// someVar.style.backgroundColor = 'rgba(0,0,0,0.4)'
+
+							// let newWindow = open(
+							// 	'https://www.ukr.net/',
+							// 	'_blank',
+							// 	`location=yes', height=400, width=600, scrollbars=yes, status=yes`
+							// )
+							// setTimeout(
+							// 	() => {newWindow.close()}, 3000
+							// )
+						</script>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__items">
+					<div class="footer__item">
+						<picture><source srcset="img/footer/html.webp" type="image/webp"><img src="img/footer/html.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/css.webp" type="image/webp"><img src="img/footer/css.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/node.webp" type="image/webp"><img src="img/footer/node.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/sass.webp" type="image/webp"><img src="img/footer/sass.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/gulp.webp" type="image/webp"><img src="img/footer/gulp.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/git.webp" type="image/webp"><img src="img/footer/git.png" alt="html"></picture>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<script src="js/app.min.js?_v=20230821222644"></script>
+</body>
+
+</html>

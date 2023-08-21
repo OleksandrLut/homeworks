@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230813155840">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230821222644">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -51,9 +51,8 @@
 						</h1>
 						<div class="header-task__question question-task">
 							<div class="question-task__main">
-								<p>
-									Умова
-								</p>
+								<p>Розробити калькулятор</p>
+								<picture><source srcset="img/hw_18/01.webp" type="image/webp"><img src="img/hw_18/01.png" alt="img01 "></picture>
 							</div>
 						</div>
 					</div>
@@ -62,35 +61,123 @@
 				<div class="task__body body-task">
 					<h2 class="body-task__title title-h2">Результат</h2>
 					<div class="body-task__ansver ansver-task">
+
+						<style>
+							.calculator {
+								display: flex;
+								flex-direction: column;
+								gap: 20px;
+							}
+
+							.calculator__inputs {
+								display: grid;
+								grid-template-columns: repeat(2, 200px);
+								gap: 20px;
+							}
+
+							.calculator__input {
+								display: flex;
+								align-items: center;
+								gap: 20px;
+							}
+
+							.calculator__input input {
+								width: 300px;
+							}
+
+							.input {
+								padding: 5px 10px;
+								border-radius: 5px;
+								background-color: transparent;
+								border: 1px solid lime;
+								font-size: 20px;
+							}
+
+							.calculator__buttons {
+								display: grid;
+								grid-template-columns: repeat(2, 200px);
+								gap: 20px;
+							}
+
+							.calculator__dtn {
+								background-color: rgb(203, 75, 97);
+								color: rgb(255, 255, 255);
+								padding: 8px 15px;
+								font-size: 20px;
+								font-weight: 700;
+								border-radius: 5px;
+								text-align: center;
+								transition: all 0.4s ease 0s;
+							}
+
+							.calculator__dtn:hover {
+								background-color: rgb(175, 9, 9);
+							}
+
+							label {
+								font-size: 20px;
+								text-decoration: underline;
+							}
+						</style>
+						<div class="calculator">
+							<div class="calculator__inputs">
+								<input id="first" placeholder="First number" class="input">
+								<input id="second" placeholder="Second number" class="input">
+							</div>
+							<div class="calculator__buttons">
+								<button id="add" type="button" class="calculator__dtn">Додати</button>
+								<button id="reduce" type="button" class="calculator__dtn">Відняти</button>
+								<button id="product" type="button" class="calculator__dtn">Помножити</button>
+								<button id="fraction" type="button" class="calculator__dtn">Поділити</button>
+							</div>
+							<div class="calculator__input">
+								<input id="result" placeholder="Result" class="input">
+								<label id="label-res" for="result">Result</label>
+							</div>
+						</div>
+
 						<script>
-							// let red = document.getElementsByClassName('header-task__title')
-							// console.log(red);
-							// red[0].style.color = 'red'
-							// let inp = document.createElement('input')
-							// let baseElement = document.querySelector('.body-task__ansver')
+							function addFunc() {
+								const firstNum = parseInt(document.getElementById('first').value)
+								const secondNum = parseInt(document.getElementById('second').value)
+								const res = firstNum + secondNum
+								document.getElementById('result').value = res
+								document.getElementById('label-res').innerText = `${firstNum} + ${secondNum} = ${res}`
+							}
 
-							// baseElement.innerHTML = '<input type="text">'
+							function reduceFunc() {
+								const firstNum = parseInt(document.getElementById('first').value)
+								const secondNum = parseInt(document.getElementById('second').value)
+								const res = firstNum - secondNum
+								document.getElementById('result').value = res
+								document.getElementById('label-res').innerText = `${firstNum} - ${secondNum} = ${res}`
+							}
 
-							// let w = open(
-							// 	'https://www.ukr.net/',
-							// 	'_blank',
-							// 	`location=yes, height=${parseInt(screen.height) / 2},width=${
-							// 		parseInt(screen.width) / 2
-							// 	},scrollbars=yes,status=yes`
-							// )
+							function productFunc() {
+								const firstNum = parseInt(document.getElementById('first').value)
+								const secondNum = parseInt(document.getElementById('second').value)
+								const res = firstNum * secondNum
+								document.getElementById('result').value = res
+								document.getElementById('label-res').innerText = `${firstNum} * ${secondNum} = ${res}`
+							}
 
-							// setTimeout(() => {
-							// 	w.close()
-							// }, 2000)
+							function fractionFunc() {
+								const firstNum = parseInt(document.getElementById('first').value)
+								const secondNum = parseInt(document.getElementById('second').value)
+								const res = firstNum / secondNum
+								document.getElementById('result').value = res
+								document.getElementById('label-res').innerText = `${firstNum} / ${secondNum} = ${res}`
+							}
 
-							// let newWindow = open(
-							// 	'https://www.ukr.net/',
-							// 	'_blank',
-							// 	`location=yes', height=400, width=600, scrollbars=yes, status=yes`
-							// )
-							// setTimeout(
-							// 	() => {newWindow.close()}, 3000
-							// )
+							const buttonAdd = document.getElementById('add'),
+								buttonReduce = document.getElementById('reduce'),
+								buttonProduct = document.getElementById('product'),
+								buttonFraction = document.getElementById('fraction')
+
+							buttonAdd.onclick = addFunc
+							buttonReduce.onclick = reduceFunc
+							buttonProduct.onclick = productFunc
+							buttonFraction.onclick = fractionFunc
 						</script>
 					</div>
 				</div>
@@ -121,7 +208,7 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20230813155840"></script>
+	<script src="js/app.min.js?_v=20230821222644"></script>
 </body>
 
 </html>
