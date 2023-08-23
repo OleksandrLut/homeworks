@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>HW 19 task 4</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="stylesheet" href="css/style.min.css?_v=20230823173517">
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<div class="header__logo">
+					<picture><source srcset="img/logo/JS_logo.webp" type="image/webp"><img src="img/logo/JS_logo.png" alt="JS logo 3d"></picture>
+				</div>
+				<nav class="header__menu menu-header">
+					<ul class="menu-header__list">
+						<li class="menu-header__item">
+							<a href="index.html" class="menu-header__link">Головна</a>
+						</li>
+						<li class="menu-header__item">
+							<a href="lessons.html" class="menu-header__link">Уроки</a>
+						</li>
+						<li class="menu-header__item">
+							<a href="homeworks.html" class="menu-header__link active">Домашка</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<main class="page page_bg-img">
+			<div class="page__container">
+				<div class="page__task task">
+					<div class="task__buttons-top top-buttons">
+						<ul class="top-buttons__list">
+							<li class="top-buttons__item">
+								<a href="hw-19.html" type="button" class="top-buttons__link">До задач</a>
+							</li>
+						</ul>
+					</div>
+					<!--  ?-|-|-|-|-|-|-|-|-|-|-- task-title --|-|-|-|-|-|-|-|-|-|-  -->
+					<div class="task__header header-task">
+						<h1 class="header-task__title title-h1">
+							Задача 4
+						</h1>
+						<div class="header-task__question question-task">
+							<div class="question-task__main">
+								<p>
+									Дано 3 таблиці розмірності 3*3 з випадковими числами. Якщо відбувається клік на якійсь із клітинок, то до
+									відповідної таблиці додається червона рамка (спробуйте додати можливість відображення кількості кліків біля
+									назви таблиці з використанням відповідно доданого для цього атрибута).
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--  ?-|-|-|-|-|-|-|-|-|-|-- tasl-body --|-|-|-|-|-|-|-|-|-|-  -->
+				<div class="task__body body-task">
+					<h2 class="body-task__title title-h2">Результат</h2>
+					<div class="body-task__ansver ansver-task">
+
+						<style>
+							#myContainer {
+								display: flex;
+								align-items: flex-start;
+								gap: 20px;
+							}
+
+							table {
+								border-collapse: collapse;
+								border: 1px solid black;
+							}
+
+							.table__item {
+								border: 1px solid black;
+								padding: 10px;
+								width: 60px;
+								text-align: center;
+							}
+
+							.table__title {
+								font-size: 18px;
+								font-weight: 700;
+								margin-bottom: 10px;
+							}
+						</style>
+						<div id="myContainer">
+
+							<table class="table" id="table1">
+								<caption class="table__title">
+									Table 1. click -
+									<span></span>
+								</caption>
+								<tr class="table__row">
+									<td class="table__item"></td>
+									<td class="table__item"></td>
+									<td class="table__item"></td>
+								</tr>
+								<tr class="table__row">
+									<td class="table__item"></td>
+									<td class="table__item"></td>
+									<td class="table__item"></td>
+								</tr>
+								<tr class="table__row">
+									<td class="table__item"></td>
+									<td class="table__item"></td>
+									<td class="table__item"></td>
+								</tr>
+							</table>
+
+							<table class="table" id="table2">
+								<caption class="table__title">
+									Table 2. click -
+									<span></span>
+								</caption>
+								<tr class="table__row">
+									<td class="table__item"></td>
+									<td class="table__item"></td>
+									<td class="table__item"></td>
+								</tr>
+								<tr class="table__row">
+									<td class="table__item"></td>
+									<td class="table__item"></td>
+									<td class="table__item"></td>
+								</tr>
+								<tr class="table__row">
+									<td class="table__item"></td>
+									<td class="table__item"></td>
+									<td class="table__item"></td>
+								</tr>
+							</table>
+
+							<table class="table" id="table3">
+								<caption class="table__title">
+									Table 3. click -
+									<span></span>
+								</caption>
+								<tr class="table__row">
+									<td class="table__item"></td>
+									<td class="table__item"></td>
+									<td class="table__item"></td>
+								</tr>
+								<tr class="table__row">
+									<td class="table__item"></td>
+									<td class="table__item"></td>
+									<td class="table__item"></td>
+								</tr>
+								<tr class="table__row">
+									<td class="table__item"></td>
+									<td class="table__item"></td>
+									<td class="table__item"></td>
+								</tr>
+							</table>
+
+						</div>
+
+						<script>
+							function randomNum(minNum, maxNum) {
+								return minNum + Math.floor(Math.random() * (maxNum - minNum + 1))
+							}
+							let tdList = document.querySelectorAll('.table__item')
+							for (const td of tdList) {
+								td.innerText = randomNum(1, 1000)
+							}
+							let tableList = document.querySelectorAll('.table')
+							for (const el of tableList) {
+								el.onclick = function() {
+									el.style.border = '2px solid red'
+									console.log(this);
+									let clickNum = this.querySelector('span').innerText
+									clickNum++
+									this.querySelector('span').innerText = clickNum
+								}
+							}
+						</script>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__items">
+					<div class="footer__item">
+						<picture><source srcset="img/footer/html.webp" type="image/webp"><img src="img/footer/html.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/css.webp" type="image/webp"><img src="img/footer/css.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/node.webp" type="image/webp"><img src="img/footer/node.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/sass.webp" type="image/webp"><img src="img/footer/sass.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/gulp.webp" type="image/webp"><img src="img/footer/gulp.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/git.webp" type="image/webp"><img src="img/footer/git.png" alt="html"></picture>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<script src="js/app.min.js?_v=20230823173517"></script>
+</body>
+
+</html>

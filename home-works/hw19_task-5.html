@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>HW 19 task 5</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="stylesheet" href="css/style.min.css?_v=20230823173517">
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<div class="header__logo">
+					<picture><source srcset="img/logo/JS_logo.webp" type="image/webp"><img src="img/logo/JS_logo.png" alt="JS logo 3d"></picture>
+				</div>
+				<nav class="header__menu menu-header">
+					<ul class="menu-header__list">
+						<li class="menu-header__item">
+							<a href="index.html" class="menu-header__link">Головна</a>
+						</li>
+						<li class="menu-header__item">
+							<a href="lessons.html" class="menu-header__link">Уроки</a>
+						</li>
+						<li class="menu-header__item">
+							<a href="homeworks.html" class="menu-header__link active">Домашка</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<main class="page page_bg-img">
+			<div class="page__container">
+				<div class="page__task task">
+					<div class="task__buttons-top top-buttons">
+						<ul class="top-buttons__list">
+							<li class="top-buttons__item">
+								<a href="hw-19.html" type="button" class="top-buttons__link">До задач</a>
+							</li>
+						</ul>
+					</div>
+					<!--  ?-|-|-|-|-|-|-|-|-|-|-- task-title --|-|-|-|-|-|-|-|-|-|-  -->
+					<div class="task__header header-task">
+						<h1 class="header-task__title title-h1">
+							Задача 5
+						</h1>
+						<div class="header-task__question question-task">
+							<div class="question-task__main">
+								<p>
+									Відображаємо картки товарів, які користувач може вибирати. Вибраний товар має зелену рамку (при кліку робити toogle
+									з класом вибраного елемента)
+								</p>
+								<picture><source srcset="img/hw_19/03.webp" type="image/webp"><img src="img/hw_19/03.png" alt=""></picture>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--  ?-|-|-|-|-|-|-|-|-|-|-- tasl-body --|-|-|-|-|-|-|-|-|-|-  -->
+				<div class="task__body body-task">
+					<h2 class="body-task__title title-h2">Результат</h2>
+					<div class="body-task__ansver ansver-task">
+
+						<style>
+							.catalog {}
+
+							.catalog__container {
+								display: grid;
+								grid-template-columns: repeat(auto-fill, 290px);
+								gap: 10px;
+							}
+
+							.catalog__item {
+								background-color: #fff;
+								padding: 5px;
+								cursor: pointer;
+								border: 3px solid transparent;
+							}
+
+							.item-catalog {}
+
+							.item-catalog__image {
+								position: relative;
+								padding-bottom: 90%;
+							}
+
+							.item-catalog__img {
+								position: absolute;
+								width: 100%;
+								height: 100%;
+								top: 0;
+								left: 0;
+								object-fit: cover;
+							}
+
+							.item-catalog__type {
+								position: absolute;
+								top: 15px;
+								left: 15px;
+								background-color: rgb(205, 146, 50);
+								border-radius: 10px;
+								padding: 4px 10px;
+								color: #fff;
+
+							}
+
+							.item-catalog__info {
+								padding: 10px;
+							}
+
+							.item-catalog__title {
+								font-weight: 700;
+								line-height: 1.5;
+								margin-bottom: 10px;
+							}
+
+							.item-catalog__price {
+								font-size: 20px;
+								/* text-align: center; */
+								color: rgb(164, 114, 21);
+							}
+
+							.item-catalog__price {
+								font-size: 20px;
+							}
+
+							.price-item {}
+
+							.price-item__new {
+								color: rgb(164, 114, 21);
+							}
+
+							.price-item__old {
+								text-decoration: line-through;
+								color: rgba(195, 28, 28, 0.7);
+								margin-left: 10px;
+
+							}
+
+							.sale {
+								background-color: rgb(197, 22, 22);
+							}
+
+							.border {
+								border: 3px solid rgb(13, 187, 13);
+							}
+						</style>
+
+						<div class="catalog">
+							<div class="catalog__container">
+
+								<div class="catalog__item item-catalog">
+									<div class="item-catalog__image">
+										<picture><source srcset="img/hw_19/69_1500.webp" type="image/webp"><img class="item-catalog__img" src="img/hw_19/69_1500.jpg" alt=""></picture>
+										<div class="item-catalog__type">Топ продаж</div>
+									</div>
+									<div class="item-catalog__info">
+										<h2 class="item-catalog__title">
+											Ноутбук 2E Imaginary 15 (NL50MU-15UA31) Intel Core i5 16GB/SSD 512GB
+										</h2>
+										<div class="item-catalog__price price-item">
+											<span class="price-item__new">29 300 ₴</span>
+											<span class="price-item__old"></span>
+										</div>
+									</div>
+								</div>
+
+								<div class="catalog__item item-catalog">
+									<div class="item-catalog__image">
+										<picture><source srcset="img/hw_19/84_600.webp" type="image/webp"><img class="item-catalog__img" src="img/hw_19/84_600.jpg" alt=""></picture>
+										<div class="item-catalog__type">Топ продаж</div>
+									</div>
+									<div class="item-catalog__info">
+										<h2 class="item-catalog__title">
+											Ноутбук ACER Aspire 5 A515-56G (NX.AT2EU.00U)
+										</h2>
+										<div class="item-catalog__price price-item">
+											<span class="price-item__new">19 990 ₴</span>
+											<span class="price-item__old"></span>
+										</div>
+									</div>
+								</div>
+
+								<div class="catalog__item item-catalog">
+									<div class="item-catalog__image">
+										<picture><source srcset="img/hw_19/15_600.webp" type="image/webp"><img class="item-catalog__img" src="img/hw_19/15_600.jpg" alt=""></picture>
+										<div class="item-catalog__type sale">Акція</div>
+									</div>
+									<div class="item-catalog__info">
+										<h2 class="item-catalog__title">
+											Ноутбук DELL G15 5510 (G15558S3NDL-60G)
+										</h2>
+										<div class="item-catalog__price price-item">
+											<span class="price-item__new">29 999 ₴</span>
+											<span class="price-item__old">32 500 ₴</span>
+										</div>
+									</div>
+								</div>
+
+								<div class="catalog__item item-catalog">
+									<div class="item-catalog__image">
+										<picture><source srcset="img/hw_19/40_600.webp" type="image/webp"><img class="item-catalog__img" src="img/hw_19/40_600.jpg" alt=""></picture>
+										<div class="item-catalog__type">Топ продаж</div>
+									</div>
+									<div class="item-catalog__info">
+										<h2 class="item-catalog__title">
+											Ноутбук HP Pavilion Aero 13-be1015ua (7X8L5EA)
+										</h2>
+										<div class="item-catalog__price price-item">
+											<span class="price-item__new">35 999 ₴</span>
+											<span class="price-item__old"></span>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+
+						<script>
+							let itemsList = document.querySelectorAll('.catalog__item')
+							for (const item of itemsList) {
+								item.onclick = function() {
+									item.classList.toggle('border')
+									// item.style.outline = '3px solid greenyellow'
+								}
+							}
+						</script>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__items">
+					<div class="footer__item">
+						<picture><source srcset="img/footer/html.webp" type="image/webp"><img src="img/footer/html.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/css.webp" type="image/webp"><img src="img/footer/css.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/node.webp" type="image/webp"><img src="img/footer/node.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/sass.webp" type="image/webp"><img src="img/footer/sass.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/gulp.webp" type="image/webp"><img src="img/footer/gulp.png" alt="html"></picture>
+					</div>
+					<div class="footer__item">
+						<picture><source srcset="img/footer/git.webp" type="image/webp"><img src="img/footer/git.png" alt="html"></picture>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<script src="js/app.min.js?_v=20230823173517"></script>
+</body>
+
+</html>
