@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="./style/style.css">
+   <title>Lesson 21 Ex.3</title>
+</head>
+<body style="background-color: rgb(140, 131, 131); padding: 40px 30px; font-family: Arial, Helvetica, sans-serif;">
+   <a href="index.html" type="button" class="btn-back">До задач</a>
+
+   <style>
+      table{
+         border-collapse: collapse;
+         max-width: 1000px;
+      }
+      th, td {
+         font-size: 12px;
+         padding: 5px;
+         border: 1px solid black;
+      }
+   </style>
+
+   <div class="question">
+      <h1>Задача 3. урок 21</h1>
+      <p>Розробити Класи: House, Dog, Dog</p>
+      <table>
+         <tr>
+            <th>House</th>
+            <th>Dog</th>
+            <th>Bird</th>
+         </tr>
+         <tr>
+            <td>
+               <p>--властивості--</p>
+               <ul>
+                  <li>Координата Х</li>
+                  <li>Координата Y</li>
+                  <li>шлях до зображення</li>
+                  <li>інтервал оновлення</li>
+               </ul>
+               <p>--методи--</p>
+               <ul>
+                  <li>генерування елемента розмітки</li>
+                  <li>оновлення через вказаний інтервал (збільшення або зменшення масштабу (об’єкт не рухається)</li>
+               </ul>
+            </td>
+            <td>
+               <p>--властивості--</p>
+               <ul>
+                  <li>Координата Х</li>
+                  <li>Координата Y</li>
+                  <li>шлях до зображення</li>
+                  <li>інтервал оновлення</li>
+               </ul>
+               <p>--методи--</p>
+               <ul>
+                  <li>генерування елемента розмітки</li>
+                  <li>оновлення через вказаний інтервал (випадкове зміщення по горизонталі (зміна координати Х))</li>
+               </ul>
+            </td>
+            <td>
+               <p>--властивості--</p>
+               <ul>
+                  <li>Координата Х</li>
+                  <li>Координата Y</li>
+                  <li>шлях до зображення</li>
+                  <li>інтервал оновлення</li>
+               </ul>
+               <p>--методи--</p>
+               <ul>
+                  <li>генерування елемента розмітки</li>
+                  <li>оновлення через вказаний інтервал (випадкове переміщення у довільному напрямку)</li>
+               </ul>
+            </td>
+         </tr>
+      </table>
+   </div>
+
+   <hr color="black">
+
+   <div class="container"></div>
+
+   <script>
+      'use strict'
+      // ------------------ клас пердок --------------------------------
+
+      class MainClass {
+         constructor (axisX, axisY, interval, imageSrc) {
+            this.axisX = axisX
+            this.axisY = axisY
+            this.imageSrc = imageSrc
+            this.interval = interval
+            this.scale = 1
+         }
+
+         getRandomValue (minNum, maxNum){
+            return minNum + Math.floor(Math.random() * (maxNum - minNum +1))
+         }
+
+         onIntervalChange(){
+            setInterval(()=> {
+               this.elementChange()
+            },this.interval) 
+         }
+
+         render(){
+            this.img = document.createElement('img')
+            this.img.style.position = 'absolute'
+            this.img.style.left = this.axisX + 'px'
+            this.img.style.top = this.axisY + 'px'
+            
+            if(!this.imageSrc) throw new Error('Src не коректне')
+            this.img.setAttribute('src', this.imageSrc)
+            try {
+               const baseEl = document.querySelector('.container')
+               baseEl.append(this.img)
+            } catch (err) {
+               const div = document.createElement('div')
+               div.className = 'container'
+               document.body.append(div)
+               div.append(this.img)
+            }
+            
+            this.onIntervalChange()
+         }
+      }
+      // let house = new MainClass(100, 100, 1000, "./img/house.png")
+      // house.render()
+
+      // ------------------ клас нащадок -------------------------------
+
+      class Home extends MainClass {
+         constructor(axisX, axisY, interval, imageSrc, maxNum = 0, minNum =0){
+            super(axisX, axisY, interval, imageSrc)
+            this.maxNum = maxNum
+            this.minNum = minNum
+         }
+         elementChange(){
+            this.scale += 0.001
+            if (this.scale >= 1.2)
+            this.scale = 1
+            this.img.style.transform = `scale(${this.scale})`
+         }
+      }
+      const home = new Home(100, 100, 100, "./img/house.png")
+      home.render()
+
+      // ------------------ клас нащадок -------------------------------
+
+      class Dog extends MainClass {
+         constructor(axisX, axisY, interval, imageSrc, maxNum = 0, minNum =0){
+            super(axisX, axisY, interval, imageSrc)
+            this.maxNum = maxNum
+            this.minNum = minNum
+         }
+         elementChange(){
+            this.axisX += this.getRandomValue(this.maxNum, this.minNum)
+            this.img.style.left = this.axisX + 'px'
+         }
+      }
+      const dog = new Dog(700, 400, 1000, "./img/dog.png", 50, -50)
+      dog.render()
+      
+
+      // ------------------ клас нащадок -------------------------------
+
+      class Bird extends MainClass {
+         constructor(axisX, axisY, interval, imageSrc, maxNum = 0, minNum =0){
+            super(axisX, axisY, interval, imageSrc)
+            this.maxNum = maxNum
+            this.minNum = minNum
+         }
+         elementChange(){
+            this.axisX += this.getRandomValue(this.maxNum, this.minNum)
+            this.axisY += this.getRandomValue(this.maxNum, this.minNum)
+            this.img.style.left = this.axisX + 'px'
+            this.img.style.top = this.axisY + 'px'
+         }
+      }
+      const bird = new Bird(700, 10, 1000, "./img/bird.png", 200, -200)
+      bird.render()
+
+   </script>
+   
+</body>
+</html>

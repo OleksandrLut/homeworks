@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./style/style.css">
+   <title>Lesson 21 ex 2</title>
+</head>
+<body style="background-color: rgb(140, 131, 131); padding: 40px 30px; font-family: Arial, Helvetica, sans-serif;">
+	<a href="index.html" type="button" class="btn-back">До задач</a>
+
+   <!-- ?============================================================= завдання ============================================================================ -->
+
+   <div class="question">
+      <h1>Задача 2. урок 21</h1>
+      <p>Створити клас Bank, у якому зберігається масив клієнтів. Виконати такі операції</p>
+      <ul>
+         <li>Вивести усіх простих клієнтів;</li>
+         <li>Вивести усіх клієнтів GoldenClient;</li>
+         <li>Знати сумарну кількість грошей на рахунку;</li>
+      </ul>
+   </div>
+   <hr color="black">
+
+   <!-- ?=============================================================== Розвязок ============================================================================= -->
+
+		<style>
+			.container{
+				width: 200px;
+				display: grid;
+				gap: 10px;
+			}
+			input{
+				padding: 5px;
+				border-radius: 4px;
+			}
+			button{
+				padding: 10px;
+				border-radius: 4px;
+				background-color: rgb(255, 0, 93);
+				color: #fff;
+				font-weight: 700;
+			}
+			#btn-gold{
+				background-color: goldenrod;
+				color: #000;
+			}
+		</style>
+		<div class="container">
+			<input type="tenumberxt" id="client-id" placeholder="ID">
+			<input type="text" id="name" placeholder="Ім'я">
+			<input type="text" id="surname" placeholder="Прізвище">
+			<input type="text" id="sum" placeholder="Вкажіть суму">
+			<button type="button" id="btn">Створити клієнта</button>
+			<button type="button" id="btn-gold">Створити Gold клієнта</button>
+         <button type="button" id="btn-show">Показати клієнтів</button>
+		</div>
+
+   <!-- ?=================================================================== код ================================================================================ -->
+
+   <script>
+      // -------------------------------- Клас Клієнт ------------------------------------
+		class Client {
+			#id
+			#name
+			#accountBalace
+			constructor(name){
+				this.Id = parseInt(document.querySelector('#client-id').value)
+				this.Name = name
+				this.AccountBalace = parseInt(document.querySelector('#sum').value)
+			}
+			get Id(){
+				return this.#id 
+			}
+			set Id(newId){
+				if (newId<= 0) throw new Error('Некоректне значення ID')
+				this.#id = newId 
+			}
+			get Name(){
+				return this.#name
+			}
+			set Name(newName) {
+				if (newName === {}) throw new Error('Некоректне значення обєкту імені')
+				this.#name = newName
+			}
+			get AccountBalace(){
+				return this.#accountBalace
+			}
+			set AccountBalace(newAccountBalace) {
+				if (newAccountBalace <= 0) throw new Error('Некоректне значення балансу')
+				this.#accountBalace = newAccountBalace
+			
+			}
+			addMoney(addNewSumMoney){
+			if (addNewSumMoney > 0)
+				this.AccountBalace += addNewSumMoney
+			}
+			withdrawalMoney (withdrawalNewSumMony){
+				if (withdrawalNewSumMony > 0 && withdrawalNewSumMony<=this.AccountBalace)
+				this.AccountBalace -= withdrawalNewSumMony
+			}
+			toString(){
+				return `Клієнт: ${this.Name.name} ${this.Name.surname} <br> ID: ${this.Id } <br> Баланс: ${this.AccountBalace} грн`
+			}
+			rendeer(){
+				let baseEl = document.querySelector('.container')
+				let div = document.createElement('div')
+				div.className = 'new-client'
+				let p1 = document.createElement('p')
+				p1.innerText = `Клієнт: ${this.Name.name} ${this.Name.surname}`
+				let p2 = document.createElement('p')
+				p2.innerText = `ID: ${this.Id }`
+				let p3 = document.createElement('p')
+				p3.innerText = `Баланс: ${this.AccountBalace} грн`
+				div.append(p1)
+				div.append(p2)
+				div.append(p3)
+				baseEl.append(div)
+			}
+		}
+
+		
+       // -------------------------------- Клас Gold Клієнт ------------------------------------
+		class GoldClient extends Client {
+			#creditLimit = 20000  // кредитний ліміт
+			#creditRate = 16  // відсоткова ставка
+			constructor(name, newCreditLimit, newRate){
+				super(name)
+				this.CreditLimit = newCreditLimit
+				this.CreditRate = newRate
+			}
+			get CreditLimit(){
+				return this.#creditLimit
+			}
+			set CreditLimit(newLimit){
+				if (newLimit <= 0 && newLimit === this.CreditLimit) throw new Error('Некоректне значення ліміту')
+				this.#creditLimit = newLimit
+			}
+			get CreditRate(){
+				return this.#creditRate
+			}
+			set CreditRate(newRate){
+				if (newRate <= 0 && newRate === this.CreditRate) throw new Error('Некоректне значення відсоткової ставки')
+				this.#creditRate = newRate
+			}
+			getPenaltyForOverdue(creditSum, countDcountDaysOverdueays){
+				let penaltyPerDay = (creditSum*0,5)/100
+				let totalPenalty = countDaysOverdue * penaltyPerDay
+				return totalPenalty
+			}
+			rendeer(){
+				let baseEl = document.querySelector('.container')
+				let div = document.createElement('div')
+				div.className = 'new-client'
+				let p1 = document.createElement('p')
+				p1.innerText = `Клієнт: ${this.Name.name} ${this.Name.surname}`
+				let p2 = document.createElement('p')
+				p2.innerText = `ID: ${this.Id }`
+				let p3 = document.createElement('p')
+				p3.innerText = `Баланс: ${this.AccountBalace} грн`
+				let p4= document.createElement('p')
+				p4.innerText = `кредитний ліміт: ${this.CreditLimit} грн`
+				div.append(p1)
+				div.append(p2)
+				div.append(p3)
+				div.append(p4)
+				baseEl.append(div)
+			}
+		}
+
+
+      // ------------------------------- створення клієнтів ------------------------------------
+
+		let newClientName = {
+			name: '',
+			surname: '',
+		}
+		let clientsList = []
+		let createClientButton = document.querySelector('#btn')
+
+		createClientButton.addEventListener('click', function () {
+			newClientName.name = document.querySelector('#name').value
+			newClientName.surname = document.querySelector('#surname').value
+			let newClient = new Client (newClientName)
+			newClient.rendeer()
+         clientsList.push(newClient)
+			console.log(newClient);
+		})
+
+		let createGoldClientButton = document.querySelector('#btn-gold')
+
+		createGoldClientButton.addEventListener('click', function(){
+			newClientName.name = document.querySelector('#name').value
+			newClientName.surname = document.querySelector('#surname').value
+			let newGoldClient = new GoldClient (newClientName, 15000, 19)
+			newGoldClient.rendeer()
+         clientsList.push(newGoldClient)
+			console.log(newGoldClient);
+		})
+
+
+       // ------------------------------- Клас BANK ------------------------------------
+      class Bank {
+         constructor(clientsList){
+            this.clientsList  = clientsList
+            this.simpeClientsList = []
+            this.goldClientsList = []
+            this.totalBankSum = 0
+         }
+         getSimpleClients(){
+            let simpleClients = this.clientsList.filter(client => !(client instanceof GoldClient))
+            for (const client of simpleClients) {
+               this.simpeClientsList.push(client)
+            }
+         }
+         getGoldClients(){
+            let goldClients = this.clientsList.filter(client => client instanceof GoldClient)
+            for (const client of goldClients) {
+               this.goldClientsList.push(client)
+            }
+         }
+         getTotalBankSum(){
+            for (const client of this.clientsList) {
+               this.totalBankSum += client.AccountBalace
+            }
+         }
+
+
+         // ------------------------------- створення Банку ------------------------------------
+
+      }
+      let bank  = new Bank(clientsList)
+      document.querySelector('#btn-show').addEventListener('click', function(){
+         console.log(bank.clientsList);
+         bank.getSimpleClients()
+         console.log(bank.simpeClientsList);
+         bank.getGoldClients()
+         console.log(bank.goldClientsList);
+         bank.getTotalBankSum()
+         console.log(bank.totalBankSum);
+      })
+   </script>
+   <!-- =============================  ============================= -->
+   
+   <!-- =============================  ============================= -->
+
+   
+</body>
+</html>

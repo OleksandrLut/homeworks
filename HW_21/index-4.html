@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="./style/style.css">
+   <title>Lesson 21 Ex.4</title>
+</head>
+<style>
+   .input{
+      padding: 10px;
+      border-radius: 5px;
+      background-color: rgba(0, 0, 0, 0.2);
+   }
+   .input::placeholder{
+      color: rgba(242, 255, 0, 0.5);
+   }
+   #btn{
+      padding: 10px 30px;
+      border-radius: 5px;
+      background-color: rgb(77, 42, 231);
+      color: rgb(242, 255, 0);
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease 0s;
+   }
+   #btn:hover{
+      background-color: rgb(37, 5, 183);
+   }
+</style>
+<body style="background-color: rgb(140, 131, 131); padding: 40px 30px; font-family: Arial, Helvetica, sans-serif;">
+   <a href="index.html" type="button" class="btn-back">До задач</a>
+
+   <div class="question">
+      <h1 class="question__title">Задача 4. урок 21</h1>
+      <div class="question__text" style="max-width: 1200px;">
+         <p>
+            Користувач задає місяць навчання учня (перевіряти чи є числом, чи від 1 до 12, чи не канікули) та оцінку 
+            (перевіряти чи є числом, чи від 1 до 100). Вивести чи зможе він виправити оцінку (якщо оцінка погана і це 
+            не останній місяць у семестрі) . Обробку усіх помилок зробити з використанням відповідних класів.
+         </p>
+      </div>
+   </div>
+
+   <hr color="black">
+
+   <div class="container">
+      <input type="text" placeholder="місяць навчання" class="input" id="month">
+      <input type="text" placeholder="оцінка" class="input" id="score">
+      <button type="button" id="btn">GO!</button>
+   </div>
+
+   <script>
+      class isNotNumberError extends Error {
+         constructor() {
+            super()
+            this.message = 'Має бути числом'
+            this.name = 'isNotNumberError'
+         }
+      }
+
+      class isNotInRangeMonthError extends Error {
+         constructor(){
+            super()
+            this.message = 'Місяць навчання повинен бути числом від 1 до 12'
+            this.name = 'isNotInRangeMonthError'
+         }
+      }
+
+      class isNotAcademacPeriodError extends Error {
+         constructor(){
+            super()
+            this.message = 'Вказаний місяць не є навчальним'
+            this.name = 'isNotAcademacPeriodError'
+         }
+      }
+
+      class isNotInRangeScoreError extends Error {
+         constructor(){
+            super()
+            this.message = 'Оцінка повина бути числом від 1 до 100'
+            this.name = 'isNotInRangeScoreError'
+         }
+      }
+
+      class Checker {
+         checkMonthInputValue (){
+            try {
+               let inputMonth = document.querySelector('#month').value
+               console.log(inputMonth);
+               if (isNaN(inputMonth)) throw new isNotNumberError()
+               if (inputMonth < 1 || inputMonth > 12) throw new isNotInRangeMonthError()
+               if (inputMonth >= 6 && inputMonth <= 8) throw new isNotAcademacPeriodError()
+            } catch (error) {
+               if (error instanceof isNotNumberError) {
+                  console.error(error.message)
+                  console.error(error.name)
+                  console.error(error.stack)
+                  document.querySelector('#month').value = 0
+                  alert('Значення місяця ' + error.message)
+               }
+               if (error instanceof isNotInRangeMonthError) {
+                  console.error(error.message)
+                  console.error(error.name)
+                  console.error(error.stack)
+                  document.querySelector('#month').value = 0
+                  alert(error.message)
+               }
+               if (error instanceof isNotAcademacPeriodError) {
+                  console.error(error.message)
+                  console.error(error.name)
+                  console.error(error.stack)
+                  document.querySelector('#month').value = 0
+                  alert(error.message)
+               }
+            }
+         }
+
+         checkIfCanCorrectScore(){
+            let inputScore = document.querySelector('#score').value
+            let inputMonth = document.querySelector('#month').value
+            const baseEl = document.querySelector('.container')
+            const p = document.createElement('p')
+            if ( inputScore < 6) {
+               if (parseInt(inputMonth) === 12 || parseInt(inputMonth) === 5 || parseInt(inputMonth) === 0)
+                  p.innerText = `Виправити оцінку ${inputScore} не можливо`
+               else
+               p.innerText = `Виправити оцінку ${inputScore} можливо`
+            } 
+            baseEl.append(p)
+         }
+   
+         checkScoreInputValue (){
+            try {
+               let inputScore = document.querySelector('#score').value
+               if (isNaN(inputScore)) throw new isNotNumberError()
+               if (inputScore < 1 || inputScore > 100) throw new isNotInRangeScoreError()
+            } catch (error) {
+               if (error instanceof isNotNumberError) {
+                  console.error(error.message)
+                  console.error(error.name)
+                  console.error(error.stack)
+                  document.querySelector('#score').value = 0
+               }
+               if (error instanceof isNotInRangeScoreError) {
+                  console.error(error.message)
+                  console.error(error.name)
+                  console.error(error.stack)
+                  document.querySelector('#score').value = 0
+               }
+            }
+         }
+      }
+
+
+
+      document.querySelector('#btn').addEventListener('click', () => {
+         let checkInput = new Checker()
+         checkInput.checkMonthInputValue()
+         checkInput.checkScoreInputValue()
+         checkInput.checkIfCanCorrectScore()
+      })
+
+   </script>
+   
+</body>
+</html>
