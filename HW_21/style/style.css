@@ -1,4 +1,27 @@
+@import url("reset.css");
 
+body{
+   background-color: rgb(140, 131, 131);
+   font-family: Arial, Helvetica, sans-serif;
+}
+.wrap{
+   padding: 80px;
+}
+.question{
+   color: #f8f9fa;
+   padding: 50px 30px;
+   background-color: rgb(255, 170, 52);
+}
+.question h1{
+   font-size: 28px;
+}
+h1{
+   margin-bottom: 20px;
+   font-weight: 700;
+}
+.container{
+   padding: 50px 30px;
+}
 
 .btn-back {
    position: absolute;
