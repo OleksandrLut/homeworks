@@ -43,9 +43,9 @@
          let baseEl = document.querySelector('.answer__container')
          let day = currentDate.getDay()
          if (day === 0 || day === 6) 
-            p.innerText = `${currentDate.getMonth()} - ${currentDate.getFullYear()} - вихідний`
+            p.innerText = `${currentDate.getMonth()+1} - ${currentDate.getFullYear()} - вихідний`
          else 
-         p.innerText = `${currentDate.getMonth()} - ${currentDate.getFullYear()} - робочий`
+         p.innerText = `${currentDate.getMonth()+1} - ${currentDate.getFullYear()} - робочий`
 
          baseEl.append(p)
       }
