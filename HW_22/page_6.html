@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="./css/style.css">
+   <title>Ex_6</title>
+</head>
+<body>
+   <div class="header">
+      <div class="header__container">
+         <div class="header__logo">JS <span>2023</span></div>
+         <nav class="header__menu menu-header">
+            <ul class="menu-header__list">
+               <li class="menu-header__item">
+                  <a href="" class="menu-header__link">Головна</a>
+               </li>
+               <li class="menu-header__item">
+                  <a href="index.html" class="menu-header__link">Задачі</a>
+               </li>
+               <li class="menu-header__item">
+                  <a href="" class="menu-header__link">Уроки</a>
+               </li>
+            </ul>
+         </nav>
+      </div>
+   </div>
+   <div class="question">
+      <div class="question__container">
+         <h1 class="question__title">Задача 6</h1>
+         <div class="question__text">Користувач іде у відпустку на 56 днів. Визначити дату на момент його повернення.</div>
+      </div>
+   </div>
+   <div class="answer">
+      <div class="answer__container">
+         <input type="text" class="answer__input inp" placeholder="дата виходу в відпустку">
+         <button class="answer__button btn">Визначити дату повернення</button>
+      </div>
+   </div>
+   <script>
+
+      function getVacatonDateEnd(){
+         const inputDate= (document.querySelector('.answer__input').value).split('.')
+         const inputDay = parseInt(inputDate[0])
+         const inputMonth = parseInt(inputDate[1]) - 1 // місяці 0-11
+         const inputYear = parseInt(inputDate[2])
+         const vacationDAysNum = 56
+         const userVacatonDateStart = new Date(inputYear, inputMonth, inputDay)
+         const userVacatonDateEnd = new Date (userVacatonDateStart.setDate(userVacatonDateStart.getDate()+vacationDAysNum))
+         const options = {
+            day: 'numeric',
+            month: 'numeric',
+            year: 'numeric',
+         }
+         return userVacatonDateEnd.toLocaleString('uk-UA', options)
+      }
+
+      function buildElP() {
+         const p = document.createElement('p')
+         const baseEl = document.querySelector('.answer__container')
+         p.innerText = getVacatonDateEnd()
+         baseEl.append(p)
+      }
+      
+      let btn = document.querySelector('.answer__button')
+      btn.onclick = buildElP
+   </script>
+</body>
+</html>

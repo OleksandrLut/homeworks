@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="./css/style.css">
+   <title>Ex_5</title>
+</head>
+<body>
+   <div class="header">
+      <div class="header__container">
+         <div class="header__logo">JS <span>2023</span></div>
+         <nav class="header__menu menu-header">
+            <ul class="menu-header__list">
+               <li class="menu-header__item">
+                  <a href="" class="menu-header__link">Головна</a>
+               </li>
+               <li class="menu-header__item">
+                  <a href="index.html" class="menu-header__link">Задачі</a>
+               </li>
+               <li class="menu-header__item">
+                  <a href="" class="menu-header__link">Уроки</a>
+               </li>
+            </ul>
+         </nav>
+      </div>
+   </div>
+   <div class="question">
+      <div class="question__container">
+         <h1 class="question__title">Задача 5</h1>
+         <div class="question__text">Користувач вводить дату народження. Визначити, скільки йому повних років.</div>
+      </div>
+   </div>
+   <div class="answer">
+      <div class="answer__container">
+         <input type="text" class="answer__input inp" placeholder="рік.місяць.дкнь народження">
+         <button class="answer__button btn">Дізнатись вік</button>
+      </div>
+   </div>
+   <script>
+      function getAge(){
+         const userDateOfBirth = document.querySelector('.answer__input').value
+         const userDateParse = Date.parse(userDateOfBirth)
+         if (isNaN(userDateParse)) throw new Error('Не коректне значення дати. Повинно бути: рік, місяць, день')
+         const dateNow = Date.now()
+         let age = dateNow - userDateParse
+         return Math.floor(age / (1000 * 60 * 60 * 24 * 365))
+      }
+
+      function buildElP() {
+         const p = document.createElement('p')
+         const baseEl = document.querySelector('.answer__container')
+         p.innerText = getAge()
+         baseEl.append(p)
+      }
+      
+      let btn = document.querySelector('.answer__button')
+      btn.onclick = buildElP
+   </script>
+</body>
+</html>

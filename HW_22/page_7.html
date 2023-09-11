@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="./css/style.css">
+   <title>Ex_7</title>
+</head>
+<body>
+   <div class="header">
+      <div class="header__container">
+         <div class="header__logo">JS <span>2023</span></div>
+         <nav class="header__menu menu-header">
+            <ul class="menu-header__list">
+               <li class="menu-header__item">
+                  <a href="" class="menu-header__link">Головна</a>
+               </li>
+               <li class="menu-header__item">
+                  <a href="index.html" class="menu-header__link">Задачі</a>
+               </li>
+               <li class="menu-header__item">
+                  <a href="" class="menu-header__link">Уроки</a>
+               </li>
+            </ul>
+         </nav>
+      </div>
+   </div>
+   <div class="question">
+      <div class="question__container">
+         <h1 class="question__title">Задача 7</h1>
+         <div class="question__text">Користувач бере авто на вказану кількість годин. Визначити кінцевий час повернення.</div>
+      </div>
+   </div>
+   <div class="answer">
+      <div class="answer__container">
+         <input type="text" class="answer__input inp" placeholder="години прокату">
+         <button class="answer__button btn">Визначити час повернення</button>
+      </div>
+   </div>
+   <script>
+
+      function getRentalTimeEnd(){
+         const currentDate = new Date()
+         const currentTime = currentDate.getHours()
+         const rentalTimeInput = parseInt(document.querySelector('.answer__input').value)
+         console.log(currentTime);
+         const returnRentalTime = new Date (currentDate.setHours(currentDate.getHours() + rentalTimeInput))
+         console.log(returnRentalTime);
+         return returnRentalTime.toLocaleTimeString('uk-UA')
+      }
+
+      function buildElP() {
+         const p = document.createElement('p')
+         const baseEl = document.querySelector('.answer__container')
+         p.innerText = getRentalTimeEnd()
+         baseEl.append(p)
+      }
+      
+      let btn = document.querySelector('.answer__button')
+      btn.onclick = buildElP
+   </script>
+</body>
+</html>

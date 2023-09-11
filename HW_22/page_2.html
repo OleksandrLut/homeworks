@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="./css/style.css">
+   <title>Ex_2</title>
+</head>
+<body>
+   <div class="header">
+      <div class="header__container">
+         <div class="header__logo">JS <span>2023</span></div>
+         <nav class="header__menu menu-header">
+            <ul class="menu-header__list">
+               <li class="menu-header__item">
+                  <a href="" class="menu-header__link">Головна</a>
+               </li>
+               <li class="menu-header__item">
+                  <a href="index.html" class="menu-header__link">Задачі</a>
+               </li>
+               <li class="menu-header__item">
+                  <a href="" class="menu-header__link">Уроки</a>
+               </li>
+            </ul>
+         </nav>
+      </div>
+   </div>
+   <div class="question">
+      <div class="question__container">
+         <h1 class="question__title">Задача 2</h1>
+         <div class="question__text">Вивести дату у форматі
+            “місяць – рік – вихідний/робочий”</div>
+      </div>
+   </div>
+   <div class="answer">
+      <div class="answer__container">
+         <button class="answer__button btn">Тицьни сюди!</button>
+      </div>
+   </div>
+   <script>
+      function showDate (currentDate){
+         let p = document.createElement('p')
+         let baseEl = document.querySelector('.answer__container')
+         let day = currentDate.getDay()
+         if (day === 0 || day === 6) 
+            p.innerText = `${currentDate.getMonth()} - ${currentDate.getFullYear()} - вихідний`
+         else 
+         p.innerText = `${currentDate.getMonth()} - ${currentDate.getFullYear()} - робочий`
+
+         baseEl.append(p)
+      }
+      let btn = document.querySelector('.answer__button')
+      btn.onclick = () => {
+         const currentDate = new Date()
+         showDate(currentDate)
+      }
+   </script>
+</body>
+</html>

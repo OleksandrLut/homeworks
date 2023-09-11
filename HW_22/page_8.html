@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="./css/style.css">
+   <title>Ex_8</title>
+</head>
+<body>
+   <div class="header">
+      <div class="header__container">
+         <div class="header__logo">JS <span>2023</span></div>
+         <nav class="header__menu menu-header">
+            <ul class="menu-header__list">
+               <li class="menu-header__item">
+                  <a href="" class="menu-header__link">Головна</a>
+               </li>
+               <li class="menu-header__item">
+                  <a href="index.html" class="menu-header__link">Задачі</a>
+               </li>
+               <li class="menu-header__item">
+                  <a href="" class="menu-header__link">Уроки</a>
+               </li>
+            </ul>
+         </nav>
+      </div>
+   </div>
+   <div class="question">
+      <div class="question__container">
+         <h1 class="question__title">Задача 8</h1>
+         <div class="question__text">Задаємо користувачу задачу з додавання двох чисел. Визначити скільки секунд було використано для розв’язання задачі.</div>
+      </div>
+   </div>
+   <div class="answer">
+      <div class="answer__container">
+         <button class="answer__button task btn">Показати задачу</button>
+         <div class="answer__task"></div>
+         <input type="text" class="answer__input inp" placeholder="години прокату">
+         <button class="answer__button answer btn">Відповідь</button>
+         
+      </div>
+   </div>
+   <script>
+      function getAnswer(sum){
+         const correctAnswer = sum
+         const userAnswer = parseInt(document.querySelector('.answer__input').value)
+         if (correctAnswer === userAnswer)
+         return 'відповіть правильна'
+         else 
+         return 'помилка'
+      }
+      function getTimeAnswer(start, finish) {
+         return ((finish - start)/1000) + 'сек'
+      }
+
+      function buildElP(text, el) {
+         const p = document.createElement('p')
+         p.innerText = text
+         el.append(p)
+      }
+      function getRandomNum (minNum, maxNum){
+         return minNum + Math.floor(Math.random() * (maxNum - minNum +1))
+      }
+      const btnTask = document.querySelector('.answer__button.task')
+      const divTask = document.querySelector('.answer__task')
+      let start
+      let num1, num2
+      btnTask.onclick = () => { 
+         num1 = getRandomNum(1,100)
+         num2 = getRandomNum(1,100)
+         buildElP(`${num1} + ${num2} =`, divTask) 
+         start = new Date()
+      }
+      const btnAnswer = document.querySelector('.answer__button.answer')
+      const divContainer = document.querySelector('.answer__container')
+      btnAnswer.onclick = () => { 
+         let sum = num1 + num2
+         buildElP(getAnswer(sum), divContainer) 
+         const finish = new Date()
+         console.log(getTimeAnswer(start, finish));
+      } 
+
+
+   </script>
+</body>
+</html>

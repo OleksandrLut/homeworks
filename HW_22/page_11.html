@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="./css/style.css">
+   <title>Ex_11</title>
+</head>
+<body>
+   <div class="header">
+      <div class="header__container">
+         <div class="header__logo">JS <span>2023</span></div>
+         <nav class="header__menu menu-header">
+            <ul class="menu-header__list">
+               <li class="menu-header__item">
+                  <a href="" class="menu-header__link">Головна</a>
+               </li>
+               <li class="menu-header__item">
+                  <a href="index.html" class="menu-header__link">Задачі</a>
+               </li>
+               <li class="menu-header__item">
+                  <a href="" class="menu-header__link">Уроки</a>
+               </li>
+            </ul>
+         </nav>
+      </div>
+   </div>
+   <div class="question">
+      <div class="question__container">
+         <h1 class="question__title">Задача 11</h1>
+         <div class="question__text">Сформувати масив з 1000 елементів від 1 до 800. Порівняти час сортування бульбашкою і  вставкою.</div>
+      </div>
+   </div>
+   <div class="answer">
+      <div class="answer__container">
+         <button class="answer__button btn" id="bubble-btn">BUBBLLE</button>
+         <div class="answer__div" id="bubble-div">
+            <span>time: </span>
+         </div>
+         <button class="answer__button btn" id="insertion-btn">INSERTION</button>
+         <div class="answer__div" id="insertion-div">
+            <span>time: </span>
+         </div>
+      </div>
+   </div>
+   <script>
+      let arr = []
+      for (let i = 0; i < 1000; i++) {
+         arr.push(1 + Math.floor(Math.random() * 800))
+      }
+      // Функція для сортування бульбашкою
+      function bubbleSort(arr) {
+         const n = arr.length;
+         let replace;
+         do {
+            replace = false;
+            for (let i = 0; i < n - 1; i++) {
+               if (arr[i] > arr[i + 1]) {
+               const temp = arr[i];
+               arr[i] = arr[i + 1];
+               arr[i + 1] = temp;
+               replace = true;
+               }
+            }
+         } while (replace);
+      }
+
+      // Функція для сортування вставкою
+      function insertionSort(arr) {
+         const n = arr.length;
+         for (let i = 1; i < n; i++) {
+            const key = arr[i];
+            let j = i - 1;
+            while (j >= 0 && arr[j] > key) {
+               arr[j + 1] = arr[j];
+               j--;
+            }
+            arr[j + 1] = key;
+         }
+      }
+
+      function buildElSpan(containerSelector, text) {
+         const span = document.createElement('span')
+         const baseEl = document.querySelector(containerSelector)
+         span.innerText = text
+         baseEl.append(span)
+      }
+
+      const btnSortBubble = document.getElementById('bubble-btn')
+      btnSortBubble.onclick = () => {
+         let arr1 = arr.slice()
+         console.log(arr1);
+         const startTimeBubble = Date.now()
+         bubbleSort(arr1) 
+         console.log(arr1);
+         const endTimeBubble = Date.now()
+         const timeBubble = (endTimeBubble - startTimeBubble) + 'msec'
+         buildElSpan('#bubble-div', timeBubble)
+      }
+
+      const btnSortInsertion = document.getElementById('insertion-btn')
+      btnSortInsertion.onclick = () => {
+         let arr2 = arr.slice()
+         console.log(arr2);
+         const startTimeInsertion = Date.now()
+         insertionSort(arr2)
+         console.log(arr2);
+         const endTimeInsertion = Date.now()
+         const timeInsertion = (endTimeInsertion - startTimeInsertion) + 'msec'
+         buildElSpan('#insertion-div', timeInsertion)
+      }
+
+   </script>
+</body>
+</html>
