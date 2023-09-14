@@ -56,6 +56,9 @@ body {
 .menu-header__item {
 	transition: color 0.3s ease 0s;
 }
+.menu-header__item:hover {
+	color: var(--gold_color);
+}
 .menu-header__link.active {
 	color: var(--gold_color);
 }

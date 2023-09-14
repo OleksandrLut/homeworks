@@ -180,25 +180,17 @@
 			</div>
 		</div>
 		<script>
-			document.addEventListener('DOMContentLoaded', function () {
-				// Get the current URL path name
+			window.onload = () => {
 				const currentUrl = window.location.pathname;
-
-				// Display the current URL path name in the console
 				console.log(currentUrl);
-
-				// Select all elements with class 'menu-header__link'
 				const menuLinks = document.querySelectorAll('.menu-header__link');
-
-				// Iterate over each menu link element
 				for (let i = 0; i < menuLinks.length; i++) {
 					let link = menuLinks[i];
-					// Порівняйте href посилання з поточним URL
 					if (link.getAttribute('href') === currentUrl) {
 						link.classList.add('active');
 					}
 				}
-			});
+			};
 		</script>
 	</body>
 </html>
