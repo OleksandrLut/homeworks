@@ -1,0 +1,172 @@
+@import url('reset.css');
+/* &display=swap - додавати припідключенні шрифтів */
+@import url(https://fonts.googleapis.com/css?family=Inter:300,500,700,900&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Montserrat+Alternates:300,regular,500,700,900&display=swap);
+
+/* *========================== міксини ================================= */
+:root {
+	--backgroundcolormain: rgb(140, 131, 131);
+	--bgc_for_header: rgb(11, 10, 10);
+	--gold_color: rgb(255, 170, 52);
+	--red_color_for_btn: #d1064d;
+	--colog_for_btn_hover: #a0033a;
+}
+
+/* *------------------------- загальні ------------------------------ */
+body {
+	background-color: var(--backgroundcolormain);
+	font-family: Montserrat Alternates, sans-serif;
+	font-size: 18px;
+}
+[class*='__container'] {
+	max-width: 1440px;
+	margin: 0 auto;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+/* ------------------------- header ------------------------------ */
+.header {
+	background-color: var(--bgc_for_header);
+}
+.header__container {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	display: flex;
+	align-items: center;
+	gap: 15px;
+}
+.header__logo {
+	color: var(--gold_color);
+	flex: 0 0 auto;
+	font-weight: 700;
+	font-family: Inter, sans-serif;
+}
+.header__logo > span {
+	font-size: 12px;
+}
+.header__menu {
+	color: rgb(140, 131, 131);
+	font-weight: 500;
+	flex: 1 1 auto;
+}
+.menu-header__list {
+	display: flex;
+	justify-content: right;
+	gap: 25px;
+}
+.menu-header__item {
+	transition: color 0.3s ease 0s;
+}
+.menu-header__item:hover {
+	color: var(--gold_color);
+}
+.menu-header__link.active {
+	color: var(--gold_color);
+}
+/* ------------------------- page ------------------------------ */
+
+.page__container {
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+.page__title {
+	font-size: 24px;
+	font-weight: 700;
+	margin-bottom: 30px;
+	text-align: right;
+	background-color: var(--gold_color);
+	padding: 25px 20vw;
+}
+.task-list {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+.task-list__item {
+	padding: 20px;
+	border-radius: 5px;
+	border: 1px solid var(--red_color_for_btn);
+	transition: all 0.3s ease 0s;
+}
+.task-list__item:hover {
+	cursor: pointer;
+	box-shadow: 0 0 15px #1f1d1d;
+	background-color: rgb(92, 86, 86);
+	transform: scale(1.015);
+	color: rgb(140, 131, 131);
+}
+.task-list__link {
+	display: flex;
+	align-items: flex-start;
+	gap: 15px;
+}
+.task-list__title {
+	font-weight: 700;
+	flex: 0 0 100px;
+}
+.task-list__text {
+	font-weight: 500;
+	flex: 0 1 auto;
+}
+.answer__container > p {
+	padding: 15px 0;
+	font-size: 24px;
+}
+/* ------------------------- question ------------------------------ */
+.question {
+	background-color: var(--gold_color);
+	color: #fff;
+}
+.question__container,
+.answer__container {
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+.question__title {
+	font-size: 24px;
+	margin-bottom: 30px;
+}
+.question__text {
+	font-size: 20px;
+}
+.question__text-list {
+	display: grid;
+	gap: 10px;
+}
+.question__text-item {
+	display: flex;
+	gap: 10px;
+	align-items: flex-start;
+}
+.question__text-item::before {
+	content: "";
+	background-color: var(--backgroundcolormain);
+	border-radius: 50%;
+	width: 8px;
+	height: 8px;
+	flex: 0 0 8px;
+	align-self: baseline;
+	margin-top: 6px;
+}
+/* ------------------------- button_all ------------------------------ */
+.btn {
+	padding: 5px 20px;
+	border-radius: 5px;
+	background-color: var(--red_color_for_btn);
+	color: #fff;
+	transition: all 0.3s ease 0s;
+}
+.btn:hover {
+	background-color: var(--colog_for_btn_hover);
+	box-shadow: 0 0 10px #000;
+}
+/* ------------------------- input_all ------------------------------ */
+.inp {
+	padding: 5px 10px;
+	border-radius: 5px;
+	background-color: rgba(255, 255, 255, 0.4);
+}
+.inp::placeholder {
+	color: rgba(217, 255, 1, 0.5);
+}
+/* *------------------------- індивідуальні ------------------------------ */
