@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./css/style.css" />
+		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+		<title>Lesson1_1</title>
+	</head>
+	<body>
+		<header class="header">
+			<div class="header__container">
+				<div class="header__logo logo">
+					<img class="logo__img" src="/img/vuejs.png" alt="logo-vue" />
+					<div class="logo__shadow"></div>
+				</div>
+				<a href="index.html" class="header__menu">Головна</a>
+			</div>
+		</header>
+		<div class="page">
+			<div class="page__task task">
+				<div class="task__container">
+					<h1 class="task__title">Задача 1</h1>
+					<div class="task__question">
+						<p>Вводиться кількість пасажирів. Вивести:</p>
+						<ul>
+							<li>скільки потрібно автобусів (кожен автобус на 20 місць)</li>
+							<li>скільки пляшок води (кожному пасажиру 2 пляшки)</li>
+							<li>скільки бутербродів (кожному пасажиру 3 бутерброди)</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="page__answer answer" id="app">
+				<div class="answer__container">
+					<div class="answer__input">
+						<label>
+							Кількість пасажирів
+							<input type="number" placeholder="Кількість пасажирів" class="input" v-model="passengersCount" />
+						</label>
+					</div>
+					<div class="answer__button">
+						<button class="button" @click="toCalculate">Розрахувати</button>
+					</div>
+					<div class="answer__results">
+						<p class="buss-count">Необхідна кількість автобусів: <span> {{ bussCount }} </span></p>
+						<p class="water-bottle-count">
+							Необхідна кількість пляшок води: <span> {{ waterBottleCount }} </span>
+						</p>
+						<p class="sandwich-count">Необхідна кількість бутербродів: <span> {{ sandwichCount }} </span></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			// Задача 1. Вводиться кількість пасажирів. Вивести:
+			//    скільки потрібно автобусів (кожен автобус на 20 місць)
+			//    скільки пляшок води (кожному пасажиру 2 пляшки)
+			//    скільки бутербродів (кожному пасажиру 3 бутерброди)
+
+			const { createApp } = Vue;
+			const app = createApp({
+				data() {
+					return {
+						passengersCount: null,
+						bussCount: null,
+						waterBottleCount: null,
+						sandwichCount: null,
+						passengerСapacity: 20, //    (кожен автобус на 20 місць)
+						waterBottlesPerPassenger: 2, //    (кожному пасажиру 2 пляшки)
+						sandwichPerPassenger: 3, //    (кожному пасажиру 3 бутерброди)
+					};
+				},
+				methods: {
+					getBusCount() {
+						return Math.ceil(this.passengersCount / this.passengerСapacity);
+					},
+					getWaterBottlesCount() {
+						return this.passengersCount * this.waterBottlesPerPassenger;
+					},
+					getSandwichCount() {
+						return this.passengersCount * this.sandwichPerPassenger;
+					},
+					toCalculate() {
+						this.bussCount = this.getBusCount();
+						this.waterBottleCount = this.getWaterBottlesCount();
+						this.sandwichCount = this.getSandwichCount();
+					},
+				},
+			});
+			app.mount('#app');
+		</script>
+	</body>
+</html>

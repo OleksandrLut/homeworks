@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./css/style.css" />
+		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+		<title>Lesson1_3</title>
+	</head>
+	<body>
+		<header class="header">
+			<div class="header__container">
+				<div class="header__logo logo">
+					<img class="logo__img" src="/img/vuejs.png" alt="logo-vue" />
+					<div class="logo__shadow"></div>
+				</div>
+				<a href="index.html" class="header__menu">Головна</a>
+			</div>
+		</header>
+		<div class="page">
+			<div class="page__task task">
+				<div class="task__container">
+					<h1 class="task__title">Задача 3</h1>
+					<div class="task__question">
+						<p>
+							Задано початок та кінець діапазону. При натисканні на кнопку випадковим чином генерувати значення з
+							вказаного діапазону та відображати його.
+						</p>
+					</div>
+				</div>
+			</div>
+			<!-- ?=================  контейнер додатку  =========================== -->
+			<div class="page__answer answer" id="app">
+				<div class="answer__container">
+					<div style="margin-bottom: 20px">
+						Початок діапазону: <span>{{ range.start }}</span> <br />
+						Кінець діапазону: <span>{{ range.end }}</span>
+					</div>
+					<button type="button" class="button ex3" @click="getRandomValue">Тиць</button>
+					<span>{{ randomValue }}</span>
+				</div>
+			</div>
+		</div>
+
+		<!-- ?=================  js код додатку  =========================== -->
+		<script>
+			const { createApp } = Vue;
+			const app = createApp({
+				data() {
+					return {
+						range: {
+							start: 1,
+							end: 100,
+						},
+						randomValue: null,
+					};
+				},
+				methods: {
+					getRandomValue() {
+						const minNum = Math.min(this.range.start, this.range.end);
+						const maxNum = Math.max(this.range.start, this.range.end);
+						this.randomValue = minNum + Math.floor(Math.random() * (maxNum - minNum + 1));
+					},
+				},
+			});
+			app.mount('#app');
+		</script>
+	</body>
+</html>
