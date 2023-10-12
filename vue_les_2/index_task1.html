@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./css/style.css" />
+		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+		<title>Task_1</title>
+	</head>
+	<body>
+		<header class="header">
+			<div class="header__container">
+				<div class="header__logo logo">
+					<img class="logo__img" src="img/vuejs.png" alt="logo-vue" />
+					<div class="logo__shadow"></div>
+				</div>
+				<a href="index.html" class="header__menu">Головна</a>
+			</div>
+		</header>
+		<div class="page">
+			<div class="page__task task">
+				<div class="task__container">
+					<h1 class="task__title">Задача 1</h1>
+					<div class="task__question">
+						<p>Вводимо логіна і пароль. Якщо логін вірний відображаємо смайл. Якщо ні, то:</p>
+						<ul>
+							<li>якщо логін = Іван – колір повідомлення про помилку синій</li>
+							<li>якщо хтось інший, то колір повідомлення червоний</li>
+						</ul>
+						<img src="img/tasks-img/task_1.png" alt="image" />
+					</div>
+				</div>
+			</div>
+
+			<!-- ?=================  контейнер додатку  =========================== -->
+			<style>
+				.form {
+					max-width: 350px;
+				}
+				.form__item {
+					display: flex;
+					gap: 10px;
+					align-items: center;
+					justify-content: space-between;
+				}
+				.form:not(:last-child) {
+					margin-bottom: 20px;
+				}
+				.form__item:not(:last-child) {
+					margin-bottom: 20px;
+				}
+				.error-lat-letter {
+					color: blue;
+				}
+				.error-wrong-user {
+					color: red;
+				}
+			</style>
+			<div class="application" id="app">
+				<div class="application__container">
+					<div class="application__form form">
+						<div class="form__item">
+							<label for="login">Login:</label>
+							<input
+								id="login"
+								type="text"
+								placeholder="login"
+								class="form__input input"
+								v-model="enterdUser.login"
+							/>
+						</div>
+						<div class="form__item">
+							<label for="password">Password:</label>
+							<input
+								id="password"
+								type="password"
+								placeholder="password"
+								class="form__input input"
+								v-model="enterdUser.password"
+							/>
+						</div>
+						<button @click="submitForm" class="form__button button">GO!</button>
+					</div>
+					<p v-if="formSubmit===false" :class="errorInfoClass">{{ formErrorMasage }}</p>
+					<img v-if="formSubmit===true" src="/img/smile.png" alt="" />
+				</div>
+			</div>
+		</div>
+
+		<!-- ?=================  js код додатку  =========================== -->
+		<script>
+			const { createApp } = Vue;
+			const user = { login: 'Ivan', password: '111' };
+			const errorMasage = [
+				'невірний логін або пароль',
+				'невірний логін або пароль (використовуйте тільки латинські літери)',
+			];
+			const app = createApp({
+				data() {
+					return {
+						enterdUser: {
+							login: null,
+							password: null,
+						},
+						formSubmit: null,
+						errorInfoClass: null,
+						formErrorMasage: null,
+					};
+				},
+				methods: {
+					submitForm() {
+						if (this.enterdUser.login === user.login && this.enterdUser.password === user.password) {
+							this.formSubmit = true;
+						} else if (this.enterdUser.login === 'Іван') {
+							this.formSubmit = false;
+							this.formErrorMasage = errorMasage[1];
+							this.errorInfoClass = 'error-lat-letter';
+						} else {
+							this.formSubmit = false;
+							this.errorInfoClass = 'error-wrong-user';
+							this.formErrorMasage = errorMasage[0];
+						}
+						return this.formSubmit;
+					},
+				},
+			});
+			app.mount('#app');
+		</script>
+	</body>
+</html>

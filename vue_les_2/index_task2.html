@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./css/style.css" />
+		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+		<title>Task_2</title>
+	</head>
+	<body>
+		<header class="header">
+			<div class="header__container">
+				<div class="header__logo logo">
+					<img class="logo__img" src="img/vuejs.png" alt="logo-vue" />
+					<div class="logo__shadow"></div>
+				</div>
+				<a href="index.html" class="header__menu">Головна</a>
+			</div>
+		</header>
+		<div class="page">
+			<div class="page__task task">
+				<div class="task__container">
+					<h1 class="task__title">Задача 2</h1>
+					<div class="task__question">
+						<p>З випадаючого списку вибираємо клас квитка у літаку. Якщо:</p>
+						<ul>
+							<li>
+								бізнес - виводимо елементи для вибору газети та коньяку (якщо вибрано коньяк, то запропонувати
+								закуску (так/ні)), на фоні зображення бізнес кают
+							</li>
+							<li>економ – виводимо елементи для вибору типу пива і чипсів, на фоні хмарки.</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<!-- ?=================================================== | Стилі | =================================================== -->
+
+			<style>
+				.type-ticket-list {
+					max-width: 500px;
+					display: flex;
+					flex-direction: column;
+					gap: 20px;
+				}
+				select {
+					font-size: 20px;
+					width: 200px;
+				}
+				.ticket-option {
+					display: grid;
+					gap: 15px;
+				}
+				.ticket-optio__bonus,
+				#econom {
+					width: 500px;
+					position: relative;
+					border-radius: 6px;
+					overflow: hidden;
+					box-shadow: 0 0 6px 0px #000;
+				}
+				.bonus__text {
+					position: absolute;
+					top: 50px;
+					left: 50%;
+					transform: translateX(-50%);
+					background-color: rgba(255, 255, 255, 0.6);
+					padding: 10px;
+					border-radius: 4px;
+				}
+				.bonus__buttons {
+					position: absolute;
+					top: 100px;
+					left: 50%;
+					transform: translateX(-50%);
+					display: flex;
+					align-items: center;
+					gap: 30px;
+				}
+				.bonus__btn {
+					background-color: rgba(0, 0, 0, 0.6);
+					padding: 10px 30px;
+					border-radius: 4px;
+					width: 100px;
+					text-align: center;
+					color: #fff;
+					transition: all 0.3s ease 0s;
+				}
+				.bonus__btn:hover {
+					background-color: rgba(0, 0, 0, 0.99);
+				}
+				.bonus__img {
+					width: 100%;
+				}
+				.ticket-option__block {
+					position: absolute;
+					top: 50px;
+					left: 50%;
+					transform: translateX(-50%);
+					width: 400px;
+					background-color: rgba(255, 255, 255, 0.6);
+					border-radius: 4px;
+					display: grid;
+					gap: 15px;
+					padding: 10px;
+				}
+			</style>
+
+			<!-- ?=================================================== | Контейнер Додатку | =================================================== -->
+
+			<div id="app" class="application">
+				<div class="application__container">
+					<div class="type-ticket-list">
+						<h2>Оберіть клас квитка</h2>
+						<select name="ticket-type" id="sel-ticket" v-model="userTicketType">
+							<option value="0" selected>не обрано</option>
+							<option value="1">бізнес</option>
+							<option value="2">економ</option>
+						</select>
+						<div v-if="userTicketType === '1'" class="ticket-option" id="buisnes">
+							<h3 class="ticket-option__title">Оберіть бонус</h3>
+							<label for="op-biss-1">
+								<input type="checkbox" id="op-biss-1" />
+								Газета
+							</label>
+							<label for="op-biss-2">
+								<input type="checkbox" id="op-biss-2" @click="toggleSnack" />
+								Коньяк
+							</label>
+						</div>
+						<div v-if="userTicketType === '2'" class="ticket-option" id="econom">
+							<div class="ticket-option__block">
+								<h3 class="ticket-option__title">Оберіть бонус</h3>
+								<label for="op-eco-1">
+									<input type="radio" id="op-eco-1" name="beer" checked />
+									Пиво світле
+								</label>
+								<label for="op-eco-2">
+									<input type="radio" id="op-eco-2" name="beer" />
+									Пиво темне
+								</label>
+								<label for="op-eco-3">
+									<input type="radio" id="op-eco-3" name="chips" checked />
+									Чипси з сиром
+								</label>
+								<label for="op-eco-4">
+									<input type="radio" id="op-eco-4" name="chips" />
+									Чипси з беконом
+								</label>
+							</div>
+							<img class="bonus__img" src="img/tasks-img/task_2/img02.jpg" alt="img" />
+						</div>
+						<div v-if="userTicketType === '1' && selectedDrink === 'Коньяк'" class="ticket-optio__bonus bonus">
+							<p class="bonus__text">Чи бажаєте закуску?</p>
+							<div class="bonus__buttons">
+								<button class="bonus__btn">Так</button>
+								<button class="bonus__btn">Ні</button>
+							</div>
+							<img class="bonus__img" src="img/tasks-img/task_2/img01.jpg" alt="img" />
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- ?=================================================== | JS Код Додатку | =================================================== -->
+
+			<script>
+				const app = Vue.createApp({
+					data() {
+						return {
+							userTicketType: null,
+							selectedDrink: null,
+						};
+					},
+					methods: {
+						toggleSnack: function () {
+							this.selectedDrink = this.selectedDrink === 'Коньяк' ? null : 'Коньяк';
+						},
+					},
+				});
+				app.mount('#app');
+			</script>
+		</div>
+	</body>
+</html>

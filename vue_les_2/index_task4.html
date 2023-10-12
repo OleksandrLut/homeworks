@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./css/style.css" />
+		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+		<title>Task_4</title>
+	</head>
+	<body>
+		<header class="header">
+			<div class="header__container">
+				<div class="header__logo logo">
+					<img class="logo__img" src="img/vuejs.png" alt="logo-vue" />
+					<div class="logo__shadow"></div>
+				</div>
+				<a href="index.html" class="header__menu">Головна</a>
+			</div>
+		</header>
+		<div class="page">
+			<div class="page__task task">
+				<div class="task__container">
+					<h1 class="task__title">Задача 4</h1>
+					<div class="task__question">
+						<p>Вивести список як маркований список з елементами у форматі (name: salary</p>
+						<img src="img/tasks-img/task_4.png" alt="image" />
+					</div>
+				</div>
+			</div>
+
+			<!-- ?========================================================= | Стилі | ========================================================= -->
+
+			<style>
+				.list {
+					padding: 30px 0 0 0;
+				}
+				.list__item::before {
+					display: none;
+				}
+			</style>
+
+			<!-- ?=================================================== | Контейнер Додатку | =================================================== -->
+
+			<div id="app" class="application">
+				<div class="application__container">
+					<div class="list">
+						<h2 class="list__title">Список працівників:</h2>
+						<ul class="list__items">
+							<li class="list__item" v-for="(worker, index) in workersList" :key="worker.id">
+								{{index+1}}) {{ worker.name }}: {{ worker.salery }}
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- ?====================================================== | JS Код Додатку | ====================================================== -->
+
+		<script>
+			const { createApp } = Vue;
+			const app = createApp({
+				data() {
+					return {
+						workersList: [
+							{ id: '1', name: 'Іван', salery: 10000 },
+							{ id: '2', name: 'Петро', salery: 20000 },
+							{ id: '3', name: 'Роман', salery: 50000 },
+						],
+					};
+				},
+				methods: {},
+			});
+			app.mount('#app');
+		</script>
+	</body>
+</html>

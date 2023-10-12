@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./css/style.css" />
+		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+		<title>Task_5</title>
+	</head>
+	<body>
+		<header class="header">
+			<div class="header__container">
+				<div class="header__logo logo">
+					<img class="logo__img" src="img/vuejs.png" alt="logo-vue" />
+					<div class="logo__shadow"></div>
+				</div>
+				<a href="index.html" class="header__menu">Головна</a>
+			</div>
+		</header>
+		<div class="page">
+			<div class="page__task task">
+				<div class="task__container">
+					<h1 class="task__title">Задача 5</h1>
+					<div class="task__question">
+						<p>
+							Самостійно сформуйте масив даних та виведіть фрагмент на зразок поданого (дані не обов’язково
+							повинні співпадати)
+						</p>
+						<img src="img/tasks-img/task_5.png" alt="image" />
+					</div>
+				</div>
+			</div>
+
+			<!-- ?========================================================= | Стилі | ========================================================= -->
+
+			<style>
+				.list {
+					background-color: rgba(0, 0, 0, 0.7);
+					padding: 20px;
+				}
+				.list__items {
+					display: grid;
+					gap: 30px;
+				}
+				.list__item {
+					display: grid;
+					gap: 10px;
+				}
+				.list__item::before {
+					display: none;
+				}
+				.item-list__header {
+					display: flex;
+					align-items: center;
+					gap: 10px;
+				}
+				.item-list__head-block {
+					display: grid;
+					gap: 5px;
+				}
+				.item-list__web-title {
+					color: #fff;
+				}
+				.item-list__link {
+					display: grid;
+					gap: 10px;
+				}
+				.item-list__addres {
+					color: gray;
+					font-size: 14px;
+				}
+				.item-list__title {
+					color: rgb(64, 105, 225);
+					font-size: 22px;
+				}
+				.item-list__link:hover {
+					.item-list__title {
+						text-decoration: underline;
+					}
+				}
+				.item-list__description {
+					color: rgb(163, 163, 163);
+					font-size: 18px;
+				}
+				.title__pic {
+					background-color: #fff;
+					border-radius: 50%;
+					width: 40px;
+					height: 40px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+				}
+				.title-img {
+					width: 70%;
+				}
+			</style>
+
+			<!-- ?=================================================== | Контейнер Додатку | =================================================== -->
+
+			<div id="app" class="application">
+				<div class="application__container">
+					<div class="list">
+						<ul class="list__items">
+							<li class="list__item item-list" v-for="item in linksList" :key="item.id">
+								<a :href="item.link" class="item-list__link" target="_blank">
+									<div class="item-list__header">
+										<div class="title__pic"><img :src="item.imgSrc" alt="image" class="title-img" /></div>
+										<div class="item-list__head-block">
+											<h2 class="item-list__web-title">{{ item.name }}</h2>
+											<p class="item-list__addres">{{ item.link }}</p>
+										</div>
+									</div>
+									<h3 class="item-list__title">{{ item.title }}</h3>
+								</a>
+								<p class="item-list__description">{{ item.description }}</p>
+							</li>
+						</ul>
+						<p></p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- ?====================================================== | JS Код Додатку | ====================================================== -->
+
+		<script>
+			const { createApp } = Vue;
+			const app = createApp({
+				data() {
+					return {
+						linksList: [
+							{
+								id: 1,
+								name: 'Vue.js',
+								imgSrc: 'img/vuejs.png',
+								link: 'https://vuejs.org',
+								title: 'Vue.js - The Progressive JavaScript Framework | Vue.js',
+								description:
+									'Approachable. Builds on top of standard HTML, CSS and JavaScript with intuitive API and world-class documentation. · Performant. Truly reactive, compiler- ...',
+							},
+							{
+								id: 2,
+								name: 'CSS.in.ua',
+								imgSrc: 'img/css_logo.svg',
+								link: 'https://css.in.ua',
+								title: 'Що таке CSS',
+								description:
+									'CSS (абревіатура від Cascading Style Sheets, що в перекладі означає каскадні таблиці стилів) - це спеціальна мова (мова стилів), за допомогою ...',
+							},
+							{
+								id: 3,
+								name: 'Vue.js',
+								imgSrc: 'img/vuejs.png',
+								link: 'https://vuejs.org',
+								title: 'Lorem ipsum Vue',
+								description:
+									'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ratione aperiam mollitia illo incidunt alias natus ad ipsa inventore minus? ...',
+							},
+							{
+								id: 4,
+								name: 'CSS.in.ua',
+								imgSrc: 'img/css_logo.svg',
+								link: 'https://css.in.ua',
+								title: 'Fugit ratione CSS',
+								description:
+									'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ratione aperiam mollitia illo incidunt alias natus ad ipsa inventore minus? ...',
+							},
+						],
+					};
+				},
+				methods: {},
+			});
+			app.mount('#app');
+		</script>
+	</body>
+</html>

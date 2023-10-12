@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./css/style.css" />
+		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+		<title>Task_6</title>
+	</head>
+	<body>
+		<header class="header">
+			<div class="header__container">
+				<div class="header__logo logo">
+					<img class="logo__img" src="img/vuejs.png" alt="logo-vue" />
+					<div class="logo__shadow"></div>
+				</div>
+				<a href="index.html" class="header__menu">Головна</a>
+			</div>
+		</header>
+		<div class="page">
+			<div class="page__task task">
+				<div class="task__container">
+					<h1 class="task__title">Задача 6</h1>
+					<div class="task__question">
+						<p>
+							Задача. На кухню поступають замовлення. Спочатку ми додаємо їх у список “Очікують на виконання”,
+							якщо повар береться робити — замовлення переходить у список “Виконуються”, якщо замовлення виконано
+							— переходить у список “Готові до виносу”. Якщо натиснути на “Подано” - страва зникає з таблиці
+						</p>
+						<img src="img/tasks-img/task_6.png" alt="image" />
+						<p>Підказка: тут треба зберігати 3 масиви страв ( waitingList, processingList, completedList )</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- ?========================================================= | Стилі | ========================================================= -->
+
+			<style>
+				.item-stages__unit::before {
+					display: none;
+				}
+				/* --------------------------------- */
+				.kitchen {
+					padding: 15px;
+					max-width: 1200px;
+					background-color: burlywood;
+					border-radius: 5px;
+				}
+				.kitchen__order {
+					display: flex;
+					align-items: center;
+					gap: 15px;
+					margin-bottom: 15px;
+					flex-wrap: wrap;
+				}
+				.order__title {
+					flex: 0 0 auto;
+				}
+				.input {
+					flex: 0 0 auto;
+				}
+				.button {
+					flex: 0 0 auto;
+				}
+				.kitchen__stages {
+					display: grid;
+					grid-template-columns: repeat(auto-fill, 350px);
+					justify-content: center;
+					gap: 40px;
+					border-radius: 5px;
+					box-shadow: 0 0 10px 0 black;
+					padding: 20px;
+					min-height: 300px;
+				}
+				.stages__item {
+					background-color: var(--gold_color);
+					padding: 10px;
+					border-radius: 5px;
+					box-shadow: 0 0 10px 0 black;
+				}
+				.item-stages__title {
+					text-align: center;
+					font-weight: 500;
+				}
+				.item-stages__unit {
+					display: flex;
+					align-items: center;
+					gap: 10px;
+					justify-content: space-between;
+					padding: 5px;
+					box-shadow: 0 0 4px 0 black;
+					border-radius: 5px;
+				}
+				.unit__title {
+					color: #fff;
+				}
+			</style>
+
+			<!-- ?=================================================== | Контейнер Додатку | =================================================== -->
+
+			<div id="app" class="application">
+				<div class="application__container">
+					<div class="kitchen">
+						<div class="kitchen__order order">
+							<h2 class="order__title">Нова замовлена страва:</h2>
+							<input type="text" class="input" v-model="newDish" />
+							<button class="button" @click="addToWaitingList">Додати</button>
+						</div>
+						<div class="kitchen__stages stages">
+							<div class="stages__item item-stages">
+								<h2 class="item-stages__title">Очікують на виконання</h2>
+								<ul class="item-stages__list">
+									<li class="item-stages__unit unit" v-for="(item, index) in waitingList" :key="index">
+										<div class="unit__title">{{item}}</div>
+										<button class="unit__button button" @click="addToProcessingList(index)">Готувати</button>
+									</li>
+								</ul>
+							</div>
+
+							<div class="stages__item item-stages">
+								<h2 class="item-stages__title">Виконуються</h2>
+								<ul class="item-stages__list">
+									<li class="item-stages__unit unit" v-for="(item, index) in processingList" :key="index">
+										<div class="unit__title">{{item}}</div>
+										<button class="unit__button button" @click="addToCompletedList(index)">
+											Приготовлено
+										</button>
+									</li>
+								</ul>
+							</div>
+
+							<div class="stages__item item-stages">
+								<h2 class="item-stages__title">Готові до виносу</h2>
+								<ul class="item-stages__list">
+									<li class="item-stages__unit unit" v-for="(item, index) in completedList" :key="index">
+										<div class="unit__title">{{item}}</div>
+										<button class="unit__button button" @click="done(index)">Подано</button>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- ?====================================================== | JS Код Додатку | ====================================================== -->
+		<script>
+			const { createApp } = Vue;
+			const stagesList = [
+				{ stage: 1, color: 'red' },
+				{ stage: 2, color: 'blue' },
+				{ stage: 3, color: 'green' },
+			];
+			const app = createApp({
+				data() {
+					return {
+						waitingList: [],
+						processingList: [],
+						completedList: [],
+						newDish: null,
+					};
+				},
+				methods: {
+					addToWaitingList() {
+						if (this.newDish) {
+							this.waitingList.push(this.newDish);
+						}
+						this.newDish = null;
+					},
+					addToProcessingList(index) {
+						let item = this.waitingList.splice(index, 1);
+						this.processingList.push(item[0]);
+					},
+					addToCompletedList(index) {
+						let item = this.processingList.splice(index, 1);
+						this.completedList.push(item[0]);
+					},
+					done(index) {
+						this.completedList.splice(index, 1);
+					},
+				},
+				computed: {},
+			});
+			app.mount('#app');
+		</script>
+	</body>
+</html>
