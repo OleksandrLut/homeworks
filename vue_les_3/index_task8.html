@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./css/style.css" />
+		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+		<title>Task_8</title>
+	</head>
+	<body>
+		<header class="header">
+			<div class="header__container">
+				<div class="header__logo logo">
+					<img class="logo__img" src="img/vuejs.png" alt="logo-vue" />
+					<div class="logo__shadow"></div>
+				</div>
+				<a href="index.html" class="header__menu">Home</a>
+			</div>
+		</header>
+		<div class="page">
+			<div class="page__task task">
+				<div class="task__container">
+					<h1 class="task__title">Task 8</h1>
+					<div class="task__question question">
+						<p>
+							Дано список автомобілів (марка, рік випуску, ціна). Сформувати елементи для фільтрування з
+							використанням випадаючого списку (контент цих випадаючих списків сформувати у залежності від
+							переданого списку).
+						</p>
+						<img src="img/tasks-img/task-8_img.png" alt="image" style="width: 300px" />
+					</div>
+				</div>
+			</div>
+
+			<!-- ?========================================================= | Styles | ========================================================= -->
+
+			<style>
+				.search-filter {
+					box-shadow: 0 0 5px #fff;
+					display: inline-block;
+					padding: 15px;
+					border-radius: 8px;
+				}
+				.filter {
+					margin-bottom: 40px;
+				}
+				.filter__title,
+				.list__title {
+					line-height: 1.3;
+					margin-bottom: 10px;
+				}
+				.filter__body,
+				.list__body {
+					border: 1px solid #fff;
+					padding: 15px;
+					display: flex;
+					align-items: center;
+					gap: 30px;
+				}
+				.filter__item {
+					display: flex;
+					align-items: center;
+					gap: 10px;
+				}
+
+				.item__select {
+					border: 1px solid #fff;
+					min-width: 200px;
+					background-color: transparent;
+					padding: 5px 10px;
+					border-radius: 6px;
+				}
+				.list__body {
+					min-height: 200px;
+					display: flex;
+					flex-direction: column;
+					row-gap: 10px;
+					align-items: flex-start;
+				}
+				.list__item {
+				}
+			</style>
+
+			<!-- ?================================================== | Application Container| ================================================== -->
+
+			<div class="application" id="app">
+				<div class="application__container">
+					<!-- =========================== -->
+					<div class="search-filter">
+						<!-- ============= filter ============== -->
+						<div class="filter">
+							<h2 class="filter__title">Фільтр пошуку</h2>
+							<div class="filter__body">
+								<!-- =========================== -->
+								<div class="filter__item item">
+									<h3 class="item__title">Марка</h3>
+									<select name="brand" class="item__select" v-model="selectedBrand">
+										<option value="">Виберіть марку</option>
+										<option :value="brand" v-for="(brand, index) in brandsList" :key="index">
+											{{brand}}
+										</option>
+									</select>
+								</div>
+								<!-- =========================== -->
+								<div class="filter__item item">
+									<div class="item__title">Рік випуску</div>
+									<select name="year" id="" class="item__select" v-model="selectedYear">
+										<option value="">Виберіть рік</option>
+										<option :value="year" v-for="(year, index) in yearsList" :key="index">{{year}}</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<!-- ============= list ============== -->
+						<div class="list">
+							<h2 class="list__title">Список</h2>
+							<ul class="list__body">
+								<li class="list__item" v-for="car in filteredCars" :key="car.id">
+									{{car.brand}} - {{car.year}}р - {{car.price}}$
+								</li>
+							</ul>
+						</div>
+						<!-- =========================== -->
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- ?==================================================== | JS Application Code | ==================================================== -->
+
+		<script>
+			const { createApp } = Vue;
+			// ---------------------------       constants        ---------------------------
+			// ---------------------------  application template  ---------------------------
+			const app = createApp({
+				data() {
+					return {
+						carsList: [
+							{ id: 1, brand: 'Ford', year: 2016, price: 16500 },
+							{ id: 2, brand: 'Audi', year: 2012, price: 12000 },
+							{ id: 3, brand: 'Honda', year: 2015, price: 13000 },
+							{ id: 4, brand: 'Nissan', year: 2009, price: 9500 },
+							{ id: 5, brand: 'Toyota', year: 2011, price: 18300 },
+							{ id: 6, brand: 'Audi', year: 2012, price: 11000 },
+							{ id: 7, brand: 'Ford', year: 2015, price: 14000 },
+							{ id: 8, brand: 'Volvo', year: 2014, price: 13500 },
+							{ id: 9, brand: 'Nissan', year: 2013, price: 21500 },
+							{ id: 10, brand: 'Toyota', year: 2018, price: 25000 },
+						],
+						selectedBrand: '',
+						selectedYear: '',
+					};
+				},
+				computed: {
+					brandsList() {
+						let brandList = this.carsList.map(car => car.brand);
+						let uniqueBrands = [...new Set(brandList)].sort((a, b) => (a > b ? 1 : -1));
+						return uniqueBrands;
+					},
+					yearsList() {
+						let yearList = this.carsList.map(car => car.year);
+						let uniqueYears = [...new Set(yearList)].sort((a, b) => a - b);
+						// uniqueYears.sort((a, b) => a - b);
+						return uniqueYears;
+					},
+					filteredCars() {
+						let filteredList = this.carsList;
+						if (this.selectedBrand) {
+							filteredList = filteredList.filter(car => car.brand === this.selectedBrand);
+						}
+						if (this.selectedYear) {
+							filteredList = filteredList.filter(car => car.year === parseInt(this.selectedYear));
+						}
+						return filteredList;
+					},
+				},
+			});
+			app.mount('#app');
+		</script>
+	</body>
+</html>

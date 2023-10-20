@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./css/style.css" />
+		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+		<title>Task_4</title>
+	</head>
+	<body>
+		<header class="header">
+			<div class="header__container">
+				<div class="header__logo logo">
+					<img class="logo__img" src="img/vuejs.png" alt="logo-vue" />
+					<div class="logo__shadow"></div>
+				</div>
+				<a href="index.html" class="header__menu">Home</a>
+			</div>
+		</header>
+		<div class="page">
+			<div class="page__task task">
+				<div class="task__container">
+					<h1 class="task__title">Task 4</h1>
+					<div class="task__question">
+						<p>
+							Однорядковий сапер. Однорядкова таблиця, до клітинок якої додано інформацію про наявність міни
+							(використати атрибути). Спочатку клітинки сірі. При натисненні на клітинку аналізується чи є там
+							міна і тоді колір стає червоним, якщо немає – зеленим. Додати можливість відкриття усіх сусідніх
+							незамінованих клітинок при відкритті незамінованої клітинки.
+						</p>
+						<ul
+							style="
+								display: flex;
+								align-items: center;
+								gap: 10px;
+								padding: 10px;
+								background-color: #fff;
+								width: 210px;
+							"
+						>
+							<li style="width: 30px; height: 30px; border: 2px solid black; background-color: yellow"></li>
+							<li style="width: 30px; height: 30px; border: 2px solid black; background-color: lightgray"></li>
+							<li style="width: 30px; height: 30px; border: 2px solid black; background-color: lightgray"></li>
+							<li style="width: 30px; height: 30px; border: 2px solid black; background-color: yellow"></li>
+							<li style="width: 30px; height: 30px; border: 2px solid black; background-color: red"></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<!-- ?========================================================= | Styles | ========================================================= -->
+
+			<style>
+				.application__field {
+					display: flex;
+					align-items: center;
+					gap: 10px;
+				}
+				.field__item {
+					width: 30px;
+					height: 30px;
+					border: 2px solid rgb(32, 19, 19);
+				}
+				.closed {
+					background-color: rgb(63, 52, 52);
+				}
+				.mine {
+					background-color: red;
+				}
+				.clean {
+					background-color: green;
+				}
+			</style>
+
+			<!-- ?=================================================== | Application Container | =================================================== -->
+
+			<div class="application" id="app">
+				<div class="application__container">
+					<div class="application__field field">
+						<div
+							class="field__item"
+							:class="{'closed': item.isClosed, 'mine': !item.isClosed&&item.isMine, 'clean': !item.isClosed&&!item.isMine}"
+							v-for="(item, index) in gameField"
+							:key="index"
+							@click="onClick(index)"
+						></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- ?====================================================== | JS Application Code | ====================================================== -->
+
+		<script>
+			const { createApp } = Vue;
+			// ---------------------------       constants        ---------------------------
+
+			// ---------------------------  application template  ---------------------------
+			const app = createApp({
+				data() {
+					return {
+						gameField: [
+							{ isMine: true, isClosed: true },
+							{ isMine: false, isClosed: true },
+							{ isMine: false, isClosed: true },
+							{ isMine: false, isClosed: true },
+							{ isMine: false, isClosed: true },
+							{ isMine: true, isClosed: true },
+							{ isMine: true, isClosed: true },
+							{ isMine: false, isClosed: true },
+							{ isMine: false, isClosed: true },
+							{ isMine: false, isClosed: true },
+						],
+					};
+				},
+
+				methods: {
+					onClick(index) {
+						this.gameField[index].isClosed = false;
+						if (!this.gameField[index].isMine) {
+							for (let i = index + 1; i < this.gameField.length; i++) {
+								if (!this.gameField[i].isMine) this.gameField[i].isClosed = false;
+								else break;
+							}
+							for (let i = index - 1; i >= 0; i--) {
+								if (!this.gameField[i].isMine) this.gameField[i].isClosed = false;
+								else break;
+							}
+						}
+					},
+				},
+			});
+			app.mount('#app');
+		</script>
+	</body>
+</html>

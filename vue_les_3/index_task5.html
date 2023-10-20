@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./css/style.css" />
+		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+		<title>Task_5</title>
+	</head>
+	<body>
+		<header class="header">
+			<div class="header__container">
+				<div class="header__logo logo">
+					<img class="logo__img" src="img/vuejs.png" alt="logo-vue" />
+					<div class="logo__shadow"></div>
+				</div>
+				<a href="index.html" class="header__menu">Home</a>
+			</div>
+		</header>
+		<div class="page">
+			<div class="page__task task">
+				<div class="task__container">
+					<h1 class="task__title">Task 5</h1>
+					<div class="task__question">
+						<p>
+							Дано список спортсменів. Потрібно сформувати список тих, які будуть брати участь у змаганні. При
+							цьому є два стовпці. В одному відображені всі спортсмени, в іншому – список тих, хто був вибраний.
+							При натисканні на зелену стрілку спортсмен переміщається у список для змагань. При натисканні на
+							червону стрілку спортсмен переміщається у загальний список.
+						</p>
+						<img src="img/tasks-img/task-5_img.png" alt="image" style="width: 300px" />
+					</div>
+				</div>
+			</div>
+
+			<!-- ?========================================================= | Styles | ========================================================= -->
+
+			<style>
+				.application__sportsmen-list {
+					line-height: 1;
+				}
+				.sportsmen-list {
+					width: 800px;
+					border: 1px solid #fff;
+					box-shadow: 0 0 5px #fff;
+					border-radius: 8px;
+					padding: 20px;
+					display: grid;
+					grid-template-columns: repeat(2, 370px);
+					gap: 20px;
+				}
+				.sportsmen-list__main {
+				}
+				.main-list {
+				}
+				.main-list__title {
+				}
+				.title-list {
+					text-align: center;
+					margin-bottom: 20px;
+					font-weight: 700;
+				}
+				.main-list__wrapper {
+				}
+				.wrapper-list {
+					display: flex;
+					flex-direction: column;
+					gap: 10px;
+					border: 1px solid black;
+					padding: 10px;
+					min-height: 500px;
+				}
+				.main-list__item {
+				}
+				.list-item {
+					padding: 5px 10px;
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					border: 1px solid black;
+				}
+				.main-list__item > button {
+					transform: rotate(180deg);
+					color: rgb(11, 98, 11);
+					/* font-size: 30px; */
+				}
+				.main-list__item > button:hover {
+					background-color: rgb(11, 98, 11);
+					color: #fff;
+					box-shadow: 0 0 5px #fff;
+				}
+				.list-item > button {
+					border: 1px solid black;
+					padding: 0 10px;
+					border-radius: 5px;
+					transition: all 0.3s ease 0s;
+				}
+				.sportsmen-list__selected {
+				}
+				.selected-list {
+				}
+				.selected-list__title {
+				}
+				.selected-list__wrapper {
+				}
+				.selected-list__item > button {
+					color: red;
+				}
+				.selected-list__item > button:hover {
+					background-color: red;
+					color: #fff;
+					box-shadow: 0 0 5px #fff;
+				}
+				.list-item > button:active {
+					color: gray;
+					box-shadow: 0 0 5px gray;
+				}
+			</style>
+
+			<!-- ?=================================================== | Application Container | =================================================== -->
+
+			<div class="application" id="app">
+				<div class="application__container">
+					<div class="application__sportsmen-list sportsmen-list">
+						<div class="sportsmen-list__main main-list">
+							<h2 class="main-list__title title-list">Загальний список</h2>
+							<ul class="main-list__wrapper wrapper-list">
+								<li class="main-list__item list-item" v-for="(item, index) in mainSportsmanList" :key="index">
+									<div>{{item}}</div>
+									<button @click="onSelected(index)">&#x2B05;</button>
+								</li>
+							</ul>
+						</div>
+						<div class="sportsmen-list__selected selected-list">
+							<h2 class="selected-list__title title-list">Обрані до змагання</h2>
+							<ul class="selected-list__wrapper wrapper-list">
+								<li
+									class="selected-list__item list-item"
+									v-for="(item, index) in selectedSportsmanList"
+									:key="index"
+								>
+									<div>{{item}}</div>
+									<button @click="onMain(index)">&#x2B05;</button>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- ?====================================================== | JS Application Code | ====================================================== -->
+
+		<script>
+			const { createApp } = Vue;
+			// ---------------------------       constants        ---------------------------
+
+			// ---------------------------  application template  ---------------------------
+			const app = createApp({
+				data() {
+					return {
+						mainSportsmanList: ['John', 'Michael', 'Robert', 'William', 'David', 'Richard', 'Joseph', 'Thomas'],
+						selectedSportsmanList: [],
+					};
+				},
+				methods: {
+					onSelected(index) {
+						this.selectedSportsmanList.push(this.mainSportsmanList[index]);
+						this.mainSportsmanList.splice(index, 1);
+					},
+					onMain(index) {
+						this.mainSportsmanList.push(this.selectedSportsmanList[index]);
+						this.selectedSportsmanList.splice(index, 1);
+					},
+				},
+			});
+			app.mount('#app');
+		</script>
+	</body>
+</html>

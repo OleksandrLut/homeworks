@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./css/style.css" />
+		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+		<title>Task_2</title>
+	</head>
+	<body>
+		<header class="header">
+			<div class="header__container">
+				<div class="header__logo logo">
+					<img class="logo__img" src="img/vuejs.png" alt="logo-vue" />
+					<div class="logo__shadow"></div>
+				</div>
+				<a href="index.html" class="header__menu">Home</a>
+			</div>
+		</header>
+		<div class="page">
+			<div class="page__task task">
+				<div class="task__container">
+					<h1 class="task__title">Task 2</h1>
+					<div class="task__question">
+						<p>З клавіатури вводиться температура. Змінювати колір фону у залежності від значення:</p>
+						<ul class="question-list">
+							<li class="question-list__item">менше нуля – білий</li>
+							<li class="question-list__item">від 0 до 10 – синій,</li>
+							<li class="question-list__item">від 11 до 22 – зелений</li>
+							<li class="question-list__item">вище 22 – червоний</li>
+						</ul>
+						<p>Реалізувати з класами і стилями.</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- ?========================================================= | Styles | ========================================================= -->
+
+			<style>
+				.frost-temp {
+					background-color: #fff;
+				}
+				.cold-temp {
+					background-color: #0000ff;
+				}
+				.normal-temp {
+					background-color: #008000;
+				}
+				.warm-temp {
+					background-color: #dd3918;
+				}
+			</style>
+
+			<!-- ?=================================================== | Application Container | =================================================== -->
+
+			<div class="application" id="app">
+				<div class="application__container">
+					<label>
+						Температура:
+						<input type="number" class="input" :class="currentTemp" v-model="tempValue" />
+					</label>
+				</div>
+			</div>
+		</div>
+
+		<!-- ?====================================================== | JS Application Code | ====================================================== -->
+
+		<script>
+			const { createApp } = Vue;
+			// ---------------------------       constants        ---------------------------
+
+			// ---------------------------  application template  ---------------------------
+			const app = createApp({
+				data() {
+					return {
+						tempValue: null,
+					};
+				},
+				computed: {
+					currentTemp() {
+						let currentClass;
+						if (!this.tempValue) currentClass = null;
+						else {
+							if (this.tempValue < 0) currentClass = 'frost-temp';
+							else if (this.tempValue < 11) currentClass = 'cold-temp';
+							else if (this.tempValue < 22) currentClass = 'normal-temp';
+							else currentClass = 'warm-temp';
+						}
+						return currentClass;
+					},
+				},
+				methods: {
+					name() {},
+				},
+			});
+			app.mount('#app');
+		</script>
+	</body>
+</html>
